@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.witti.FastPos</groupId>
+	<artifactId>FastPos</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<dependencies>
+		<dependency>
+			<groupId>org.jpos</groupId>
+			<artifactId>jpos</artifactId>
+			<version>2.0.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/javax.persistence -->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.55</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.1</version>
+		</dependency>
+	</dependencies>
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<repositories>
+		<repository>
+			<id>oracle</id>
+			<name>Oracle repo</name>
+			<url>http://download.oracle.com/maven</url>
+		</repository>
+	</repositories>
+		<parent>
+		<groupId>com.witti.FastPos</groupId>
+	<artifactId>FastPosAll</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<relativePath>../FastPosAll/pom.xml</relativePath>	
+	</parent>
+</project>

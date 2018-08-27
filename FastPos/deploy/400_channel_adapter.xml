@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<channel-adaptor name='HostConnection-1' 
+    class="org.jpos.q2.iso.ChannelAdaptor" logger="Q2">
+ <channel class="org.jpos.iso.channel.BASE24TCPChannel" logger="Q2" realm="channel-1"
+       packager="org.jpos.iso.packager.GenericPackager" header= "ISO006000099">   
+   <property name="packager-config" value="cfg/packager/base24.xml"/>	   
+  <property name="host" value='10.9.200.74' />
+  <property name="port" value="9015" />
+  <property name="timeout" value="1000000" />
+  <property name="keep-alive" value="true" />  
+</channel>
+ <in>host1-send</in>
+ <out>host-receive</out>
+ <reconnect-delay>10000</reconnect-delay>
+ </channel-adaptor>

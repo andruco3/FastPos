@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <items>
+            <SplitPane dividerPositions="0.5" prefWidth="200.0">
+              <items>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <JFXRadioButton text="Client">
+                           <VBox.margin>
+                              <Insets top="2.0" />
+                           </VBox.margin>
+                        </JFXRadioButton>
+                      <AnchorPane />
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <JFXRadioButton text="Server">
+                           <VBox.margin>
+                              <Insets top="2.0" />
+                           </VBox.margin>
+                        </JFXRadioButton>
+                     </children>
+                  </VBox>
+              </items>
+            </SplitPane>
+            <HBox>
+               <children>
+                  <JFXTabPane>
+                     <tabs>
+                        <Tab text="Message">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" />
+                          </content>
+                        </Tab>
+                        <Tab text="Fields">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" />
+                          </content>
+                        </Tab>
+                     </tabs>
+                  </JFXTabPane>
+                  <JFXToolbar>
+                     <center>
+                        <JFXButton buttonType="RAISED" cancelButton="true" defaultButton="true" ellipsisString="" pickOnBounds="false" prefHeight="56.0" prefWidth="42.0" text=" " textAlignment="CENTER" BorderPane.alignment="CENTER">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="PLAY" glyphStyle="-fx-fill: linear-gradient(#70b4e5 0%, #247cbc 70%, #2c85c1 85%);" size="4em" />
+                           </graphic>
+                           <font>
+                              <Font />
+                           </font>
+                        </JFXButton>
+                     </center>
+                     <left>
+                        <JFXButton text=" " BorderPane.alignment="CENTER">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="PAUSE" glyphStyle="-fx-fill: linear-gradient(#70b4e5 0%, #247cbc 70%, #2c85c1 85%);" size="3em" />
+                           </graphic></JFXButton>
+                     </left>
+                     <right>
+                        <JFXButton text=" " BorderPane.alignment="CENTER">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="STOP" glyphStyle="-fx-fill: linear-gradient(#70b4e5 0%, #247cbc 70%, #2c85c1 85%);" size="3em" />
+                           </graphic></JFXButton>
+                     </right>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <bottom>
+                        <JFXButton text="Add Tx" BorderPane.alignment="CENTER">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="ANGLE_DOUBLE_LEFT" glyphStyle="-fx-fill: linear-gradient(#70b4e5 0%, #247cbc 70%, #2c85c1 85%);" size="3em" text="" />
+                           </graphic>
+                        </JFXButton>
+                     </bottom>
+                  </JFXToolbar>
+                  <Pane />
+               </children>
+            </HBox>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

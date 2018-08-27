@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXClippedPane?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import com.jfoenix.controls.JFXTreeView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1042.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Go POS">
+                  <items>
+                        <MenuItem mnemonicParsing="false" text="Conections" />
+                    <MenuItem mnemonicParsing="false" text="Automation" />
+                        <MenuItem mnemonicParsing="false" text="Simulation" />
+                        <MenuItem mnemonicParsing="false" text="Interpreter" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="FastPOS Help" />
+                        <MenuItem mnemonicParsing="false" text="About FastPOS" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <JFXTabPane BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab text="Home">
+                    <content>
+
+                    </content>
+                     <content>
+                        <HBox alignment="CENTER_LEFT" spacing="150.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <FontAwesomeIcon glyphName="EMPIRE" size="20em" />
+                                    <Label alignment="CENTER" text="FastPOS">
+                                       <font>
+                                          <Font size="40.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Fast, Witty And Go ">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox spacing="100.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER">
+                                       <children>
+                                          <JFXButton text=" ">
+                                             <graphic>
+                                                <FontAwesomeIcon glyphName="SPINNER" size="10em" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <Label text="Automation">
+                                             <font>
+                                                <Font name="System Bold Italic" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Automate your transactional switch and / or your authorizer" textAlignment="CENTER" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER">
+                                       <children>
+                                          <JFXButton text=" ">
+                                             <graphic>
+                                                <FontAwesomeIcon glyphName="LIFE_BOUY" size="10em" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <Label text="Simulation">
+                                             <font>
+                                                <Font name="System Bold Italic" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Automate your transactional switch and / or your authorizer" textAlignment="CENTER" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="50.0" top="50.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox spacing="100.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER">
+                                       <children>
+                                          <JFXButton text=" ">
+                                             <graphic>
+                                                <FontAwesomeIcon glyphName="ITALIC" size="10em" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <Label text="Interpreter">
+                                             <font>
+                                                <Font name="System Bold Italic" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Automate your transactional switch and / or your authorizer" textAlignment="CENTER" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER">
+                                       <children>
+                                          <JFXButton text=" ">
+                                             <graphic>
+                                                <FontAwesomeIcon glyphName="IOXHOST" size="10em" />
+                                             </graphic>
+                                          </JFXButton>
+                                          <Label text="Pos Verification">
+                                             <font>
+                                                <Font name="System Bold Italic" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Automate your transactional switch and / or your authorizer" textAlignment="CENTER" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets right="100.0" top="50.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </HBox>
+                     </content>
+                  </Tab>
+                  <Tab text="Interpreter">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXToolbar AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <HBox spacing="20.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                          <JFXButton ripplerFill="#380606" textOverrun="WORD_ELLIPSIS" />
+                                          <JFXComboBox prefHeight="25.0" prefWidth="276.0" />
+                                          <Separator orientation="VERTICAL" />
+                                          <Separator prefWidth="200.0" />
+                                          <Separator orientation="VERTICAL" />
+                                          <JFXButton layoutX="10.0" layoutY="10.0" ripplerFill="#ef4949" text="Process" />
+                                          <JFXButton layoutX="128.0" layoutY="10.0" text="Copy" />
+                                          <JFXButton layoutX="160.0" layoutY="10.0" text="Edit" />
+                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                       </children>
+                                    </HBox>
+                                 </center>
+                                 <bottom>
+                                    <JFXClippedPane BorderPane.alignment="CENTER" />
+                                 </bottom>
+                                 <children>
+                                    <JFXButton />
+                                 </children>
+                              </JFXToolbar>
+                              <SplitPane dividerPositions="0.29797979797979796" layoutX="1.0" layoutY="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="262.0" prefWidth="286.0">
+                                       <children>
+                                          <WebView layoutX="-26.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <JFXTreeView prefHeight="400.0" prefWidth="340.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Simulation">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+                  <Tab text="Automation">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

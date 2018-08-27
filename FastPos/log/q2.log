@@ -1,0 +1,1403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logger class="org.jpos.util.DailyLogListener">
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:06:23.612 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 00:06:23.612 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:06:33.621 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:06:33.621 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 00:16:41.739 COT 2018" lifespan="5ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:23:13.616 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 00:23:13.617 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:23:23.626 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:23:23.626 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:40:03.622 COT 2018" lifespan="999996ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 00:40:03.623 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:40:13.637 COT 2018" lifespan="8ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:40:13.637 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:56:53.632 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 00:56:53.633 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:57:03.647 COT 2018" lifespan="9ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 00:57:03.647 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 01:13:43.642 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 01:13:43.643 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 01:13:53.653 COT 2018" lifespan="7ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 01:13:53.654 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 01:16:42.793 COT 2018" lifespan="4ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 01:30:33.649 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 01:30:33.649 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 01:30:43.658 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 01:30:43.658 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 01:47:23.662 COT 2018" lifespan="1000004ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 01:47:23.663 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 01:47:33.673 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 01:47:33.673 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:04:13.676 COT 2018" lifespan="1000003ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 02:04:13.677 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:04:23.687 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:04:23.687 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 02:16:43.871 COT 2018" lifespan="3ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:21:03.693 COT 2018" lifespan="1000006ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 02:21:03.694 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:21:13.711 COT 2018" lifespan="13ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:21:13.711 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:37:53.717 COT 2018" lifespan="1000006ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 02:37:53.718 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:38:03.724 COT 2018" lifespan="3ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:38:03.725 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:54:43.729 COT 2018" lifespan="1000004ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 02:54:43.729 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:54:53.743 COT 2018" lifespan="9ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 02:54:53.743 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 03:11:33.746 COT 2018" lifespan="1000003ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 03:11:33.746 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 03:11:43.754 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 03:11:43.754 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 03:16:44.988 COT 2018" lifespan="2ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 03:28:23.757 COT 2018" lifespan="1000003ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 03:28:23.758 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 03:28:33.767 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 03:28:33.767 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 03:45:13.772 COT 2018" lifespan="1000005ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 03:45:13.773 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 03:45:23.783 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 03:45:23.783 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:02:03.787 COT 2018" lifespan="1000004ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 04:02:03.788 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:02:13.796 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:02:13.796 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 04:16:46.108 COT 2018" lifespan="3ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:18:53.800 COT 2018" lifespan="1000004ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 04:18:53.801 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:19:03.809 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:19:03.809 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:35:43.814 COT 2018" lifespan="1000005ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 04:35:43.815 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:35:53.823 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:35:53.824 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:52:33.827 COT 2018" lifespan="1000004ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 04:52:33.827 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:52:43.837 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 04:52:43.837 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:09:23.843 COT 2018" lifespan="1000006ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 05:09:23.843 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:09:33.854 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:09:33.854 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 05:16:47.212 COT 2018" lifespan="3ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:26:13.860 COT 2018" lifespan="1000006ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 05:26:13.860 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:26:23.868 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:26:23.869 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:43:03.850 COT 2018" lifespan="999981ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 05:43:03.851 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:43:13.863 COT 2018" lifespan="9ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:43:13.863 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 05:59:53.846 COT 2018" lifespan="999983ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 05:59:53.846 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:00:03.855 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:00:03.855 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:16:43.843 COT 2018" lifespan="999988ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 06:16:43.843 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 06:16:48.274 COT 2018" lifespan="3ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:16:53.853 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:16:53.853 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:33:33.841 COT 2018" lifespan="999988ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 06:33:33.841 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:33:43.850 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:33:43.850 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:50:23.838 COT 2018" lifespan="999988ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 06:50:23.838 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:50:33.847 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 06:50:33.847 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:07:13.839 COT 2018" lifespan="999992ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 07:07:13.840 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:07:23.849 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:07:23.849 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 07:16:49.364 COT 2018" lifespan="3ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:24:03.844 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 07:24:03.845 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:24:13.855 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:24:13.855 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:40:53.849 COT 2018" lifespan="999994ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 07:40:53.850 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:41:03.857 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:41:03.858 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:57:43.853 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 07:57:43.853 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:57:53.862 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 07:57:53.862 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 08:14:33.857 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 08:14:33.857 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 08:14:43.865 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 08:14:43.865 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 08:16:50.424 COT 2018" lifespan="3ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 08:31:23.861 COT 2018" lifespan="999996ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 08:31:23.861 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 08:31:33.869 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 08:31:33.869 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 08:48:13.864 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 08:48:13.865 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 08:48:23.875 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 08:48:23.876 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:05:03.871 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 09:05:03.871 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:05:13.877 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:05:13.878 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 09:16:51.570 COT 2018" lifespan="3ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:21:53.872 COT 2018" lifespan="999994ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 09:21:53.872 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:22:03.887 COT 2018" lifespan="11ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:22:03.888 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:38:43.883 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 09:38:43.883 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:38:53.890 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:38:53.891 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:55:33.886 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 09:55:33.887 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:55:43.894 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 09:55:43.894 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 10:12:23.889 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 10:12:23.890 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 10:12:33.898 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 10:12:33.898 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 10:16:52.826 COT 2018" lifespan="4ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 10:29:13.892 COT 2018" lifespan="999994ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 10:29:13.893 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 10:29:23.901 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 10:29:23.901 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 10:46:03.896 COT 2018" lifespan="999995ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 10:46:03.897 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 10:46:13.903 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 10:46:13.904 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:02:53.901 COT 2018" lifespan="999997ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 11:02:53.901 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:03:03.909 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:03:03.909 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 11:16:54.106 COT 2018" lifespan="4ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:19:43.910 COT 2018" lifespan="1000001ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 11:19:43.911 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:19:53.917 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:19:53.918 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:36:33.920 COT 2018" lifespan="1000002ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 11:36:33.920 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:36:43.933 COT 2018" lifespan="10ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:36:43.933 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:53:23.935 COT 2018" lifespan="1000002ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 11:53:23.935 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:53:33.942 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 11:53:33.942 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 12:10:13.943 COT 2018" lifespan="1000001ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 12:10:13.943 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 12:10:23.951 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 12:10:23.952 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 12:16:55.394 COT 2018" lifespan="3ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 12:27:03.954 COT 2018" lifespan="1000002ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 12:27:03.954 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 12:27:13.964 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 12:27:13.964 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 12:43:53.966 COT 2018" lifespan="1000002ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 12:43:53.966 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 12:44:03.977 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 12:44:03.977 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:00:43.980 COT 2018" lifespan="1000003ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 13:00:43.981 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:00:53.989 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:00:53.989 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 13:16:56.590 COT 2018" lifespan="4ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:17:33.990 COT 2018" lifespan="1000001ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 13:17:33.990 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:17:43.999 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:17:44.000 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:34:24.001 COT 2018" lifespan="1000001ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 13:34:24.002 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:34:34.010 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:34:34.010 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:51:14.013 COT 2018" lifespan="1000003ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 13:51:14.014 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:51:24.023 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 13:51:24.023 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:08:04.023 COT 2018" lifespan="1000000ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 14:08:04.023 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:08:14.033 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:08:14.033 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="Q2.system" at="Fri Aug 17 14:16:57.884 COT 2018" lifespan="4ms">
+  <version>
+    jPOS 2.0.2 master/3726623 (2015-06-08 22:17:40 UYT) 
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+jPOS Community Edition, licensed under GNU AGPL v3.0.
+This software is probably not suitable for commercial use.
+Please see http://jpos.org/license for details.
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.9 (Darwin)
+
+iQEcBAEBAgAGBQJMolHDAAoJEOQyeO71nYtFv74H/3OgehDGEy1VXp2U3/GcAobg
+HH2eZjPUz53r38ARPiU3pzm9LwDa3WZgJJaa/b9VrJwKvbPwe9+0kY3gScDE1skT
+ladHt+KHHmGQArEutkzHlpZa73RbroFEIa1qmN6MaDEHGoxZqDh0Sv2cpvOaVYGO
+St8ZaddLBPC17bSjAPWo9sWbvL7FgPFOHhnPmbeux8SLtnfWxXWsgo5hLBanKmO1
+1z+I/w/6DL6ZYZU6bAJUk+eyVVImJqw0x3IEElI07Nh9MC6BA4iJ77ejobj8HI2r
+q9ulRPEqH9NR79619lNKVUkE206dVlXo7xHmJS1QZy5v/GT66xBxyDVfTduPFXk=
+=oP+v
+-----END PGP SIGNATURE-----
+
+  </version>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:24:54.060 COT 2018" lifespan="1000027ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 14:24:54.060 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:25:04.067 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:25:04.067 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:41:44.061 COT 2018" lifespan="999994ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 14:41:44.061 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:41:54.068 COT 2018" lifespan="4ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:41:54.069 COT 2018">
+  <get-message-length/>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:58:34.057 COT 2018" lifespan="999988ms">
+  <receive>
+    <io-timeout/>
+  </receive>
+</log>
+<log realm="org.jpos.q2.iso.ChannelAdaptor" at="Fri Aug 17 14:58:34.058 COT 2018">
+  <warn>
+    channel-receiver-host-receive
+    Read timeout
+  </warn>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:58:44.065 COT 2018" lifespan="5ms">
+  <connect>
+    10.9.200.74:9015
+  </connect>
+</log>
+<log realm="channel-1/10.9.200.74:9015" at="Fri Aug 17 14:58:44.065 COT 2018">
+  <get-message-length/>
+</log>

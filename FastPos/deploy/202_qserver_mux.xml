@@ -1,0 +1,13 @@
+<mux class="org.jpos.q2.iso.QMUX" logger="Q2" name="host-mux-1">
+ <in>host-receive</in>
+ <out>host1-send</out>
+ <ready>HostConnection-1.ready</ready> <!-- needs to be adaptor name + .ready-->
+ <unhandled>jpos-client-unhandled</unhandled>
+ 
+ 	<request-listener class="com.witty.cliente.ClientApplicationListener"
+		logger="Q2" realm="jpos-client-unhandled">
+		<property name="space" value="transient:default" />
+        <property name="queue" value="TXNQueue" />
+        <property name="spaceTimeout" value="60000" />
+	</request-listener>
+ </mux>
