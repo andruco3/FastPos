@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXClippedPane?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTabPane?>
-<?import com.jfoenix.controls.JFXToolbar?>
-<?import com.jfoenix.controls.JFXTreeView?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.web.WebView?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1042.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="761.0" prefWidth="1042.0" type="StackPane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witty.controller.FastPos">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
@@ -52,7 +44,7 @@
             </MenuBar>
          </top>
          <center>
-            <JFXTabPane BorderPane.alignment="CENTER">
+            <JFXTabPane fx:id="tabPaneFP" BorderPane.alignment="CENTER">
                <tabs>
                   <Tab text="Home">
                     <content>
@@ -179,64 +171,9 @@
                         </HBox>
                      </content>
                   </Tab>
-                  <Tab text="Interpreter">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <JFXToolbar AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <center>
-                                    <HBox spacing="20.0" BorderPane.alignment="CENTER">
-                                       <children>
-                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
-                                          <JFXButton ripplerFill="#380606" textOverrun="WORD_ELLIPSIS" />
-                                          <JFXComboBox prefHeight="25.0" prefWidth="276.0" />
-                                          <Separator orientation="VERTICAL" />
-                                          <Separator prefWidth="200.0" />
-                                          <Separator orientation="VERTICAL" />
-                                          <JFXButton layoutX="10.0" layoutY="10.0" ripplerFill="#ef4949" text="Process" />
-                                          <JFXButton layoutX="128.0" layoutY="10.0" text="Copy" />
-                                          <JFXButton layoutX="160.0" layoutY="10.0" text="Edit" />
-                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
-                                       </children>
-                                    </HBox>
-                                 </center>
-                                 <bottom>
-                                    <JFXClippedPane BorderPane.alignment="CENTER" />
-                                 </bottom>
-                                 <children>
-                                    <JFXButton />
-                                 </children>
-                              </JFXToolbar>
-                              <SplitPane dividerPositions="0.29797979797979796" layoutX="1.0" layoutY="2.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
-                                <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="262.0" prefWidth="286.0">
-                                       <children>
-                                          <WebView layoutX="-26.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                       </children>
-                                    </AnchorPane>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                       <children>
-                                          <JFXTreeView prefHeight="400.0" prefWidth="340.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                       </children>
-                                    </AnchorPane>
-                                </items>
-                              </SplitPane>
-                           </children></AnchorPane>
-                    </content>
-                  </Tab>
-                  <Tab text="Simulation">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                    </content>
-                  </Tab>
-                  <Tab text="Automation">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                    </content>
-                  </Tab>
                </tabs>
             </JFXTabPane>
          </center>
       </BorderPane>
    </children>
-</StackPane>
+</fx:root>
