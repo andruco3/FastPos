@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witty.controller.Conexiones">
    <children>
       <SplitPane dividerPositions="0.6554712892741061" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -38,14 +30,14 @@
                                        <children>
                                           <HBox prefWidth="557.0" spacing="20.0">
                                              <children>
-                                                <JFXTextField labelFloat="true" prefWidth="247.0" promptText="IP Adress" />
-                                                <JFXTextField labelFloat="true" prefWidth="247.0" promptText="Port" />
+                                                <JFXTextField fx:id="textFieldIP" labelFloat="true" prefWidth="247.0" promptText="IP Address" />
+                                                <JFXTextField fx:id="textFieldPort" labelFloat="true" prefWidth="247.0" promptText="Port" />
                                              </children>
                                           </HBox>
                                           <HBox spacing="20.0">
                                              <children>
-                                                <JFXTextField labelFloat="true" prefWidth="247.0" promptText="Name Conection" />
-                                                <JFXComboBox labelFloat="true" prefWidth="247.0" promptText="Type" />
+                                                <JFXTextField fx:id="textFieldIPName" labelFloat="true" prefWidth="247.0" promptText="Name Conection" />
+                                                <JFXComboBox fx:id="comboBoxType" labelFloat="true" prefWidth="247.0" promptText="Type" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -58,84 +50,14 @@
                                        <children>
                                           <HBox prefWidth="557.0" spacing="20.0">
                                              <children>
-                                                <JFXComboBox labelFloat="true" prefWidth="247.0" promptText="Sense" />
-                                                <JFXComboBox labelFloat="true" prefWidth="247.0" promptText="Product" />
+                                                <JFXComboBox fx:id="comboBoxSense" labelFloat="true" prefWidth="247.0" promptText="Sense" />
+                                                <JFXComboBox fx:id="comboBoxProduct" labelFloat="true" prefWidth="247.0" promptText="Product" />
                                              </children>
                                              <VBox.margin>
                                                 <Insets left="10.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <JFXTabPane prefWidth="517.0" stylesheets="@style.css">
-                                             <tabs>
-                                                <Tab text="0800">
-                                                  <content>
-                                                    <AnchorPane prefWidth="517.0">
-                                                         <children>
-                                                            <GridPane hgap="10.0" prefHeight="405.0" prefWidth="517.0" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
-                                                              <columnConstraints>
-                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                              </columnConstraints>
-                                                              <rowConstraints>
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                                  <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                              </rowConstraints>
-                                                               <children>
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="3" />
-                                                                  <JFXCheckBox graphicTextGap="1.0" text="128" GridPane.columnIndex="1" />
-                                                                  <CheckBox mnemonicParsing="false" text="128" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                                                                  <JFXRadioButton GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                                  <RadioButton mnemonicParsing="false" text="RadioButton" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="13" />
-                                                                  <CheckBox mnemonicParsing="false" text="128" GridPane.columnIndex="2" GridPane.rowIndex="14" />
-                                                                  <JFXCheckBox text="128" GridPane.columnIndex="2" GridPane.rowIndex="15" />
-                                                                  <JFXCheckBox focusTraversable="false" graphicTextGap="2.0" pickOnBounds="false" scaleShape="false" text="128" viewOrder="1.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                               </children>
-                                                            </GridPane>
-                                                         </children>
-                                                      </AnchorPane>
-                                                  </content>
-                                                </Tab>
-                                                <Tab text="0810">
-                                                  <content>
-                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                                  </content>
-                                                </Tab>
-                                             </tabs>
-                                          </JFXTabPane>
+                                          <JFXTabPane fx:id="tabPaneFields" prefWidth="517.0" stylesheets="@../../../../../VistaFx/style.css" />
                                        </children>
                                        <padding>
                                           <Insets top="15.0" />
@@ -147,8 +69,8 @@
                         </Accordion>
                         <HBox alignment="TOP_RIGHT" spacing="30.0">
                            <children>
-                              <JFXButton text="OK" />
-                              <JFXButton text="Cancel" />
+                              <JFXButton fx:id="buttonOK" text="OK" />
+                              <JFXButton fx:id="buttonCancel" text="Cancel" />
                            </children>
                         </HBox>
                      </children>
@@ -162,7 +84,7 @@
                <children>
                   <SplitPane dividerPositions="0.5" layoutX="82.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
-                        <JFXTreeTableView />
+                        <JFXTreeTableView fx:id="tableViewConections" />
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
                     </items>
                   </SplitPane>
