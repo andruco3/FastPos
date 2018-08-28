@@ -41,7 +41,6 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Id_Tramas")
 	public final int getIdTrama() {
 		return idTrama;
 	}

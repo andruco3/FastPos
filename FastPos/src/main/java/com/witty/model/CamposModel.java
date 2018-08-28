@@ -136,7 +136,7 @@ public class CamposModel implements Serializable {
 	
 	
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "oneCampo")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	protected Collection<CamposModel> campos;
 	
 	

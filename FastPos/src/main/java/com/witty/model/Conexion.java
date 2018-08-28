@@ -25,6 +25,16 @@ public class Conexion  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	public Conexion(String name, String direccionIp, String tipo) {
+		
+		this.nombreConexion=name;
+		this.direccionIp=direccionIp;
+		this.tipo=tipo;
+		
+		
+		
+	}
+	
 	
 	@Column(name = "nombre")
 	private String nombreConexion;

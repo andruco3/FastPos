@@ -10,6 +10,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.google.gson.Gson;
+import com.witty.model.Conexion;
+
 @Path("/conections")
 public class Conexiones {
 	
@@ -19,18 +22,26 @@ public class Conexiones {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getConections(InputStream incomingData) {
 		
+		
+		
+		
+		
 		return Response.status(200).entity("saldo").build();
 	}
 	
 	
-	@GET
+	@POST
 	@Path("/putConectionService")
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response setConections(InputStream incomingData) {
-		String result = "CrunchifyRESTService Successfully started..";
+		
+
+		 Gson gson = new Gson();
+		 Conexion conexion=gson.fromJson(incomingData.toString(), Conexion.class);
+		 
  
 		// return HTTP response 200 in case of success
-		return Response.status(200).entity(result).build();
+		return Response.status(200).entity("Ok").build();
 	}
 	
 	@GET

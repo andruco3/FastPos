@@ -9,8 +9,8 @@
     <class>com.witty.model.ConexionesCasos</class>
     <class>com.witty.model.Casos</class>
     <class>com.witty.model.SetPruebas</class>
-    <class>com.witty.model.Proyectos</class>
-    <class>com.witty.model.Usuarios</class>
+    <class>com.witty.model.Proyecto</class>
+    <class>com.witty.model.Usuario</class>
     
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
