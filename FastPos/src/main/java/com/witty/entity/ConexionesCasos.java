@@ -1,4 +1,4 @@
-package com.witty.model;
+package com.witty.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -27,7 +27,7 @@ import javax.persistence.MapsId;
 
 @Entity
 @Table(name = "conexiones_casos")
-@IdClass(com.witty.model.ConexionesCasosPk.class)
+@IdClass(com.witty.entity.ConexionesCasosPk.class)
 public class ConexionesCasos implements Serializable{
 	
 

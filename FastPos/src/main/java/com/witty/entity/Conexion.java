@@ -1,4 +1,4 @@
-package com.witty.model;
+package com.witty.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -30,6 +30,12 @@ public class Conexion  implements Serializable{
 		this.nombreConexion=name;
 		this.direccionIp=direccionIp;
 		this.tipo=tipo;
+		
+		
+		
+	}
+	
+public Conexion() {
 		
 		
 		

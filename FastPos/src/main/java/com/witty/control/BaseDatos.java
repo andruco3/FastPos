@@ -12,8 +12,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.witty.model.CamposModel;
-import com.witty.model.TramaModel;
+import com.witty.entity.CamposModel;
+import com.witty.entity.TramaModel;
 
 
 

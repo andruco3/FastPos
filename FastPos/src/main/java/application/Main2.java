@@ -13,7 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.witty.model.CamposModel;
+import com.witty.entity.CamposModel;
 
 
 

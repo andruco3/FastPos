@@ -1,4 +1,4 @@
-package com.witty.model;
+package com.witty.entity;
 
 import java.io.Serializable;
 

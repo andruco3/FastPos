@@ -2,15 +2,15 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="FastPos" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>com.witty.model.CamposModel</class>
-    <class>com.witty.model.CasosPrueba</class>
-    <class>com.witty.model.Conexion</class>
-    <class>com.witty.model.TramaModel</class>
-    <class>com.witty.model.ConexionesCasos</class>
-    <class>com.witty.model.Casos</class>
-    <class>com.witty.model.SetPruebas</class>
-    <class>com.witty.model.Proyecto</class>
-    <class>com.witty.model.Usuario</class>
+    <class>com.witty.entity.CamposModel</class>
+    <class>com.witty.entity.CasosPrueba</class>
+    <class>com.witty.entity.Conexion</class>
+    <class>com.witty.entity.TramaModel</class>
+    <class>com.witty.entity.ConexionesCasos</class>
+    <class>com.witty.entity.Casos</class>
+    <class>com.witty.entity.SetPruebas</class>
+    <class>com.witty.entity.Proyecto</class>
+    <class>com.witty.entity.Usuario</class>
     
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>

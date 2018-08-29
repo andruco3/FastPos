@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
-import com.witty.model.CamposModel;
+import com.witty.entity.CamposModel;
  
 @Path("/country")
 public class CrunchifyRESTService {

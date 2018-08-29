@@ -1,4 +1,4 @@
-package com.witty.model;
+package com.witty.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -13,20 +13,24 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name = "proyecto")
-public class Proyecto  implements Serializable{
+@Table(name = "casos")
+public class Casos  implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String nombre;
-	private String fechaInicio;
-	private String fechaFin;
+	
+	
+	private String descripcion;
+	private String fecha_ejecucion;
+	private String fecha_creacion;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Collection<SetPruebas> setPruebas;
+	private Collection<CasosPrueba> casosPrueba;
+	
+	
+	
 	
 	
 	

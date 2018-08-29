@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
-import com.witty.model.Conexion;
+import com.witty.entity.Conexion;
 
 @Path("/conections")
 public class Conexiones {
