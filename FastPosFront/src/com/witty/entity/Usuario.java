@@ -21,11 +21,11 @@ public class Usuario  implements Serializable{
 	
 	@Id
 	private String usuario;
-	
 	private String name;
 	private String apellido;
 	private String Password;
-		
+	
+	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "usuario", joinColumns = @JoinColumn(name = "usuario"),
 		inverseJoinColumns = @JoinColumn(name = "id"))

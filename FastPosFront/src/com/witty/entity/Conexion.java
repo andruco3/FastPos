@@ -4,78 +4,53 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.google.gson.annotations.Expose;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+
+public class Conexion extends RecursiveTreeObject<Conexion> implements Serializable  {
 
 
-@Entity
-@Table(name = "conexion")
-@XmlRootElement
-public class Conexion  implements Serializable{
+
+	public Conexion() {
+
+	}
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@Expose	private int id;
+	@Expose private String nombreConexion;
+	@Expose	private String direccionIp;
+	@Expose	private String puerto;
+	@Expose	private String tipo;
+	@Expose	private String sense;
+	@Expose	private String product;
+	@Expose	private String message;
+	@Expose	private Boolean state=true;
+		private Collection<ConexionesCasos> conexionesXCaso;
+	@Expose	private Collection<CamposConexion> camposConexion;
 	
-	public Conexion(String name, String direccionIp, String tipo) {
-		
-		this.nombreConexion=name;
-		this.direccionIp=direccionIp;
-		this.tipo=tipo;
-		
-		
+	public Conexion(String nombreConexion, String direccionIp, String puerto, String tipo, String sense, String product,
+			String message, Collection<CamposConexion> camposConexion) {
+		super();
+		this.nombreConexion = nombreConexion;
+		this.direccionIp = direccionIp;
+		this.puerto = puerto;
+		this.tipo = tipo;
+		this.sense = sense;
+		this.product = product;
+		this.message = message;
+		this.state=true;
+		//this.conexionesXCaso = conexionesXCaso;
+		this.camposConexion = camposConexion;
 		
 	}
 	
-public Conexion() {
-		
-		
-		}
-	
-	
-	@Column(name = "nombre")
-	private String nombreConexion;
-	
-	
-	@Column(name = "direccion_IP")
-	private String direccionIp;
-	
-	
-	@Column(name = "puerto")
-	private String puerto;
+	public Conexion(String nombreConexion, String direccionIp, String puerto, String tipo) {
+		super();
+		this.nombreConexion = nombreConexion;
+		this.direccionIp = direccionIp;
+		this.puerto = puerto;
+		this.tipo = tipo;
 
-	
-	@Column(name = "tipo")
-	private String tipo;
-	
-	@Column(name = "sense")
-	private String sense;
-	
-	@Column(name = "product")
-	private String product;
-	
-	@Column(name = "message")
-	private String message;
-	
-	@Column(name = "state")
-	private Boolean state;
-	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "conexion")
-	private Collection<ConexionesCasos> conexionesXCaso;
-	
-	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Collection<CamposConexion> camposConexion;
+	}
 
 	public int getId() {
 		return id;
@@ -156,13 +131,16 @@ public Conexion() {
 	public void setCamposConexion(Collection<CamposConexion> camposConexion) {
 		this.camposConexion = camposConexion;
 	}
-	
 
 	public Boolean getState() {
+		if(state==null)
+			state =true;
 		return state;
 	}
 
 	public void setState(Boolean state) {
+		if(this.state==null)
+			this.state =true;
 		this.state = state;
 	}
 	
@@ -171,6 +149,4 @@ public Conexion() {
 	
 	
 	
-	
-
 }

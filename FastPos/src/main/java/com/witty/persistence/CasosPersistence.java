@@ -7,6 +7,7 @@ import com.witty.entity.Casos;
 
 public class CasosPersistence extends CrudPersistence<Casos>{
 
+	
     protected EntityManager em;
 	
 	@Override
@@ -20,5 +21,8 @@ public class CasosPersistence extends CrudPersistence<Casos>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
+	
 
 }

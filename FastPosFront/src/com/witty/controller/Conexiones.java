@@ -1,101 +1,316 @@
 package com.witty.controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXToggleButton;
 import com.jfoenix.controls.JFXTreeTableView;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.witty.entity.CamposConexion;
+import com.witty.entity.Conexion;
 
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableCell;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.cell.CheckBoxTreeTableCell;
+import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.util.Callback;
 
 public class Conexiones {
-	
-	
+
 	@FXML
 	private JFXTextField textFieldIP;
-	
+
 	@FXML
 	private JFXTextField textFieldPort;
-	
+
 	@FXML
 	private JFXTextField textFieldIPName;
 	
 	@FXML
+	private JFXTextField textFieldAdd;
+
+	@FXML
 	private JFXComboBox comboBoxSense;
 	
 	@FXML
-	private JFXComboBox comboBoxProduct;
-	
+	private JFXComboBox comboBoxType;
+
+
 	@FXML
-	private JFXComboBox comboBoxField;
-	
+	private JFXComboBox comboBoxProduct;
+
+	@FXML
+	private JFXComboBox comboBoxMessage;
+
 	@FXML
 	private JFXButton buttonOK;
 
 	@FXML
 	private JFXButton buttonCancel;
-	
+
 	@FXML
 	private JFXTreeTableView tableViewConections;
 	
 	@FXML
-	private JFXTabPane tabPaneFields;
+	private GridPane gridPaneFields;
+	
+	@FXML
+	private JFXToggleButton toogleButtonField;
 	
 
+	private ObservableList<String> optionscomboBoxType= FXCollections.observableArrayList();
+	private ObservableList<String> optionscomboBoxMessage= FXCollections.observableArrayList();
+	private ObservableList<String> optionscomboBoxSense= FXCollections.observableArrayList();
+	private ObservableList<String> optionscomboBoxProduct= FXCollections.observableArrayList();
 	
-	private ObservableList<String> optionscomboBoxField = FXCollections.observableArrayList();
+	private ObservableList<Conexion> conexionTableOb= FXCollections.observableArrayList();
+
 	
-	
+	ArrayList<CamposConexion> camposOk=new ArrayList<CamposConexion>();
 
 	@FXML
 	public void initialize() {
+
+		optionscomboBoxMessage.addAll("800", "810", "200", "210", "420", "430", "220", "230", "other");
+		optionscomboBoxType.addAll("MasterCard","Visa", "Amex", "Base24", "ISO8583");
+		optionscomboBoxSense.addAll("In","Out","Both");
+		optionscomboBoxProduct.addAll("ATM", "POS","BASE");
+		comboBoxType.setItems(optionscomboBoxType);
+		comboBoxSense.setItems(optionscomboBoxSense);
+		comboBoxProduct.setItems(optionscomboBoxProduct);
+		comboBoxMessage.setItems(optionscomboBoxMessage);
 		
-		optionscomboBoxField.addAll("800","810","200","210","420","430","220","230","other");
+		toogleButtonField.setSelected(false);
 		
-		comboBoxField.setItems(optionscomboBoxField);
+		comboBoxMessage.setDisable(true);
+		comboBoxSense.setDisable(true);
+		comboBoxProduct.setDisable(true);
+		gridPaneFields.setDisable(true);
+		textFieldAdd.setDisable(true);
+    	gridPaneFields.setHgap(20.0);
+		gridPaneFields.setVgap(0.0);
+		
+		leerConexion();
 		
 
+		TreeTableColumn columnaA=new TreeTableColumn("Name");
+		TreeTableColumn columnaB=new TreeTableColumn("Type");
+		TreeTableColumn columnaC=new TreeTableColumn("State");
+		TreeTableColumn columnaD=new TreeTableColumn("State");
+		tableViewConections.getColumns().addAll(columnaA, columnaB, columnaC,columnaD);
+		
+		columnaA.setCellValueFactory(new TreeItemPropertyValueFactory<Conexion,String>("nombreConexion"));
+		columnaB.setCellValueFactory(new TreeItemPropertyValueFactory<Conexion,String>("direccionIp"));
+		columnaC.setCellValueFactory(new TreeItemPropertyValueFactory<Conexion,String>("puerto"));
 		
 		
+		columnaD.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Conexion, Boolean>, //
+		        ObservableValue<Boolean>>() {
+				@Override
+		            public ObservableValue<Boolean> call(TreeTableColumn.CellDataFeatures<Conexion, Boolean> param) {
+		                TreeItem<Conexion> treeItem = param.getValue();
+		                Conexion emp = treeItem.getValue();
+		                SimpleBooleanProperty booleanProp= new SimpleBooleanProperty(emp.getState());
+		                
+		                // Note: singleCol.setOnEditCommit(): Not work for
+		                // CheckBoxTreeTableCell.
+		                // When "Single?" column change.
+		                booleanProp.addListener(new ChangeListener<Boolean>() {
+		 
+		                    @Override
+		                    public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+		                            Boolean newValue) {
+		                        emp.setState(newValue);
+		                    }                     
+		                });
+		                return booleanProp;
+		            }
+		        });
+		  
+		        
+		columnaD.setCellFactory(new Callback<TreeTableColumn<Conexion,Boolean>,TreeTableCell<Conexion,Boolean>>() {
+		            @Override
+		            public TreeTableCell<Conexion,Boolean> call( TreeTableColumn<Conexion,Boolean> p ) {
+		                CheckBoxTreeTableCell<Conexion,Boolean> cell = new CheckBoxTreeTableCell<Conexion,Boolean>();
+		                cell.setEditable(true); 
+		                cell.setAlignment(Pos.CENTER);
+		                return cell;
+		            }
+		        });
+		
+		TreeItem<Conexion> root= new RecursiveTreeItem<>(conexionTableOb, RecursiveTreeObject::getChildren);
+		tableViewConections.setEditable(true);
+		tableViewConections.setRoot(root);
+		tableViewConections.setShowRoot(false);
+
 	}
-	
 	
 	@FXML
-	public void addFields() {
+	public void activeFields() {
 		
-		GridPane gridPaneFields=new GridPane();
+		if(toogleButtonField.isSelected()) {
+			comboBoxMessage.setDisable(false);
+			comboBoxSense.setDisable(false);
+			comboBoxProduct.setDisable(false);
+			gridPaneFields.setDisable(false);
+			textFieldAdd.setDisable(false);
+		}else {
+			comboBoxMessage.setDisable(true);
+			comboBoxSense.setDisable(true);
+			comboBoxProduct.setDisable(true);
+			gridPaneFields.setDisable(true);
+			textFieldAdd.setDisable(true);
+			}
 		
-		Tab message=new Tab(comboBoxField.getValue().toString());
-		gridPaneFields.setHgap(20.0);
-		gridPaneFields.setVgap(10.0);
 		
-	
-	
-	int j =0;
-	for(int i=0;i<128;i++) {
-		gridPaneFields.addColumn(j, new JFXRadioButton(String.valueOf(i+1)));
-		if((i+1) % 16 == 0)
-			j++;
 		
-	}
-	message.setContent(gridPaneFields);
-	tabPaneFields.getTabs().add(message)	;
-	
 	}
 
+	@FXML
+	public void updateFields() {
+
+//		GridPane gridPaneFields = new GridPane();
+//		comboBoxField.getValue().toString()
+//
+
+		gridPaneFields.getChildren().clear();
+		String camposAdd[]=textFieldAdd.getText().split(",");
+		boolean valido=true;
+		for(int i =0;i<camposAdd.length;i++) {
+			int campo1 =Integer.parseInt(camposAdd[i].substring(0, camposAdd[i].length()-1));;
+			for(int j =i+1;j<camposAdd.length;j++) {
+				System.out.println(camposAdd[i]);
+				int campo2 = Integer.parseInt(camposAdd[j].substring(0, camposAdd[j].length()-1));
+         		if(campo1==campo2) {
+					valido=false;	
+				}
+					
+			}//String.format("%03d",
+			if(valido)
+				this.camposOk.add(new CamposConexion(campo1,camposAdd[i]
+						.substring(camposAdd[i].length()-1, camposAdd[i].length())));
+			
+			valido=true;
+		}
+		
+					
+		int j = 0;
+		for (int i = 0; i < camposOk.size(); i++) {
+				gridPaneFields.addColumn(j, new JFXButton(camposOk.get(i).toString() + "  X"));
+			    if ((i + 1) % 16 == 0)
+				j++;
+
+		}
+
+	}
 	
+	public void leerConexion() {
+
+		System.out.println("Leer Conexion");
+			
+		try {
+			URL url = new URL("http://localhost:8080/WSFastPos/api/conections/getConectionService");
+			URLConnection connection = url.openConnection();
+			connection.setDoOutput(true);
+			connection.setRequestProperty("Content-Type", "application/json");
+			connection.setConnectTimeout(5000);
+			connection.setReadTimeout(5000);
+			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+			out.write("");
+			out.close();
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			String jsonText=in.readLine();
+			String jsonResult="";
+			while (jsonText != null) {
+				jsonResult=jsonResult+jsonText;
+				jsonText=in.readLine();
+			}
+			System.out.println("\nCrunchify REST Service Invoked Successfully.." +jsonResult );
+			Gson gson = new Gson();
+			Type conexionListType = new TypeToken<List<Conexion>>(){}.getType();
+			List<Conexion> conexion = gson.fromJson(jsonResult,conexionListType);
+			System.out.println("\nCrunchify REST Service Invoked Successfully.." +conexion.get(0).getNombreConexion());
+			conexionTableOb.addAll(conexion);
+			in.close();
+		} catch (Exception e) {
+			System.out.println("\nError while calling Crunchify REST Service");
+			System.out.println(e);
+		}
+		
+		
+		
+		
+	}
 	
-	
-	
-	
-	
+	public void saveConexion() {
+
+		System.out.println("Guardar");
+		
+		Conexion conexion=new Conexion(textFieldIPName.getText(),textFieldIP.getText(),textFieldPort.getText(),
+				((String)comboBoxType.getSelectionModel().getSelectedItem()),
+				((String)comboBoxSense.getSelectionModel().getSelectedItem()),
+				((String)comboBoxProduct.getSelectionModel().getSelectedItem()),
+				((String)comboBoxMessage.getSelectionModel().getSelectedItem()),
+				camposOk);
+		
+		
+		Gson gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String jsonSaveConexion = gson.toJson(conexion);
+		//conexionTableOb.add(conexion.);
+		System.out.print(jsonSaveConexion);
+		// Step2: Now pass JSON File Data to REST Service
+		try {
+			URL url = new URL("http://localhost:8080/WSFastPos/api/conections/putConectionService");
+			URLConnection connection = url.openConnection();
+			connection.setDoOutput(true);
+			connection.setRequestProperty("Content-Type", "application/json");
+			connection.setConnectTimeout(5000);
+			connection.setReadTimeout(5000);
+			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+			out.write(jsonSaveConexion);
+			out.close();
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+			while (in.readLine() != null) {
+			}
+			System.out.println("\nCrunchify REST Service Invoked Successfully..");
+			in.close();
+		} catch (Exception e) {
+			System.out.println("\nError while calling Crunchify REST Service");
+			System.out.println(e);
+		}
+		
+	}
+
 }

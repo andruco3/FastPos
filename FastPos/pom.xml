@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.witti.FastPos</groupId>
@@ -32,6 +33,35 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.2.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/jboss/jboss-j2ee -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>jboss</groupId> -->
+<!-- 			<artifactId>jboss-j2ee</artifactId> -->
+<!-- 			<version>4.2.2.GA</version> -->
+<!-- 			<scope>provided</scope> -->
+<!-- 		</dependency> -->
+<!-- 	 https://mvnrepository.com/artifact/uk.co.jemos.podam/podam --> 
+<!-- 		<dependency> -->
+<!-- 			<groupId>uk.co.jemos.podam</groupId> -->
+<!-- 			<artifactId>podam</artifactId> -->
+<!-- 			<version>2.3.5.RELEASE</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+<!-- 	 https://mvnrepository.com/artifact/org.jboss.arquillian.junit/arquillian-junit-container --> 
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.jboss.arquillian.junit</groupId> -->
+<!-- 			<artifactId>arquillian-junit-container</artifactId> -->
+<!-- 			<version>1.4.0.Final</version> -->
+<!-- 			<scope>test</scope> -->
+<!-- 		</dependency> -->
+
+
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>ejb-api</artifactId>
+			<version>3.0</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 	<properties>
 		<java.version>1.8</java.version>
@@ -43,10 +73,10 @@
 			<url>http://download.oracle.com/maven</url>
 		</repository>
 	</repositories>
-		<parent>
+	<parent>
 		<groupId>com.witti.FastPos</groupId>
-	<artifactId>FastPosAll</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<relativePath>../FastPosAll/pom.xml</relativePath>	
+		<artifactId>FastPosAll</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../FastPosAll/pom.xml</relativePath>
 	</parent>
 </project>

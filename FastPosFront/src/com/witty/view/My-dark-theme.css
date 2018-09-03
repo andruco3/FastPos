@@ -1,0 +1,54 @@
+/*
+    Created on : 11 Nov, 2017, 4:42:53 AM
+    Author     : afsal villan
+
+*/ 
+*{
+    -fx-primary : #000000;
+    -fx-secondary : #FFFFFF;
+    -fx-primarytext : #B2B2B2;
+    -fx-blue: #1976D2;
+    -fx-red: #FF0000;
+    -fx-color-1:#1976D2;
+}
+
+.button{
+	-fx-border-color: -fx-primary;
+	-fx-border-radius: 5px;
+}
+.pane {
+    -fx-background-color: #000000;
+}
+
+.grid-pane{
+	-fx-border-color: -fx-primary;
+	-fx-border-radius: 20px;
+	-fx-background-color: -fx-secondary;
+}
+/*
+
+.root{
+    -fx-background-color: -fx-primary;
+}
+
+.glyph-icon
+{
+    -fx-fill: -fx-primarytext;
+}
+
+.button{
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-secondary;
+ /*   -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-font-size: 12pt;}
+*/
+/*
+.button:hover, .button:focused{
+    -fx-border-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+*/

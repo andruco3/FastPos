@@ -42,7 +42,10 @@ public abstract class CrudPersistence<T> {
 	     * @return New instance of handled entity with it's ID
 	     */
 	    public T create(T entity) {
+	    	getEntityManager().getTransaction().begin();
 	        getEntityManager().persist(entity);
+	        getEntityManager().getTransaction().commit();
+	        getEntityManager().close();
 	        return entity;
 	    }
 
@@ -71,7 +74,7 @@ public abstract class CrudPersistence<T> {
 	     * @return Instance of handled entity
 	     */
 	    public T find(Long id) {
-	        return getEntityManager().find(getEntityClass(), id);
+	    	return getEntityManager().find(getEntityClass(), id);
 	    }
 
 	    /**

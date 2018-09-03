@@ -1,7 +1,18 @@
 package com.witty.webservices;
 
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
+import javax.persistence.PersistenceUnit;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -11,37 +22,42 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
+import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
+import com.witty.persistence.ConexionPersistence;
+import com.witty.persistence.JPAUtility;
+
 
 @Path("/conections")
 public class Conexiones {
+
+	public ConexionPersistence persistence=new ConexionPersistence();
 	
-		
-	@POST
+	
+   	@POST
 	@Path("/getConectionService")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response getConections(InputStream incomingData) {
+   	@Produces(MediaType.APPLICATION_JSON)
+	public List<Conexion> getConections(InputStream incomingData) {
 		
-		
-		
-		
-		
-		return Response.status(200).entity("saldo").build();
+   		List<Conexion> listaConexion= persistence.findAll();
+   		String json = new Gson().toJson(listaConexion );
+		return listaConexion;
 	}
 	
 	
 	@POST
 	@Path("/putConectionService")
-	@Produces(MediaType.TEXT_PLAIN)
-	public Response setConections(InputStream incomingData) {
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response setConections(Conexion conexion) {		
 		
-
-		 Gson gson = new Gson();
-		 Conexion conexion=gson.fromJson(incomingData.toString(), Conexion.class);
-		 
- 
-		// return HTTP response 200 in case of success
-		return Response.status(200).entity("Ok").build();
+		System.out.print("Ingrese al Pos Conection");
+		
+//		persistence.getEntityManager().getTransaction().begin();
+//		persistence.getEntityManager().persist(conexion);
+//		persistence.getEntityManager().getTransaction().commit();
+//		persistence.getEntityManager().close();
+		persistence.create(conexion);
+ 		return Response.status(200).entity("Conexion Exitosa").build();
 	}
 	
 	@GET

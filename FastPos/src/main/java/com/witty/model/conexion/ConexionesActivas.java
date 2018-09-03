@@ -5,9 +5,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Access(AccessType.PROPERTY)
-@Table(name = "conexiones_activas")
+
 public class ConexionesActivas {
 	
 	private int idConexion;

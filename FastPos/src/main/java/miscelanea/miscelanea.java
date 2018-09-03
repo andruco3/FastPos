@@ -19,7 +19,6 @@ import java.util.Collection;
 import java.util.List;
 
 import com.witty.control.BaseDatos;
-import com.witty.entity.CamposMasterCard;
 import com.witty.entity.CamposModel;
 import com.witty.entity.TramaModel;
 
