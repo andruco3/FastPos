@@ -28,8 +28,8 @@ public class Main2 {
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
 
-		miscelanea.miscelanea.cargarArchivoMasters("");
-		miscelanea.miscelanea.cargarArchivoMasters("810");
+		miscelanea.Miscelanea.cargarArchivoMasters("");
+		miscelanea.Miscelanea.cargarArchivoMasters("810");
 
 		// TramaModel tramaP=new TramaModel();
 		// CamposModel trama = new CamposBase24();

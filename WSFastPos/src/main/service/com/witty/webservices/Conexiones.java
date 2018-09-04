@@ -24,14 +24,14 @@ import javax.ws.rs.core.Response;
 import com.google.gson.Gson;
 import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
-import com.witty.persistence.ConexionPersistence;
+import com.witty.persistence.ConexionController;
 import com.witty.persistence.JPAUtility;
 
 
 @Path("/conections")
 public class Conexiones {
 
-	public ConexionPersistence persistence=new ConexionPersistence();
+	public ConexionController persistence=new ConexionController();
 	
 	
    	@POST
@@ -57,6 +57,7 @@ public class Conexiones {
 //		persistence.getEntityManager().getTransaction().commit();
 //		persistence.getEntityManager().close();
 		persistence.create(conexion);
+		persistence.createServerProcess(conexion.getId());
  		return Response.status(200).entity("Conexion Exitosa").build();
 	}
 	
@@ -76,6 +77,7 @@ public class Conexiones {
 	public Response sendCommand(InputStream incomingData) {
 		String result = "CrunchifyRESTService Successfully started..";
  
+		persistence.commandConexion(5);
 		// return HTTP response 200 in case of success
 		return Response.status(200).entity(result).build();
 	}

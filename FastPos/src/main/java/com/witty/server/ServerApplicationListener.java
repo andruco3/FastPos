@@ -1,6 +1,11 @@
-package com.witty.server;
+lpackage com.witty.server;
 
 import com.constant.Constants;
+import com.witty.entity.CamposModel;
+import com.witty.entity.TramaModel;
+
+import java.util.ArrayList;
+
 import org.jpos.core.Configurable;
 import org.jpos.core.Configuration;
 import org.jpos.core.ConfigurationException;
@@ -26,30 +31,27 @@ public class ServerApplicationListener implements ISORequestListener,Configurabl
 
     public boolean process(ISOSource isoSource, ISOMsg isoMsg) {
     	
+
     	System.out.print("Ingreseeee a el listener Server");
         String spaceN = configuration.get("space");
         Long timeout = configuration.getLong("spaceTimeout");
         String queueN = configuration.get("queue");
         Context context = new Context();
         Space<String,Context> space = SpaceFactory.getSpace(spaceN);
-
         try {
-            ISOMsg respMsg = new ISOMsg();
-            System.out.print(isoMsg.getPackager().getDescription());
-            isoMsg.dump(System.out, "");
-            //respMsg.setMTI("0210");
-            //respMsg.setResponseMTI();
-            respMsg.set(39,"20");
-
+        	ISOMsg respMsg = new ISOMsg();
+        	TramaModel trama = new TramaModel();
+        	
+        	for(int i = 0; i<128;i++) {    		
+        		respMsg.set(i,((CamposModel)((ArrayList)trama.getCampos().getCampos()).get(i)).getValor());
+        	} 	
             context.put(Constants.REQUEST_KEY,isoMsg);
             context.put(Constants.RESPONSE_KEY,respMsg);
             context.put(Constants.RESOURCE_KEY,isoSource);
-
         } catch (ISOException e) {
             e.printStackTrace();
         }
-
         space.out(queueN,context,timeout);
         return false;
-    }
+    }    
 }

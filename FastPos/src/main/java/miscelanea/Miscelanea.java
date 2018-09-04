@@ -26,7 +26,7 @@ import com.witty.entity.TramaModel;
  *
  * @author root
  */
-public class miscelanea {
+public class Miscelanea {
 
 	public static int hex2decimal(String s) {
 		String digits = "0123456789ABCDEF";

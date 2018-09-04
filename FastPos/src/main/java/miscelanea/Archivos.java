@@ -46,12 +46,12 @@ public class Archivos {
 		return mensajes;
 	}
 
-	public static void EscribirArchivo(String mensaje) {
+	public static void EscribirArchivo(String mensaje, String fileName) {
 		FileWriter fichero = null;
 		PrintWriter pw = null;
 		try {
 
-			fichero = new FileWriter("C:/Users/usrapl/Documents/DIEGO-CORREDOR/prueba.txt", true);
+			fichero = new FileWriter("C:/Users/usrapl/Documents/DIEGO-CORREDOR/"+fileName);
 			pw = new PrintWriter(fichero);
 			// System.out.println(mensaje);
 
