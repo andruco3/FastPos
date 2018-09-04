@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import com.jfoenix.controls.JFXToolbar?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
@@ -13,7 +14,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -21,25 +21,35 @@
    <children>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <items>
-            <SplitPane dividerPositions="0.5" prefWidth="200.0">
+            <SplitPane dividerPositions="0.5">
               <items>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="TOP_CENTER">
                      <children>
-                        <JFXRadioButton text="Client">
+                        <HBox alignment="TOP_CENTER" spacing="10.0">
+                           <children>
+                              <JFXRadioButton maxHeight="25.0" minHeight="25.0" text="Request" />
+                              <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="Fields" />
+                              <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="All Fields" />
+                           </children>
                            <VBox.margin>
-                              <Insets top="2.0" />
+                              <Insets left="10.0" />
                            </VBox.margin>
-                        </JFXRadioButton>
-                      <AnchorPane />
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="TOP_CENTER">
                      <children>
-                        <JFXRadioButton text="Server">
+                        <HBox alignment="TOP_CENTER" spacing="10.0">
+                           <children>
+                              <JFXRadioButton maxHeight="25.0" minHeight="25.0" text="Response" />
+                              <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="Fields" />
+                              <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="All Fields" />
+                              <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="TimeOut" />
+                           </children>
                            <VBox.margin>
-                              <Insets top="2.0" />
+                              <Insets left="10.0" />
                            </VBox.margin>
-                        </JFXRadioButton>
+                        </HBox>
                      </children>
                   </VBox>
               </items>
@@ -55,7 +65,7 @@
                                     <HBox prefWidth="557.0" spacing="20.0">
                                        <children>
                                           <JFXTextField fx:id="textFieldIP" labelFloat="true" promptText="Name" />
-                                          <JFXComboBox fx:id="comboBoxSave" labelFloat="true" prefWidth="247.0" promptText="Save for All (No)" />
+                                          <JFXComboBox fx:id="comboBoxSave" labelFloat="true" prefWidth="247.0" promptText="Save For:" />
                                        </children>
                                        <opaqueInsets>
                                           <Insets />
@@ -64,10 +74,19 @@
                                           <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </HBox>
+                                    <HBox prefWidth="557.0" spacing="20.0">
+                                       <children>
+                                          <JFXTextField fx:id="textFieldIP1" labelFloat="true" promptText="Name" />
+                                          <JFXComboBox fx:id="comboBoxSave1" labelFloat="true" prefWidth="247.0" promptText="Conection" />
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </HBox>
                                     <HBox alignment="CENTER" spacing="20.0">
                                        <children>
-                                          <JFXButton fx:id="buttonSave" text="Save" />
-                                          <JFXButton fx:id="buttonDelete" text="Delete" />
+                                          <JFXButton fx:id="buttonSave" buttonType="RAISED" ripplerFill="#fc0707" style="-fx-background-color: #f1f1f1;" text="Save" />
+                                          <JFXButton fx:id="buttonDelete" buttonType="RAISED" text="Delete" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -103,7 +122,6 @@
                         <Insets top="25.0" />
                      </HBox.margin>
                   </JFXToolbar>
-                  <Pane />
                </children>
             </HBox>
         </items>

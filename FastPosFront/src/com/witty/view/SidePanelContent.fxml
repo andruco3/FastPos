@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <FontAwesomeIcon glyphName="ITALIC" size="05em" text="">
+         <VBox.margin>
+            <Insets left="50.0" />
+         </VBox.margin>
+      </FontAwesomeIcon>
+      <JFXButton buttonType="RAISED" prefHeight="74.0" prefWidth="213.0" ripplerFill="#fc0000" style="-fx-background-color: #f1f1f1;" text="Color 1" />
+      <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="123.0" prefHeight="74.0" prefWidth="213.0" ripplerFill="#fc0000" style="-fx-background-color: #f1f1f1;" text="Color 2" />
+      <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="197.0" prefHeight="74.0" prefWidth="213.0" ripplerFill="#fc0000" style="-fx-background-color: #f1f1f1;" text="Color 3" />
+      <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="271.0" prefHeight="74.0" prefWidth="213.0" ripplerFill="#fc0000" style="-fx-background-color: #f1f1f1;" text="EXIT" />
+   </children>
+</VBox>
