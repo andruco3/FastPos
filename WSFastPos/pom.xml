@@ -83,6 +83,13 @@
 			<artifactId>FastPos</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+<dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>20180813</version>
+</dependency>
+		
 	</dependencies>
 	<parent>
 		<groupId>com.witti.FastPos</groupId>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witty.controller.Simulator">
+   <children>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <items>
+            <SplitPane dividerPositions="0.5">
+              <items>
+                  <VBox alignment="TOP_CENTER">
+                     <children>
+                        <JFXComboBox />
+                        <JFXTreeTableView />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="20.0">
+                     <children>
+                        <HBox alignment="TOP_CENTER" spacing="10.0">
+                           <children>
+                              <JFXComboBox promptText="Test Guide" />
+                              <JFXTextField text="Name Automotion" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" spacing="10.0">
+                           <VBox.margin>
+                              <Insets left="10.0" />
+                           </VBox.margin>
+                           <children>
+                              <JFXComboBox promptText="Case Adquierer" />
+                              <JFXButton text=" ">
+                                 <graphic>
+                                    <FontAwesomeIcon />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXComboBox promptText="Case Adquierer" />
+                              <JFXButton text=" ">
+                                 <graphic>
+                                    <FontAwesomeIcon />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <Label text="Scheduler" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <JFXTimePicker maxWidth="120.0" promptText="Time" />
+                              <JFXDatePicker maxWidth="120.0" promptText="Init" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <JFXToggleButton maxHeight="30.0" maxWidth="60.0" minHeight="30.0" text="More Days" />
+                              <JFXDatePicker maxWidth="120.0" promptText="End" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </VBox>
+              </items>
+            </SplitPane>
+            <HBox>
+               <children>
+                  <JFXToolbar maxHeight="100.0">
+                     <center>
+                        <JFXButton buttonType="RAISED" cancelButton="true" defaultButton="true" ellipsisString="" pickOnBounds="false" prefHeight="56.0" prefWidth="42.0" text=" " textAlignment="CENTER" BorderPane.alignment="CENTER">
+                           <graphic>
+                              <FontAwesomeIcon fx:id="buttonPlay" glyphName="PLAY" glyphStyle="-fx-fill: linear-gradient(#70b4e5 0%, #247cbc 70%, #2c85c1 85%);" size="4em" />
+                           </graphic>
+                           <font>
+                              <Font />
+                           </font>
+                        </JFXButton>
+                     </center>
+                     <left>
+                        <JFXButton text=" " BorderPane.alignment="CENTER">
+                           <graphic>
+                              <FontAwesomeIcon fx:id="buttonPause" glyphName="PAUSE" glyphStyle="-fx-fill: linear-gradient(#70b4e5 0%, #247cbc 70%, #2c85c1 85%);" size="3em" />
+                           </graphic></JFXButton>
+                     </left>
+                     <right>
+                        <JFXButton text=" " BorderPane.alignment="CENTER" />
+                     </right>
+                     <HBox.margin>
+                        <Insets top="25.0" />
+                     </HBox.margin>
+                  </JFXToolbar>
+               </children>
+            </HBox>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

@@ -312,5 +312,41 @@ public class Conexiones {
 		}
 		
 	}
+	
+	public void initConexion() {
+
+		System.out.println("InitConexion");
+		
+		
+		
+		Gson gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+		String jsonSaveConexion = gson.toJson(conexion);
+		//conexionTableOb.add(conexion.);
+		System.out.print(jsonSaveConexion);
+		// Step2: Now pass JSON File Data to REST Service
+		try {
+			URL url = new URL("http://localhost:8080/WSFastPos/api/conections/sendCommandService");
+			URLConnection connection = url.openConnection();
+			connection.setDoOutput(true);
+			connection.setRequestProperty("Content-Type", "application/json");
+			connection.setConnectTimeout(5000);
+			connection.setReadTimeout(5000);
+			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+			out.write(jsonSaveConexion);
+			out.close();
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+			while (in.readLine() != null) {
+			}
+			System.out.println("\nCrunchify REST Service Invoked Successfully..");
+			in.close();
+		} catch (Exception e) {
+			System.out.println("\nError while calling Crunchify REST Service");
+			System.out.println(e);
+		}
+		
+	}
+
 
 }

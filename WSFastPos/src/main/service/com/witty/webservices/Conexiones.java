@@ -17,11 +17,15 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.json.JSONObject;
+
 import com.google.gson.Gson;
+
 import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
 import com.witty.persistence.ConexionController;
@@ -73,13 +77,14 @@ public class Conexiones {
 	
 	@GET
 	@Path("/sendCommandService")
-	@Produces(MediaType.TEXT_PLAIN)
-	public Response sendCommand(InputStream incomingData) {
-		String result = "CrunchifyRESTService Successfully started..";
+	@Consumes(MediaType.TEXT_PLAIN)
+	public Response sendCommand(String data) {
+		JSONObject recoData = new JSONObject(data);
+	
  
-		persistence.commandConexion(5);
+		persistence.commandConexion(recoData.getInt("command"),recoData.getLong("id") );
 		// return HTTP response 200 in case of success
-		return Response.status(200).entity(result).build();
+		return Response.status(200).entity("ok").build();
 	}
 	
 	@GET

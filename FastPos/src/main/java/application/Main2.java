@@ -14,6 +14,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import com.witty.entity.CamposModel;
+import com.witty.persistence.ConexionController;
 
 
 
@@ -28,8 +29,11 @@ public class Main2 {
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
 
-		miscelanea.Miscelanea.cargarArchivoMasters("");
-		miscelanea.Miscelanea.cargarArchivoMasters("810");
+		ServerQ2Init server =new ServerQ2Init();
+		ConexionController conexion =new ConexionController();
+		conexion.commandConexion(1, 0);
+		//miscelanea.Miscelanea.cargarArchivoMasters("");
+		//miscelanea.Miscelanea.cargarArchivoMasters("810");
 
 		// TramaModel tramaP=new TramaModel();
 		// CamposModel trama = new CamposBase24();

@@ -1,4 +1,4 @@
-lpackage com.witty.server;
+package com.witty.server;
 
 import com.constant.Constants;
 import com.witty.entity.CamposModel;

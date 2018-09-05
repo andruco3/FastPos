@@ -23,7 +23,7 @@ public class FastPos extends Application {
 			
 			FXMLLoader loader = new FXMLLoader();			
 			loader.setLocation(getClass()
-	                    .getResource("../view/Interpreter.fxml"));
+	                    .getResource("../view/principal.fxml"));
 			
 			Scene scene = new Scene(loader.load());
 			primaryStage.setScene(scene);

@@ -5,18 +5,22 @@ import javax.servlet.http.HttpServlet;
 
 import org.jpos.q2.Q2;
 
-public class FastPosServlet extends HttpServlet
+import com.sun.jersey.spi.container.servlet.ServletContainer;
+
+import application.ServerQ2Init;
+
+public class FastPosServlet extends ServletContainer
 {
  
     public void init() throws ServletException
     {
+    	
+    	super.init();
           System.out.println("----------");
           System.out.println("---------- CrunchifyServletExample Initialized successfully ----------");
           System.out.println("----------");
           
-//          Q2 q2 = new Q2();
-//	        q2.start();
-//	        System.out.print("Started Q2 Service");
+          ServerQ2Init q2Server=new ServerQ2Init();
     }
 
 }
