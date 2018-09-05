@@ -46,7 +46,7 @@
                                           <HBox spacing="20.0">
                                              <children>
                                                 <JFXTextField fx:id="textFieldIPName1" labelFloat="true" prefWidth="120.0" promptText="TimeOut" />
-                                                <JFXTextField fx:id="textFieldIPName11" labelFloat="true" prefWidth="120.0" promptText="Number Intentos" />
+                                                <JFXTextField fx:id="textFieldIPName11" labelFloat="true" prefWidth="120.0" promptText="Forward" />
                                                 <JFXComboBox fx:id="comboBoxType2" labelFloat="true" prefWidth="247.0" promptText="Type" />
                                              </children>
                                           </HBox>
