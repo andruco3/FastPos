@@ -34,33 +34,84 @@
 			<version>42.2.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/jboss/jboss-j2ee -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>jboss</groupId> -->
-<!-- 			<artifactId>jboss-j2ee</artifactId> -->
-<!-- 			<version>4.2.2.GA</version> -->
-<!-- 			<scope>provided</scope> -->
-<!-- 		</dependency> -->
-<!-- 	 https://mvnrepository.com/artifact/uk.co.jemos.podam/podam --> 
-<!-- 		<dependency> -->
-<!-- 			<groupId>uk.co.jemos.podam</groupId> -->
-<!-- 			<artifactId>podam</artifactId> -->
-<!-- 			<version>2.3.5.RELEASE</version> -->
-<!-- 			<scope>test</scope> -->
-<!-- 		</dependency> -->
-<!-- 	 https://mvnrepository.com/artifact/org.jboss.arquillian.junit/arquillian-junit-container --> 
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.jboss.arquillian.junit</groupId> -->
-<!-- 			<artifactId>arquillian-junit-container</artifactId> -->
-<!-- 			<version>1.4.0.Final</version> -->
-<!-- 			<scope>test</scope> -->
-<!-- 		</dependency> -->
-
-
+		<!-- <dependency> -->
+		<!-- <groupId>jboss</groupId> -->
+		<!-- <artifactId>jboss-j2ee</artifactId> -->
+		<!-- <version>4.2.2.GA</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
+		<!-- https://mvnrepository.com/artifact/uk.co.jemos.podam/podam -->
+		<!-- <dependency> -->
+		<!-- <groupId>uk.co.jemos.podam</groupId> -->
+		<!-- <artifactId>podam</artifactId> -->
+		<!-- <version>2.3.5.RELEASE</version> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.jboss.arquillian.junit/arquillian-junit-container -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.jboss.arquillian.junit</groupId> -->
+		<!-- <artifactId>arquillian-junit-container</artifactId> -->
+		<!-- <version>1.4.0.Final</version> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>javax.ejb</groupId>
 			<artifactId>ejb-api</artifactId>
 			<version>3.0</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>9.2.11.v20150529</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>9.2.11.v20150529</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet-core</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-jetty-http</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-moxy</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.7.3</version>
+		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180813</version>
 		</dependency>
 	</dependencies>
 	<properties>
