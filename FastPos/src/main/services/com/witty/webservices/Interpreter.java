@@ -30,88 +30,79 @@ import org.jpos.util.LogSource;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+
 import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
+import com.witty.entity.TramaModel;
 import com.witty.persistence.ConexionController;
+import com.witty.persistence.InterpreterPersitence;
 import com.witty.persistence.JPAUtility;
 import com.witty.server.RestListener;
 
-@Stateless
-@Path("/conections")
-public class Conexiones extends RestListener implements LogSource, Configurable {
-	public Conexiones(ISOPackager packager) {
+
+@Path("/interpreter")
+public class Interpreter extends RestListener implements LogSource, Configurable {
+	public Interpreter(ISOPackager packager) {
 		super(packager);
 	}
 
-	public ConexionController persistence;
+	public InterpreterPersitence persistence=new InterpreterPersitence();
 	
 	
    	@GET
-	@Path("/getConectionsService")
+	@Path("/getTramasService")
    	@Produces(MediaType.APPLICATION_JSON)
-	public String getConections() {
-   		System.out.print("Soy un error");
-   		persistence=new ConexionController();
-   		System.out.print("Soy un error2");
-   		List<Conexion> listaConexion= persistence.findAll();
-   		System.out.print("Soy un error "+listaConexion.get(0).getNombreConexion() );
-		Gson gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-   		String json = gson.toJson(listaConexion );
-   		System.out.print("Soy un error 88"+json );
-		return json;
+	public List<TramaModel> getConections() {
+		
+   		List<TramaModel> listaConexion= persistence.findAll();
+   		String json = new Gson().toJson(listaConexion );
+		return listaConexion;
 	}
 	
 	
 	@POST
-	@Path("/putConectionService")
+	@Path("/putTramaService")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response setConections(Conexion conexion) {
-		persistence=new ConexionController();
+	public Response setConections(TramaModel tramaModel) {		
 		
-		for(CamposConexion coll:conexion.getCamposConexion()) {
-			coll.setIdConexion(conexion);
-			
-		}
-		
-		persistence.create(conexion);
-		persistence.createServerProcess(conexion);
+		persistence.create(tramaModel);
+
  		return Response.status(200).entity("Conexion Exitosa").build();
 	}
 	
 	@GET
-	@Path("/getConectionService")
+	@Path("/getTramaService")
 	@Produces(MediaType.TEXT_PLAIN)
-	public Conexion getConection(String data) {
+	public TramaModel getConection(String data) {
 		JSONObject recoData = new JSONObject(data);
 		
-		Conexion conexion = persistence.find(recoData.getLong("id"));
+		TramaModel tramaModel = persistence.find(recoData.getLong("id"));
 		// return HTTP response 200 in case of success
-		return conexion;
+		return tramaModel;
 	}
 	
 
 	
-	@GET
-	@Path("/sendCommandService")
-	@Consumes(MediaType.TEXT_PLAIN)
-	public Response sendCommand(String data) {
-		JSONObject recoData = new JSONObject(data);
+//	@GET
+//	@Path("/sendCommandService")
+//	@Consumes(MediaType.TEXT_PLAIN)
+//	public Response sendCommand(String data) {
+//		JSONObject recoData = new JSONObject(data);
+//	
+// 
+//		persistence.commandConexion(recoData.getInt("command"),recoData.getLong("id") );
+//		// return HTTP response 200 in case of success
+//		return Response.status(200).entity("ok").build();
+//	}
 	
- 
-		persistence.commandConexion(recoData.getInt("command"),recoData.getLong("id") );
-		// return HTTP response 200 in case of success
-		return Response.status(200).entity("ok").build();
-	}
-	
 	@GET
-	@Path("/deleteConectionService")
+	@Path("/deleteTramaService")
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response deleteConection(String data) {
 		JSONObject recoData = new JSONObject(data);
 		
 		
-		persistence.deleteServerProcess(recoData.getLong("id"));
+		persistence.delete(recoData.getLong("id"));
 		// return HTTP response 200 in case of success
 		return Response.status(200).entity("Ok").build();
 	}

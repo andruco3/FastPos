@@ -4,17 +4,33 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.jboss.resteasy.client.jaxrs.ResteasyClient;
+import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
+import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
+
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
@@ -43,6 +59,7 @@ import javafx.scene.control.cell.CheckBoxTreeTableCell;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
+
 
 public class Conexiones {
 
@@ -78,7 +95,7 @@ public class Conexiones {
 	private JFXButton buttonCancel;
 
 	@FXML
-	private JFXTreeTableView tableViewConections;
+	private JFXTreeTableView<Conexion> tableViewConections;
 	
 	@FXML
 	private GridPane gridPaneFields;
@@ -95,6 +112,7 @@ public class Conexiones {
 	private ObservableList<Conexion> conexionTableOb= FXCollections.observableArrayList();
 
 	
+	Conexion conexion=new Conexion();
 	ArrayList<CamposConexion> camposOk=new ArrayList<CamposConexion>();
 
 	@FXML
@@ -171,7 +189,41 @@ public class Conexiones {
 		tableViewConections.setEditable(true);
 		tableViewConections.setRoot(root);
 		tableViewConections.setShowRoot(false);
+		
+	}
+	
+	@FXML
+	public void updateConexion() {
+	    // check the table's selected item and get selected item
+	    if (tableViewConections.getSelectionModel().getSelectedItem() != null) {
+	        Conexion conexion = tableViewConections.getSelectionModel().getSelectedItem().getValue();
+	        textFieldIPName.setText(conexion.getNombreConexion());
+	        textFieldIP.setText(conexion.getDireccionIp());
+	        textFieldPort.setText(conexion.getPuerto());
+			comboBoxType.getSelectionModel().select(0);
+			comboBoxSense.getSelectionModel().select(0);
+			comboBoxProduct.getSelectionModel().select(0);
+			comboBoxMessage.getSelectionModel().select(0);
+			camposOk=(ArrayList)conexion.getCamposConexion();
+			int j = 0;
+			gridPaneFields.getChildren().clear();
+			for (int i = 0; i < camposOk.size(); i++) {
+					gridPaneFields.addColumn(j, new JFXButton(camposOk.get(i).toString() + "  X"));
+				    if ((i + 1) % 16 == 0)
+					j++;
 
+			}
+	        
+
+	    }
+	}
+	@FXML
+	public void deleteConexion() {
+		
+		  if (tableViewConections.getSelectionModel().getSelectedItem() != null) {
+			  
+					
+		
 	}
 	
 	@FXML
@@ -238,33 +290,21 @@ public class Conexiones {
 		System.out.println("Leer Conexion");
 			
 		try {
-			URL url = new URL("http://localhost:8080/WSFastPos/api/conections/getConectionService");
-			URLConnection connection = url.openConnection();
-			connection.setDoOutput(true);
-			connection.setRequestProperty("Content-Type", "application/json");
-			connection.setConnectTimeout(5000);
-			connection.setReadTimeout(5000);
-			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-			out.write("");
-			out.close();
+		
+			ResteasyClient client = new ResteasyClientBuilder().build();
+			ResteasyWebTarget target = client.target("http://localhost:8080/conections/getConectionsService");
+			Response response = target.request().get();
+			String value = response.readEntity(String.class);
 
-			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-			String jsonText=in.readLine();
-			String jsonResult="";
-			while (jsonText != null) {
-				jsonResult=jsonResult+jsonText;
-				jsonText=in.readLine();
-			}
-			System.out.println("\nCrunchify REST Service Invoked Successfully.." +jsonResult );
+			response.close(); 
 			Gson gson = new Gson();
 			Type conexionListType = new TypeToken<List<Conexion>>(){}.getType();
-			List<Conexion> conexion = gson.fromJson(jsonResult,conexionListType);
-			System.out.println("\nCrunchify REST Service Invoked Successfully.." +conexion.get(0).getNombreConexion());
+			List<Conexion> conexion = gson.fromJson(value,conexionListType);
 			conexionTableOb.addAll(conexion);
-			in.close();
+
 		} catch (Exception e) {
 			System.out.println("\nError while calling Crunchify REST Service");
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		
 		
@@ -276,7 +316,7 @@ public class Conexiones {
 
 		System.out.println("Guardar");
 		
-		Conexion conexion=new Conexion(textFieldIPName.getText(),textFieldIP.getText(),textFieldPort.getText(),
+		conexion=new Conexion(textFieldIPName.getText(),textFieldIP.getText(),textFieldPort.getText(),
 				((String)comboBoxType.getSelectionModel().getSelectedItem()),
 				((String)comboBoxSense.getSelectionModel().getSelectedItem()),
 				((String)comboBoxProduct.getSelectionModel().getSelectedItem()),
@@ -290,7 +330,7 @@ public class Conexiones {
 		System.out.print(jsonSaveConexion);
 		// Step2: Now pass JSON File Data to REST Service
 		try {
-			URL url = new URL("http://localhost:8080/WSFastPos/api/conections/putConectionService");
+			URL url = new URL("http://localhost:8080/conections/putConectionService");
 			URLConnection connection = url.openConnection();
 			connection.setDoOutput(true);
 			connection.setRequestProperty("Content-Type", "application/json");
@@ -302,6 +342,8 @@ public class Conexiones {
 
 			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
+			conexionTableOb.add(conexion);
+			
 			while (in.readLine() != null) {
 			}
 			System.out.println("\nCrunchify REST Service Invoked Successfully..");
@@ -316,23 +358,22 @@ public class Conexiones {
 	public void initConexion() {
 
 		System.out.println("InitConexion");
+			
 		
+		JsonObject jsonObject = new JsonObject();
+		jsonObject.addProperty("command", "play");
 		
-		
-		Gson gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-		String jsonSaveConexion = gson.toJson(conexion);
-		//conexionTableOb.add(conexion.);
-		System.out.print(jsonSaveConexion);
+
 		// Step2: Now pass JSON File Data to REST Service
 		try {
-			URL url = new URL("http://localhost:8080/WSFastPos/api/conections/sendCommandService");
+			URL url = new URL("http://localhost:8080/conections/sendCommandService");
 			URLConnection connection = url.openConnection();
 			connection.setDoOutput(true);
 			connection.setRequestProperty("Content-Type", "application/json");
 			connection.setConnectTimeout(5000);
 			connection.setReadTimeout(5000);
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-			out.write(jsonSaveConexion);
+			out.write(jsonObject.getAsString());
 			out.close();
 
 			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));

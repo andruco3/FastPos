@@ -2,10 +2,10 @@ package com.witty.persistence;
 
 import javax.persistence.EntityManager;
 
-import com.witty.entity.Casos;
+import com.witty.entity.CasosPrueba;
 
 
-public class CasosPersistence extends CrudPersistence<Casos>{
+public class CasosPersistence extends CrudPersistence<CasosPrueba>{
 
 	
     protected EntityManager em;
@@ -17,7 +17,7 @@ public class CasosPersistence extends CrudPersistence<Casos>{
 	}
 
 	@Override
-	protected Class<Casos> getEntityClass() {
+	protected Class<CasosPrueba> getEntityClass() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +14,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import com.witty.entity.CamposConexion;
 import com.witty.entity.CamposModel;
+import com.witty.entity.Conexion;
 import com.witty.persistence.ConexionController;
 
 
@@ -27,13 +30,32 @@ public class Main2 {
 
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = factory.createEntityManager();
-		em.getTransaction().begin();
+		
 
-		ServerQ2Init server =new ServerQ2Init();
-		ConexionController conexion =new ConexionController();
-		conexion.commandConexion(1, 0);
-		//miscelanea.Miscelanea.cargarArchivoMasters("");
-		//miscelanea.Miscelanea.cargarArchivoMasters("810");
+		CamposConexion campos=new CamposConexion();
+		campos.setIdCampo(25);
+		campos.setOpcion("K");
+		Collection<CamposConexion> campio= new ArrayList<CamposConexion>();
+		
+		
+		Conexion xonection=new Conexion();
+		xonection.setDireccionIp("321654");
+		xonection.setMessage("321654");
+		xonection.setPuerto("321654");
+		xonection.setNombreConexion("321654");
+		xonection.setTipo("MasterCard");
+		campos.setIdConexion(xonection);
+		campio.add(campos);
+		
+		xonection.setCamposConexion(campio);
+		em.getTransaction().begin();
+		em.persist(xonection);
+		em.getTransaction().commit();
+		em.close();
+		
+		
+	//	miscelanea.Miscelanea.cargarArchivoMasters("");
+//		miscelanea.Miscelanea.cargarArchivoMasters("810");
 
 		// TramaModel tramaP=new TramaModel();
 		// CamposModel trama = new CamposBase24();

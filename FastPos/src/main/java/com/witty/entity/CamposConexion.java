@@ -1,66 +1,66 @@
 package com.witty.entity;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.google.gson.annotations.Expose;
+
 @Entity
 @Table(name = "campos_conexion")
-@XmlRootElement
-public class CamposConexion {
+@IdClass(com.witty.entity.CamposConexionPk.class)
+public class CamposConexion implements Serializable{
 	
+
 	@Id
-	private int id;
+	@Expose private int idCampo;
+		
+	
+	//private int idConexion;
 
 	
 	@Column(name = "opcion")
-	private String opcion;
+	@Expose private String opcion;
 	
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional=false)
-    @JoinColumn(name = "casoPrueba", insertable=false, updatable=false)
-	private CasosPrueba casoPrueba;
+	@Id
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private Conexion idConexion;
 
-
-	public int getId() {
-		return id;
+	public int getIdCampo() {
+		return idCampo;
 	}
 
-
-	public void setId(int id) {
-		this.id = id;
+	public void setIdCampo(int idCampo) {
+		this.idCampo = idCampo;
 	}
-
 
 	public String getOpcion() {
 		return opcion;
 	}
 
-
 	public void setOpcion(String opcion) {
 		this.opcion = opcion;
 	}
 
-
-	public CasosPrueba getCasoPrueba() {
-		return casoPrueba;
+	public Conexion getIdConexion() {
+		return idConexion;
 	}
 
-
-	public void setCasoPrueba(CasosPrueba casoPrueba) {
-		this.casoPrueba = casoPrueba;
+	public void setIdConexion(Conexion idConexion) {
+		this.idConexion = idConexion;
 	}
 	
-	
-	
-	
-	
+
 
 }

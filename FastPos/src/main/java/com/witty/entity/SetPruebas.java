@@ -28,8 +28,12 @@ public class SetPruebas  implements Serializable{
 	private int casosfallidos;
 	private Usuario usuario;
 	
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	private Collection<Casos> casos;
+//	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Collection<Casos> casos;
+	private Collection<CasosPrueba> casosPrueba;
+	
 	private float avance;
 	
 

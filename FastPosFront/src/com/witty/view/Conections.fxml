@@ -106,7 +106,7 @@
                               <JFXButton fx:id="buttonOK" onAction="#saveConexion" text="Save" />
                               <Button mnemonicParsing="false" text="Button" />
                               <JFXButton fx:id="buttonCancel" text="Cancel" />
-                              <JFXButton text="Delete" />
+                              <JFXButton fx:id="buttonDelete" text="Delete" />
                            </children>
                         </HBox>
                      </children>
@@ -120,7 +120,7 @@
                <children>
                   <SplitPane dividerPositions="0.5" layoutX="82.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <items>
-                        <JFXTreeTableView fx:id="tableViewConections" />
+                        <JFXTreeTableView fx:id="tableViewConections" onMouseClicked="#updateConexion" />
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
                      </items>
                   </SplitPane>

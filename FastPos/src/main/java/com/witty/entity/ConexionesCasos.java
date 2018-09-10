@@ -46,12 +46,9 @@ public class ConexionesCasos implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY, optional=false)
     @JoinColumn(name = "idConexiones", insertable=false, updatable=false)
 	private Conexion conexion;
-
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Collection<TramaModel> tramas_caso;
-	
-
 	
 	public ConexionesCasos(){};
 	

@@ -3,11 +3,15 @@
  */
 package com.witty.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+
+import com.witty.entity.CamposConexion;
+import com.witty.entity.Conexion;
 
 /**
  * @author andruco3
@@ -42,6 +46,8 @@ public abstract class CrudPersistence<T> {
 	     * @return New instance of handled entity with it's ID
 	     */
 	    public T create(T entity) {
+	    	Conexion coenexion=(Conexion)entity;
+	    	System.out.print(coenexion.getId());
 	    	getEntityManager().getTransaction().begin();
 	        getEntityManager().persist(entity);
 	        getEntityManager().getTransaction().commit();

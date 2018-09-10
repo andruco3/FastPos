@@ -1,0 +1,8 @@
+<qbean name="test" logger="Q2" realm="jpos-rest" class="com.witty.server.QRestServer">  
+  <attr name="port" type="java.lang.Integer">8080</attr>
+  
+  <rest-listener class="com.witty.webservices.TestController" logger="Q2">
+  </rest-listener>
+  <rest-listener class="com.witty.webservices.Conexiones" logger="Q2">
+  </rest-listener>
+</qbean>

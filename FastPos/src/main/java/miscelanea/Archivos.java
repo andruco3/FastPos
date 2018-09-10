@@ -1,6 +1,7 @@
 package miscelanea;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -51,7 +52,7 @@ public class Archivos {
 		PrintWriter pw = null;
 		try {
 
-			fichero = new FileWriter("C:/Users/usrapl/Documents/DIEGO-CORREDOR/"+fileName);
+			fichero = new FileWriter("//home//andres//workspace//workspace//FastPos//FastPos//deploy//"+fileName);
 			pw = new PrintWriter(fichero);
 			// System.out.println(mensaje);
 
@@ -81,6 +82,22 @@ public class Archivos {
 		b.close();
 		System.out.println("cadena:" + cadena);
 		return cadena;
+	}
+
+	
+	public static void deleteArchivo(String fileName) {
+
+        File file = new File("//home//andres//workspace//workspace//FastPos//FastPos//deploy//"+fileName); 
+          
+        if(file.delete()) 
+        { 
+            System.out.println("File deleted successfully"); 
+        } 
+        else
+        { 
+            System.out.println("Failed to delete the file"); 
+        }
+	
 	}
 
 }

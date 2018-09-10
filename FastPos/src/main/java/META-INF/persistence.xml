@@ -7,7 +7,6 @@
     <class>com.witty.entity.Conexion</class>
     <class>com.witty.entity.TramaModel</class>
     <class>com.witty.entity.ConexionesCasos</class>
-    <class>com.witty.entity.Casos</class>
     <class>com.witty.entity.SetPruebas</class>
     <class>com.witty.entity.Proyecto</class>
     <class>com.witty.entity.Usuario</class>

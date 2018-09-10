@@ -15,24 +15,23 @@ import javax.persistence.IdClass;
 	
 	private int idConexiones;
 	
+	 public int getIdCasosPrueba() {
+		return idCasosPrueba;
+	}
 
-	
-	public int getIdcasos() {
+	public void setIdCasosPrueba(int idCasosPrueba) {
+		this.idCasosPrueba = idCasosPrueba;
+	}
+
+	public int getIdConexiones() {
 		return idConexiones;
 	}
+
 	public void setIdConexiones(int idConexiones) {
 		this.idConexiones = idConexiones;
 	}
-	public int getIdConexiones() {
-		return idCasosPrueba;
-	}
-	public void setIdCasoPrueba(int idCasoPrueba) {
-		this.idCasosPrueba = idCasoPrueba;
-	}
-	
-	
-	
-	 @Override
+
+	@Override
 	public int hashCode(){
 		
 		return super.hashCode();

@@ -2,6 +2,8 @@ package com.witty.webservices;
 
 import java.sql.Timestamp;
 import java.util.Date;
+
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -27,12 +29,12 @@ public class TestController extends RestListener implements LogSource, Configura
 		super(packager);
 	}
 
-	@POST
+	@GET
 	@Path(value = "account-status")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response accountStatus(final String input) {
+	public Response accountStatus() {
 		try {
-			String responseJson = "[{'msg':'this is response'}]";
+			String responseJson = "[{\"msg\":\"this is response\"}]";
 			return Response.status(200).entity(responseJson).build();
 		} catch (Exception e) {
 			e.printStackTrace();

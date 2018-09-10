@@ -13,69 +13,65 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.google.gson.annotations.Expose;
 
 @Entity
 @Table(name = "conexion")
 @XmlRootElement
-public class Conexion  implements Serializable{
-	
+public class Conexion implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	public Conexion(String name, String direccionIp, String tipo) {
-		
-		this.nombreConexion=name;
-		this.direccionIp=direccionIp;
-		this.tipo=tipo;
-		
-		
-		
-	}
-	
-public Conexion() {
-		
-		
-		}
-	
-	
-	@Column(name = "nombre")
-	private String nombreConexion;
-	
-	
-	@Column(name = "direccion_IP")
-	private String direccionIp;
-	
-	
-	@Column(name = "puerto")
-	private String puerto;
 
-	
+	public Conexion(String name, String direccionIp, String tipo) {
+
+		this.nombreConexion = name;
+		this.direccionIp = direccionIp;
+		this.tipo = tipo;
+
+	}
+
+	public Conexion() {
+
+	}
+
+	@Column(name = "nombre")
+	@Expose private String nombreConexion;
+
+	@Column(name = "direccion_IP")
+	@Expose private String direccionIp;
+
+	@Column(name = "puerto")
+	@Expose private String puerto;
+
 	@Column(name = "tipo")
-	private String tipo;
-	
+	@Expose private String tipo;
+
 	@Column(name = "sense")
-	private String sense;
-	
+	@Expose private String sense;
+
 	@Column(name = "product")
-	private String product;
-	
+	@Expose private String product;
+
 	@Column(name = "message")
-	private String message;
-	
+	@Expose private String message;
+
 	@Column(name = "state")
-	private Boolean state;
-	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "conexion")
+	@Expose private Boolean state;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "conexion")
 	private Collection<ConexionesCasos> conexionesXCaso;
-	
-	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Collection<CamposConexion> camposConexion;
+
+	@OneToMany(cascade = CascadeType.PERSIST,mappedBy = "idConexion")
+	@JoinColumn(name="CONEXION_ID") 
+	@Expose private Collection<CamposConexion> camposConexion;
 
 	public int getId() {
 		return id;
@@ -156,7 +152,6 @@ public Conexion() {
 	public void setCamposConexion(Collection<CamposConexion> camposConexion) {
 		this.camposConexion = camposConexion;
 	}
-	
 
 	public Boolean getState() {
 		return state;
@@ -165,12 +160,5 @@ public Conexion() {
 	public void setState(Boolean state) {
 		this.state = state;
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }

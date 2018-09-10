@@ -13,6 +13,7 @@ import com.witty.entity.Conexion;
 
 import miscelanea.Archivos;
 
+@Stateless
 public class ConexionController extends CrudPersistence<Conexion>{
 
     //@PersistenceContext(unitName="FastPos")
@@ -21,6 +22,7 @@ public class ConexionController extends CrudPersistence<Conexion>{
 	@Override
 	public EntityManager getEntityManager() {
 		// TODO Auto-generated method stub
+		//em=JPAUtility.getEntityManager();
 		return em;
 	}
 
@@ -62,10 +64,15 @@ public class ConexionController extends CrudPersistence<Conexion>{
 		 
 	 }	
 	 
-	 public void createServerProcess(long id) {
-		 addConexionServer(id);
-		 addConexionMux(id);
-		 
+	 public void createServerProcess(Conexion conexion) {
+		 addConexionServer(conexion);
+		 addConexionMux(conexion);		 
+	 }
+	 
+	 public void deleteServerProcess(long id) {
+		 Archivos.deleteArchivo("50_server_" + id+".xml");	
+		 Archivos.deleteArchivo("20_mux_" + id+".xml");	
+		 this.delete(id);
 	 }
 	 
 	 public void createClienteProcess() {
@@ -75,11 +82,13 @@ public class ConexionController extends CrudPersistence<Conexion>{
 	 }
 	 
 	 
-	 public void addConexionServer(long id) {
+
+	 
+	 
+	 public void addConexionServer(Conexion conexion) {
 		 
-		 Conexion conexion = this.find(id);
-		 
-		  String chanel= "<server class=\"org.jpos.q2.iso.QServer\" logger=\"Q2\" name=\"HostQServer501\">\n" + 
+		
+		  String chanel= "<server class=\"org.jpos.q2.iso.QServer\" logger=\"Q2\" name=\"HostQServer"+conexion.getId()+"\">\n" + 
 		  		"    <attr name=\"port\" type=\"java.lang.Integer\">"+conexion.getPuerto()+"</attr>\n" + 
 		  		"    <attr name=\"maxSessions\" type=\"java.lang.Integer\">20</attr>\n" + 
 		  		"    <attr name=\"minSessions\" type=\"java.lang.Integer\">10</attr>\n" + 
@@ -95,24 +104,24 @@ public class ConexionController extends CrudPersistence<Conexion>{
 		  		"        <property name=\"queue\" value=\"TXNQueue\" />\n" + 
 		  		"        <property name=\"spaceTimeout\" value=\"60000\" />\n" + 
 		  		"    </request-listener>\n" + 
-		  		"	<in>NETWORK_IN</in>\n" + 
-		  		"	<out>NETWORK_OUT</out>\n" + 
+		  		"	<in>NETWORK_IN_"+conexion.getId()+"</in>\n" + 
+		  		"	<out>NETWORK_OUT_"+conexion.getId()+"</out>\n" + 
 		  		"\n" + 
 		  		"</server>\n" + 
 		  		"";
 		 
 		 
-		  Archivos.EscribirArchivo(chanel, "50_server_" + id);
+		  Archivos.EscribirArchivo(chanel, "50_server_" + conexion.getId()+".xml");
 		 
 	 }
 	 
 	 
-	 public void addConexionMux(long id) {
+	 public void addConexionMux(Conexion conexion) {
 		 
 
-		  String Mux= "<mux class=\"org.jpos.q2.iso.QMUX\" logger=\"Q2\" name=\"qserver-mux\">\n" + 
-		  		" <in>NETWORK_OUT</in>\n" + 
-		  		" <out>NETWORK_IN</out>\n" + 
+		  String Mux= "<mux class=\"org.jpos.q2.iso.QMUX\" logger=\"Q2\" name=\"qserver-mux"+conexion.getId()+"\">\n" + 
+		  		" <in>NETWORK_OUT_"+conexion.getId()+"</in>\n" + 
+		  		" <out>NETWORK_IN_"+conexion.getId()+"</out>\n" + 
 		  		" <key>11</key>\n" + 
 		  		" <unhandled>unhandled</unhandled>\n" + 
 		  		"</mux>\n" + 
@@ -120,7 +129,7 @@ public class ConexionController extends CrudPersistence<Conexion>{
 		  		"";		
 		  
 		  
-		  Archivos.EscribirArchivo(Mux, "20_mux_" + id);
+		  Archivos.EscribirArchivo(Mux, "20_mux_" + conexion.getId()+".xml");
 	 }
 	 
 	 
@@ -144,7 +153,7 @@ public class ConexionController extends CrudPersistence<Conexion>{
 		  		" </channel-adaptor>";		
 		  
 		  
-		  Archivos.EscribirArchivo(Mux, "10_channel_" + id);
+		  Archivos.EscribirArchivo(Mux, "10_channel_" + id+".xml");
 	 }
 	 
 	
