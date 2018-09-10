@@ -13,6 +13,7 @@ import java.util.List;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -60,7 +61,6 @@ import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
 
-
 public class Conexiones {
 
 	@FXML
@@ -71,16 +71,15 @@ public class Conexiones {
 
 	@FXML
 	private JFXTextField textFieldIPName;
-	
+
 	@FXML
 	private JFXTextField textFieldAdd;
 
 	@FXML
 	private JFXComboBox comboBoxSense;
-	
+
 	@FXML
 	private JFXComboBox comboBoxType;
-
 
 	@FXML
 	private JFXComboBox comboBoxProduct;
@@ -96,155 +95,161 @@ public class Conexiones {
 
 	@FXML
 	private JFXTreeTableView<Conexion> tableViewConections;
-	
+
 	@FXML
 	private GridPane gridPaneFields;
-	
+
 	@FXML
 	private JFXToggleButton toogleButtonField;
-	
 
-	private ObservableList<String> optionscomboBoxType= FXCollections.observableArrayList();
-	private ObservableList<String> optionscomboBoxMessage= FXCollections.observableArrayList();
-	private ObservableList<String> optionscomboBoxSense= FXCollections.observableArrayList();
-	private ObservableList<String> optionscomboBoxProduct= FXCollections.observableArrayList();
-	
-	private ObservableList<Conexion> conexionTableOb= FXCollections.observableArrayList();
+	private ObservableList<String> optionscomboBoxType = FXCollections.observableArrayList();
+	private ObservableList<String> optionscomboBoxMessage = FXCollections.observableArrayList();
+	private ObservableList<String> optionscomboBoxSense = FXCollections.observableArrayList();
+	private ObservableList<String> optionscomboBoxProduct = FXCollections.observableArrayList();
 
-	
-	Conexion conexion=new Conexion();
-	ArrayList<CamposConexion> camposOk=new ArrayList<CamposConexion>();
+	private ObservableList<Conexion> conexionTableOb = FXCollections.observableArrayList();
+
+	Conexion conexion = new Conexion();
+	ArrayList<CamposConexion> camposOk = new ArrayList<CamposConexion>();
 
 	@FXML
 	public void initialize() {
 
 		optionscomboBoxMessage.addAll("800", "810", "200", "210", "420", "430", "220", "230", "other");
-		optionscomboBoxType.addAll("MasterCard","Visa", "Amex", "Base24", "ISO8583");
-		optionscomboBoxSense.addAll("In","Out","Both");
-		optionscomboBoxProduct.addAll("ATM", "POS","BASE");
+		optionscomboBoxType.addAll("MasterCard", "Visa", "Amex", "Base24", "ISO8583");
+		optionscomboBoxSense.addAll("In", "Out", "Both");
+		optionscomboBoxProduct.addAll("ATM", "POS", "BASE");
 		comboBoxType.setItems(optionscomboBoxType);
 		comboBoxSense.setItems(optionscomboBoxSense);
 		comboBoxProduct.setItems(optionscomboBoxProduct);
 		comboBoxMessage.setItems(optionscomboBoxMessage);
-		
+
 		toogleButtonField.setSelected(false);
-		
+
 		comboBoxMessage.setDisable(true);
 		comboBoxSense.setDisable(true);
 		comboBoxProduct.setDisable(true);
 		gridPaneFields.setDisable(true);
 		textFieldAdd.setDisable(true);
-    	gridPaneFields.setHgap(20.0);
+		gridPaneFields.setHgap(20.0);
 		gridPaneFields.setVgap(0.0);
-		
-		leerConexion();
-		
 
-		TreeTableColumn columnaA=new TreeTableColumn("Name");
-		TreeTableColumn columnaB=new TreeTableColumn("Type");
-		TreeTableColumn columnaC=new TreeTableColumn("State");
-		TreeTableColumn columnaD=new TreeTableColumn("State");
-		tableViewConections.getColumns().addAll(columnaA, columnaB, columnaC,columnaD);
-		
-		columnaA.setCellValueFactory(new TreeItemPropertyValueFactory<Conexion,String>("nombreConexion"));
-		columnaB.setCellValueFactory(new TreeItemPropertyValueFactory<Conexion,String>("direccionIp"));
-		columnaC.setCellValueFactory(new TreeItemPropertyValueFactory<Conexion,String>("puerto"));
-		
-		
+		leerConexion();
+
+		TreeTableColumn columnaA = new TreeTableColumn("Name");
+		TreeTableColumn columnaB = new TreeTableColumn("Type");
+		TreeTableColumn columnaC = new TreeTableColumn("State");
+		TreeTableColumn columnaD = new TreeTableColumn("State");
+		tableViewConections.getColumns().addAll(columnaA, columnaB, columnaC, columnaD);
+
+		columnaA.setCellValueFactory(new TreeItemPropertyValueFactory<Conexion, String>("nombreConexion"));
+		columnaB.setCellValueFactory(new TreeItemPropertyValueFactory<Conexion, String>("direccionIp"));
+		columnaC.setCellValueFactory(new TreeItemPropertyValueFactory<Conexion, String>("puerto"));
+
 		columnaD.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Conexion, Boolean>, //
-		        ObservableValue<Boolean>>() {
-				@Override
-		            public ObservableValue<Boolean> call(TreeTableColumn.CellDataFeatures<Conexion, Boolean> param) {
-		                TreeItem<Conexion> treeItem = param.getValue();
-		                Conexion emp = treeItem.getValue();
-		                SimpleBooleanProperty booleanProp= new SimpleBooleanProperty(emp.getState());
-		                
-		                // Note: singleCol.setOnEditCommit(): Not work for
-		                // CheckBoxTreeTableCell.
-		                // When "Single?" column change.
-		                booleanProp.addListener(new ChangeListener<Boolean>() {
-		 
-		                    @Override
-		                    public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
-		                            Boolean newValue) {
-		                        emp.setState(newValue);
-		                    }                     
-		                });
-		                return booleanProp;
-		            }
-		        });
-		  
-		        
-		columnaD.setCellFactory(new Callback<TreeTableColumn<Conexion,Boolean>,TreeTableCell<Conexion,Boolean>>() {
-		            @Override
-		            public TreeTableCell<Conexion,Boolean> call( TreeTableColumn<Conexion,Boolean> p ) {
-		                CheckBoxTreeTableCell<Conexion,Boolean> cell = new CheckBoxTreeTableCell<Conexion,Boolean>();
-		                cell.setEditable(true); 
-		                cell.setAlignment(Pos.CENTER);
-		                return cell;
-		            }
-		        });
-		
-		TreeItem<Conexion> root= new RecursiveTreeItem<>(conexionTableOb, RecursiveTreeObject::getChildren);
+				ObservableValue<Boolean>>() {
+			@Override
+			public ObservableValue<Boolean> call(TreeTableColumn.CellDataFeatures<Conexion, Boolean> param) {
+				TreeItem<Conexion> treeItem = param.getValue();
+				Conexion emp = treeItem.getValue();
+				SimpleBooleanProperty booleanProp = new SimpleBooleanProperty(emp.getState());
+
+				// Note: singleCol.setOnEditCommit(): Not work for
+				// CheckBoxTreeTableCell.
+				// When "Single?" column change.
+				booleanProp.addListener(new ChangeListener<Boolean>() {
+
+					@Override
+					public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
+							Boolean newValue) {
+						emp.setState(newValue);
+					}
+				});
+				return booleanProp;
+			}
+		});
+
+		columnaD.setCellFactory(new Callback<TreeTableColumn<Conexion, Boolean>, TreeTableCell<Conexion, Boolean>>() {
+			@Override
+			public TreeTableCell<Conexion, Boolean> call(TreeTableColumn<Conexion, Boolean> p) {
+				CheckBoxTreeTableCell<Conexion, Boolean> cell = new CheckBoxTreeTableCell<Conexion, Boolean>();
+				cell.setEditable(true);
+				cell.setAlignment(Pos.CENTER);
+				return cell;
+			}
+		});
+
+		TreeItem<Conexion> root = new RecursiveTreeItem<>(conexionTableOb, RecursiveTreeObject::getChildren);
 		tableViewConections.setEditable(true);
 		tableViewConections.setRoot(root);
 		tableViewConections.setShowRoot(false);
-		
+
 	}
-	
+
 	@FXML
 	public void updateConexion() {
-	    // check the table's selected item and get selected item
-	    if (tableViewConections.getSelectionModel().getSelectedItem() != null) {
-	        Conexion conexion = tableViewConections.getSelectionModel().getSelectedItem().getValue();
-	        textFieldIPName.setText(conexion.getNombreConexion());
-	        textFieldIP.setText(conexion.getDireccionIp());
-	        textFieldPort.setText(conexion.getPuerto());
+		// check the table's selected item and get selected item
+		if (tableViewConections.getSelectionModel().getSelectedItem() != null) {
+			Conexion conexion = tableViewConections.getSelectionModel().getSelectedItem().getValue();
+			textFieldIPName.setText(conexion.getNombreConexion());
+			textFieldIP.setText(conexion.getDireccionIp());
+			textFieldPort.setText(conexion.getPuerto());
 			comboBoxType.getSelectionModel().select(0);
 			comboBoxSense.getSelectionModel().select(0);
 			comboBoxProduct.getSelectionModel().select(0);
 			comboBoxMessage.getSelectionModel().select(0);
-			camposOk=(ArrayList)conexion.getCamposConexion();
+			camposOk = (ArrayList) conexion.getCamposConexion();
 			int j = 0;
 			gridPaneFields.getChildren().clear();
 			for (int i = 0; i < camposOk.size(); i++) {
-					gridPaneFields.addColumn(j, new JFXButton(camposOk.get(i).toString() + "  X"));
-				    if ((i + 1) % 16 == 0)
+				gridPaneFields.addColumn(j, new JFXButton(camposOk.get(i).toString() + "  X"));
+				if ((i + 1) % 16 == 0)
 					j++;
 
 			}
-	        
 
-	    }
+		}
 	}
+
 	@FXML
 	public void deleteConexion() {
+
+		System.out.print("Cerrar");
 		
-		  if (tableViewConections.getSelectionModel().getSelectedItem() != null) {
-			  
-					
+		JsonObject jsonObject = new JsonObject();		
+		Conexion conection = tableViewConections.getSelectionModel().getSelectedItem().getValue();
 		
+		jsonObject.addProperty("id", conection.getId());
+		System.out.print(jsonObject.toString());
+		ResteasyClient client = new ResteasyClientBuilder().build();
+		ResteasyWebTarget target = client.target("http://localhost:8080/conections/deleteConectionService");
+		Response response = target.request().post(Entity.entity(jsonObject.toString(), MediaType.APPLICATION_JSON));
+		String value = response.readEntity(String.class);
+
+		ObservableList<Integer> indices = tableViewConections.getSelectionModel().getSelectedIndices();
+		for (int i : indices) {
+			conexionTableOb.remove(i);
+		}
+
 	}
-	
+
 	@FXML
 	public void activeFields() {
-		
-		if(toogleButtonField.isSelected()) {
+
+		if (toogleButtonField.isSelected()) {
 			comboBoxMessage.setDisable(false);
 			comboBoxSense.setDisable(false);
 			comboBoxProduct.setDisable(false);
 			gridPaneFields.setDisable(false);
 			textFieldAdd.setDisable(false);
-		}else {
+		} else {
 			comboBoxMessage.setDisable(true);
 			comboBoxSense.setDisable(true);
 			comboBoxProduct.setDisable(true);
 			gridPaneFields.setDisable(true);
 			textFieldAdd.setDisable(true);
-			}
-		
-		
-		
+		}
+
 	}
 
 	@FXML
@@ -255,78 +260,74 @@ public class Conexiones {
 //
 
 		gridPaneFields.getChildren().clear();
-		String camposAdd[]=textFieldAdd.getText().split(",");
-		boolean valido=true;
-		for(int i =0;i<camposAdd.length;i++) {
-			int campo1 =Integer.parseInt(camposAdd[i].substring(0, camposAdd[i].length()-1));;
-			for(int j =i+1;j<camposAdd.length;j++) {
+		String camposAdd[] = textFieldAdd.getText().split(",");
+		boolean valido = true;
+		for (int i = 0; i < camposAdd.length; i++) {
+			int campo1 = Integer.parseInt(camposAdd[i].substring(0, camposAdd[i].length() - 1));
+			;
+			for (int j = i + 1; j < camposAdd.length; j++) {
 				System.out.println(camposAdd[i]);
-				int campo2 = Integer.parseInt(camposAdd[j].substring(0, camposAdd[j].length()-1));
-         		if(campo1==campo2) {
-					valido=false;	
+				int campo2 = Integer.parseInt(camposAdd[j].substring(0, camposAdd[j].length() - 1));
+				if (campo1 == campo2) {
+					valido = false;
 				}
-					
-			}//String.format("%03d",
-			if(valido)
-				this.camposOk.add(new CamposConexion(campo1,camposAdd[i]
-						.substring(camposAdd[i].length()-1, camposAdd[i].length())));
-			
-			valido=true;
+
+			} // String.format("%03d",
+			if (valido)
+				this.camposOk.add(new CamposConexion(campo1,
+						camposAdd[i].substring(camposAdd[i].length() - 1, camposAdd[i].length())));
+
+			valido = true;
 		}
-		
-					
+
 		int j = 0;
 		for (int i = 0; i < camposOk.size(); i++) {
-				gridPaneFields.addColumn(j, new JFXButton(camposOk.get(i).toString() + "  X"));
-			    if ((i + 1) % 16 == 0)
+			gridPaneFields.addColumn(j, new JFXButton(camposOk.get(i).toString() + "  X"));
+			if ((i + 1) % 16 == 0)
 				j++;
 
 		}
 
 	}
-	
+
 	public void leerConexion() {
 
 		System.out.println("Leer Conexion");
-			
+
 		try {
-		
+
 			ResteasyClient client = new ResteasyClientBuilder().build();
 			ResteasyWebTarget target = client.target("http://localhost:8080/conections/getConectionsService");
 			Response response = target.request().get();
 			String value = response.readEntity(String.class);
 
-			response.close(); 
+			response.close();
 			Gson gson = new Gson();
-			Type conexionListType = new TypeToken<List<Conexion>>(){}.getType();
-			List<Conexion> conexion = gson.fromJson(value,conexionListType);
+			Type conexionListType = new TypeToken<List<Conexion>>() {
+			}.getType();
+			List<Conexion> conexion = gson.fromJson(value, conexionListType);
 			conexionTableOb.addAll(conexion);
 
 		} catch (Exception e) {
 			System.out.println("\nError while calling Crunchify REST Service");
 			e.printStackTrace();
 		}
-		
-		
-		
-		
+
 	}
-	
+
 	public void saveConexion() {
 
 		System.out.println("Guardar");
-		
-		conexion=new Conexion(textFieldIPName.getText(),textFieldIP.getText(),textFieldPort.getText(),
-				((String)comboBoxType.getSelectionModel().getSelectedItem()),
-				((String)comboBoxSense.getSelectionModel().getSelectedItem()),
-				((String)comboBoxProduct.getSelectionModel().getSelectedItem()),
-				((String)comboBoxMessage.getSelectionModel().getSelectedItem()),
-				camposOk);
-		
-		
-		Gson gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+
+		conexion = new Conexion(textFieldIPName.getText(), textFieldIP.getText(), textFieldPort.getText(),
+				((String) comboBoxType.getSelectionModel().getSelectedItem()),
+				((String) comboBoxSense.getSelectionModel().getSelectedItem()),
+				((String) comboBoxProduct.getSelectionModel().getSelectedItem()),
+				((String) comboBoxMessage.getSelectionModel().getSelectedItem()), camposOk);
+
+		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		String jsonSaveConexion = gson.toJson(conexion);
-		//conexionTableOb.add(conexion.);
+		// conexionTableOb.add(conexion.);
 		System.out.print(jsonSaveConexion);
 		// Step2: Now pass JSON File Data to REST Service
 		try {
@@ -343,7 +344,7 @@ public class Conexiones {
 			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
 			conexionTableOb.add(conexion);
-			
+
 			while (in.readLine() != null) {
 			}
 			System.out.println("\nCrunchify REST Service Invoked Successfully..");
@@ -352,17 +353,15 @@ public class Conexiones {
 			System.out.println("\nError while calling Crunchify REST Service");
 			System.out.println(e);
 		}
-		
+
 	}
-	
+
 	public void initConexion() {
 
 		System.out.println("InitConexion");
-			
-		
+
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty("command", "play");
-		
 
 		// Step2: Now pass JSON File Data to REST Service
 		try {
@@ -386,8 +385,7 @@ public class Conexiones {
 			System.out.println("\nError while calling Crunchify REST Service");
 			System.out.println(e);
 		}
-		
-	}
 
+	}
 
 }

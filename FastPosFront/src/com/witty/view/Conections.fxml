@@ -106,7 +106,7 @@
                               <JFXButton fx:id="buttonOK" onAction="#saveConexion" text="Save" />
                               <Button mnemonicParsing="false" text="Button" />
                               <JFXButton fx:id="buttonCancel" text="Cancel" />
-                              <JFXButton fx:id="buttonDelete" text="Delete" />
+                              <JFXButton fx:id="buttonDelete" onAction="#deleteConexion" text="Delete" />
                            </children>
                         </HBox>
                      </children>

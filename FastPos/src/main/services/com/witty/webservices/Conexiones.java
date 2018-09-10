@@ -104,13 +104,14 @@ public class Conexiones extends RestListener implements LogSource, Configurable 
 		return Response.status(200).entity("ok").build();
 	}
 	
-	@GET
+	@POST
 	@Path("/deleteConectionService")
-	@Produces(MediaType.TEXT_PLAIN)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response deleteConection(String data) {
+		persistence=new ConexionController();
 		JSONObject recoData = new JSONObject(data);
 		
-		
+		System.out.print("ide" + recoData.getLong("id"));
 		persistence.deleteServerProcess(recoData.getLong("id"));
 		// return HTTP response 200 in case of success
 		return Response.status(200).entity("Ok").build();

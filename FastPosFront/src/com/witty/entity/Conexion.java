@@ -14,7 +14,7 @@ public class Conexion extends RecursiveTreeObject<Conexion> implements Serializa
 	public Conexion() {
 
 	}
-	
+	        private int id;
 	@Expose private String nombreConexion;
 	@Expose	private String direccionIp;
 	@Expose	private String puerto;
@@ -134,6 +134,14 @@ public class Conexion extends RecursiveTreeObject<Conexion> implements Serializa
 		if(this.state==null)
 			this.state =true;
 		this.state = state;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	
