@@ -33,6 +33,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
+import com.witty.entity.ConfigMessage;
 import com.witty.persistence.ConexionController;
 import com.witty.persistence.JPAUtility;
 import com.witty.server.RestListener;
@@ -42,6 +43,41 @@ import com.witty.server.RestListener;
 public class HomeService extends RestListener implements LogSource, Configurable {
 	public HomeService(ISOPackager packager) {
 		super(packager);
+	}
+	
+	public ConexionController persistence;
+	
+	
+   	@GET
+	@Path("/getConectionsService")
+   	@Produces(MediaType.APPLICATION_JSON)
+	public String readGeneral(String data) {
+		persistence=new ConexionController();
+		JSONObject recoData = new JSONObject(data);
+		
+		System.out.print("ide" + recoData.toString());
+		
+		
+		ConfigMessage configMessage=new ConfigMessage();
+		persistence.readAll
+		
+		
+		
+		
+		
+		Gson gson =  new Gson();
+   		String json = gson.toJson(listaConexion );
+		
+		persistence.deleteServerProcess(recoData.getInt("id"));
+		// return HTTP response 200 in case of success
+		return Response.status(200).entity("Ok").build();
+	}
+	
+	
+
+	public void setConfiguration(Configuration cfg) throws ConfigurationException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
