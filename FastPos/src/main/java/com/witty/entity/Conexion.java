@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -52,8 +53,8 @@ public class Conexion implements Serializable {
 	@Column(name = "puerto")
 	@Expose private String puerto;
 
-	@Column(name = "tipo")
-	@Expose private String tipo;
+	@OneToOne(fetch = FetchType.LAZY)
+	@Expose private ConfigMessage tipo;
 
 	@Column(name = "sense")
 	@Expose private String sense;
@@ -66,10 +67,13 @@ public class Conexion implements Serializable {
 
 	@Column(name = "state")
 	@Expose private Boolean state;
-
+	
+	@Column(name = "server")
+	@Expose private Boolean server;
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "conexion")
 	private Collection<ConexionesCasos> conexionesXCaso;
-
+	
 	@OneToMany(orphanRemoval=true, cascade = CascadeType.ALL,mappedBy = "idConexion")
 	@JoinColumn(name="CONEXION_ID") 
 	@Expose private Collection<CamposConexion> camposConexion;
@@ -106,11 +110,11 @@ public class Conexion implements Serializable {
 		this.puerto = puerto;
 	}
 
-	public String getTipo() {
+	public ConfigMessage getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(ConfigMessage tipo) {
 		this.tipo = tipo;
 	}
 
@@ -168,6 +172,17 @@ public class Conexion implements Serializable {
 		 array.addAll(camposConexion);
 		return array;
 	}
+
+	public Boolean getServer() {
+		return server;
+	}
+
+	public void setServer(Boolean server) {
+		this.server = server;
+	}
+	
+	
+	
 	
 
 }

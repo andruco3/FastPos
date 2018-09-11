@@ -1,6 +1,7 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,8 +31,8 @@ public class Main2 {
 
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = factory.createEntityManager();
-		
-
+		System.out.println (System.getProperty("user.dir"));
+		System.out.println (System.getProperty("user.dir")+System.getProperty("file.separator")+"deploy"+System.getProperty("file.separator"));
 		CamposConexion campos=new CamposConexion();
 		campos.setIdCampo(25);
 		campos.setOpcion("K");

@@ -11,14 +11,13 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
- * Created by ggpratama on 10/7/2015.
+ * Created by andruco3 on 10/7/2015.
  */
 public class NetworkParticipant implements TransactionParticipant{
 
     public int prepare(long l, Serializable serializable) {
     	System.out.print("Ingreseeee al NEtwordk ");
-        Context ctx = (Context)serializable;
-        
+        Context ctx = (Context)serializable;        
         //Set Response for Network Check
         ISOSource source= (ISOSource)ctx.get(Constants.RESOURCE_KEY);
         ISOMsg respMsg = (ISOMsg)ctx.get(Constants.RESPONSE_KEY);

@@ -51,8 +51,9 @@ public class Archivos {
 		FileWriter fichero = null;
 		PrintWriter pw = null;
 		try {
-
-			fichero = new FileWriter("//home//andres//workspace//workspace//FastPos//FastPos//deploy//"+fileName);
+			
+			System.out.println (new File (".").getAbsolutePath ());
+			fichero = new FileWriter(System.getProperty("user.dir")+System.getProperty("file.separator")+"deploy"+System.getProperty("file.separator")+fileName);
 			pw = new PrintWriter(fichero);
 			// System.out.println(mensaje);
 
