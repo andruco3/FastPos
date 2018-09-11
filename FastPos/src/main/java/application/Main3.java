@@ -21,7 +21,7 @@ import com.witty.persistence.ConexionController;
 
 
 
-public class Main2 {
+public class Main3 {
 
 	private static final String PERSISTENCE_UNIT_NAME = "FastPos";
 	private static EntityManagerFactory factory;
@@ -31,43 +31,15 @@ public class Main2 {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = factory.createEntityManager();
 		
-
-		CamposConexion campos=new CamposConexion();
-		campos.setIdCampo(25);
-		campos.setOpcion("K");
 		
-		CamposConexion campos1=new CamposConexion();
-		campos1.setIdCampo(30);
-		campos1.setOpcion("K");
-		
-		Collection<CamposConexion> campio= new ArrayList<CamposConexion>();
-		
-		
-		Conexion xonection=new Conexion();
-		xonection.setDireccionIp("321654");
-		xonection.setMessage("321654");
-		xonection.setPuerto("321654");
-		xonection.setNombreConexion("321654");
-		xonection.setTipo("MasterCard");
-		campos.setIdConexion(xonection);
-		campos1.setIdConexion(xonection);
-		campio.add(campos);
-		campio.add(campos1);
-		
-		xonection.setCamposConexion(campio);
-		
-		
-		em.getTransaction().begin();
-		em.persist(xonection);
-		em.getTransaction().commit();
-		em.close();
-		
+		Conexion xonection=em.find(Conexion.class, 9);
+		System.out.print(xonection.getArrayCamposConexion().get(0).getOpcion());
 
 //		em.getTransaction().begin();
 //		em.remove(xonection);
 //		em.getTransaction().commit();
 //		em.close();
-		
+	
 	//	miscelanea.Miscelanea.cargarArchivoMasters("");
 //		miscelanea.Miscelanea.cargarArchivoMasters("810");
 

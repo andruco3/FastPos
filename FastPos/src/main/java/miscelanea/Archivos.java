@@ -95,7 +95,7 @@ public class Archivos {
         } 
         else
         { 
-            System.out.println("Failed to delete the file"); 
+            System.out.println("Failed to delete the file" +file.getName()); 
         }
 	
 	}

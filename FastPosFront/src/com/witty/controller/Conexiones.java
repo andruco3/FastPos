@@ -91,7 +91,13 @@ public class Conexiones {
 	private JFXButton buttonOK;
 
 	@FXML
-	private JFXButton buttonCancel;
+	private JFXButton buttonClear;
+	
+	@FXML
+	private JFXButton buttonDelete;
+
+	@FXML
+	private JFXButton buttonUpdate;
 
 	@FXML
 	private JFXTreeTableView<Conexion> tableViewConections;
@@ -183,6 +189,9 @@ public class Conexiones {
 		tableViewConections.setEditable(true);
 		tableViewConections.setRoot(root);
 		tableViewConections.setShowRoot(false);
+		
+		buttonDelete.setVisible(false);
+		buttonUpdate.setVisible(false);
 
 	}
 
@@ -208,6 +217,8 @@ public class Conexiones {
 
 			}
 
+			buttonDelete.setVisible(true);
+			buttonUpdate.setVisible(true);
 		}
 	}
 
@@ -225,12 +236,81 @@ public class Conexiones {
 		ResteasyWebTarget target = client.target("http://localhost:8080/conections/deleteConectionService");
 		Response response = target.request().post(Entity.entity(jsonObject.toString(), MediaType.APPLICATION_JSON));
 		String value = response.readEntity(String.class);
+		leerConexion();
 
-		ObservableList<Integer> indices = tableViewConections.getSelectionModel().getSelectedIndices();
-		for (int i : indices) {
-			conexionTableOb.remove(i);
+	}
+	
+	@FXML
+	public void updateConection() {
+
+		System.out.print("Update");
+		
+		Conexion conection = tableViewConections.getSelectionModel().getSelectedItem().getValue();
+		
+		conexion = new Conexion(textFieldIPName.getText(), textFieldIP.getText(), textFieldPort.getText(),
+				((String) comboBoxType.getSelectionModel().getSelectedItem()),
+				((String) comboBoxSense.getSelectionModel().getSelectedItem()),
+				((String) comboBoxProduct.getSelectionModel().getSelectedItem()),
+				((String) comboBoxMessage.getSelectionModel().getSelectedItem()), camposOk);
+		
+		conexion.setId(conection.getId());
+
+		Gson gson = new Gson();
+		String jsonSaveConexion = gson.toJson(conexion);
+		// conexionTableOb.add(conexion.);
+		System.out.print(jsonSaveConexion);
+		// Step2: Now pass JSON File Data to REST Service
+		try {
+			URL url = new URL("http://localhost:8080/conections/updateConectionService");
+			URLConnection connection = url.openConnection();
+			connection.setDoOutput(true);
+			connection.setRequestProperty("Content-Type", "application/json");
+			connection.setConnectTimeout(5000);
+			connection.setReadTimeout(5000);
+			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+			out.write(jsonSaveConexion);
+			out.close();
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			leerConexion();
+
+			while (in.readLine() != null) {
+			}
+			System.out.println("\nCrunchify REST Service Invoked Successfully..");
+			in.close();
+		} catch (Exception e) {
+			System.out.println("\nError while calling Crunchify REST Service");
+			System.out.println(e);
 		}
 
+	
+	}
+	
+	@FXML
+	public void clearForm() {
+
+		crearForm();
+		buttonDelete.setVisible(false);
+		buttonUpdate.setVisible(false);
+		
+
+
+	}
+	
+	public void crearForm() {
+		
+		
+		textFieldIPName.setText("");
+		textFieldIP.setText("");
+		textFieldPort.setText("");
+		comboBoxType.getSelectionModel().clearSelection();
+		comboBoxSense.getSelectionModel().clearSelection();
+		comboBoxProduct.getSelectionModel().clearSelection();
+		comboBoxMessage.getSelectionModel().clearSelection();
+		camposOk = (ArrayList) new ArrayList<CamposConexion>();
+		gridPaneFields.getChildren().clear();
+		
+		
 	}
 
 	@FXML
@@ -289,6 +369,10 @@ public class Conexiones {
 		}
 
 	}
+	
+	
+	
+	//Consumo de WEb Services de Aqui en Adelante
 
 	public void leerConexion() {
 
@@ -306,6 +390,8 @@ public class Conexiones {
 			Type conexionListType = new TypeToken<List<Conexion>>() {
 			}.getType();
 			List<Conexion> conexion = gson.fromJson(value, conexionListType);
+			System.out.println("\nconexionid" +value);
+			conexionTableOb.clear();
 			conexionTableOb.addAll(conexion);
 
 		} catch (Exception e) {
@@ -342,8 +428,7 @@ public class Conexiones {
 			out.close();
 
 			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-
-			conexionTableOb.add(conexion);
+			leerConexion();
 
 			while (in.readLine() != null) {
 			}

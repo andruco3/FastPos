@@ -31,10 +31,11 @@ public class CamposConexion implements Serializable{
 
 	
 	@Column(name = "opcion")
-	@Expose private String opcion;
+	@Expose
+	private String opcion;
 	
 	@Id
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.REMOVE)
 	private Conexion idConexion;
 
 	public int getIdCampo() {

@@ -55,8 +55,9 @@ public class Conexiones extends RestListener implements LogSource, Configurable 
    		persistence=new ConexionController();
    		System.out.print("Soy un error2");
    		List<Conexion> listaConexion= persistence.findAll();
-   		System.out.print("Soy un error "+listaConexion.get(0).getNombreConexion() );
+   		System.out.print("Soy un error "+listaConexion.get(0).getId()+" --- "+ listaConexion.get(0).getArrayCamposConexion().get(0).getOpcion() );
 		Gson gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+
    		String json = gson.toJson(listaConexion );
    		System.out.print("Soy un error 88"+json );
 		return json;
@@ -70,8 +71,7 @@ public class Conexiones extends RestListener implements LogSource, Configurable 
 		persistence=new ConexionController();
 		
 		for(CamposConexion coll:conexion.getCamposConexion()) {
-			coll.setIdConexion(conexion);
-			
+			coll.setIdConexion(conexion);			
 		}
 		
 		persistence.create(conexion);
@@ -85,7 +85,7 @@ public class Conexiones extends RestListener implements LogSource, Configurable 
 	public Conexion getConection(String data) {
 		JSONObject recoData = new JSONObject(data);
 		
-		Conexion conexion = persistence.find(recoData.getLong("id"));
+		Conexion conexion = persistence.find(recoData.getInt("id"));
 		// return HTTP response 200 in case of success
 		return conexion;
 	}
@@ -112,9 +112,24 @@ public class Conexiones extends RestListener implements LogSource, Configurable 
 		JSONObject recoData = new JSONObject(data);
 		
 		System.out.print("ide" + recoData.getLong("id"));
-		persistence.deleteServerProcess(recoData.getLong("id"));
+		persistence.deleteServerProcess(recoData.getInt("id"));
 		// return HTTP response 200 in case of success
 		return Response.status(200).entity("Ok").build();
+	}
+	
+	@POST
+	@Path("/updateConectionService")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateConection(Conexion conexion) {
+		persistence=new ConexionController();
+		
+		for(CamposConexion coll:conexion.getCamposConexion()) {
+			coll.setIdConexion(conexion);			
+		}
+		
+		System.out.print("Actualizando: "+conexion.getId());
+		persistence.updateServerProcess(conexion);
+ 		return Response.status(200).entity("Conexion Exitosa").build();
 	}
 
 

@@ -7,7 +7,6 @@
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -103,10 +102,10 @@
                         </Accordion>
                         <HBox alignment="TOP_RIGHT" spacing="10.0">
                            <children>
-                              <JFXButton fx:id="buttonOK" onAction="#saveConexion" text="Save" />
-                              <Button mnemonicParsing="false" text="Button" />
-                              <JFXButton fx:id="buttonCancel" text="Cancel" />
                               <JFXButton fx:id="buttonDelete" onAction="#deleteConexion" text="Delete" />
+                              <JFXButton fx:id="buttonUpdate" layoutX="370.0" layoutY="10.0" onAction="#updateConection" text="Update" />
+                              <JFXButton fx:id="buttonOK" onAction="#saveConexion" text="New Conection" />
+                              <JFXButton fx:id="buttonCancel" onAction="#clearForm" text="Clear" />
                            </children>
                         </HBox>
                      </children>

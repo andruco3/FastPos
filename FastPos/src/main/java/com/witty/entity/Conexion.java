@@ -1,6 +1,7 @@
 package com.witty.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class Conexion implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@Expose private int id;
 
 	public Conexion(String name, String direccionIp, String tipo) {
 
@@ -69,7 +70,7 @@ public class Conexion implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "conexion")
 	private Collection<ConexionesCasos> conexionesXCaso;
 
-	@OneToMany(cascade = CascadeType.PERSIST,mappedBy = "idConexion")
+	@OneToMany(orphanRemoval=true, cascade = CascadeType.ALL,mappedBy = "idConexion")
 	@JoinColumn(name="CONEXION_ID") 
 	@Expose private Collection<CamposConexion> camposConexion;
 
@@ -160,5 +161,13 @@ public class Conexion implements Serializable {
 	public void setState(Boolean state) {
 		this.state = state;
 	}
+	
+	public ArrayList<CamposConexion> getArrayCamposConexion() {
+		
+		 ArrayList<CamposConexion> array=new ArrayList<CamposConexion>();
+		 array.addAll(camposConexion);
+		return array;
+	}
+	
 
 }

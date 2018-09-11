@@ -62,16 +62,23 @@ public abstract class CrudPersistence<T> {
 	     * @return Updated instance
 	     */
 	    public T update(T entity) {
-	        return getEntityManager().merge(entity);
+	    	    getEntityManager().getTransaction().begin();
+	    	    T entityN = getEntityManager().merge(entity);
+		        getEntityManager().getTransaction().commit();
+	        return entityN;
 	    }
 
 	    /**
 	     * Deletes a record of handled entity from database.
 	     * @param id ID of the record to delete
 	     */
-	    public void delete(Long id) {
+	    public void delete(int id) {
+	    	
 	        T entity = getEntityManager().find(getEntityClass(), id);
+	        System.out.print("------ " + ((Conexion)entity).getCamposConexion().size()+ "   - - - - - ");
+	        getEntityManager().getTransaction().begin();
 	        getEntityManager().remove(entity);
+	        getEntityManager().getTransaction().commit();
 	    }
 
 	    /**
@@ -79,7 +86,7 @@ public abstract class CrudPersistence<T> {
 	     * @param id ID of the instance to retrieve
 	     * @return Instance of handled entity
 	     */
-	    public T find(Long id) {
+	    public T find(int id) {
 	    	return getEntityManager().find(getEntityClass(), id);
 	    }
 

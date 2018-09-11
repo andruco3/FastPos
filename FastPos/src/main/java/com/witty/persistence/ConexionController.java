@@ -69,10 +69,18 @@ public class ConexionController extends CrudPersistence<Conexion>{
 		 addConexionMux(conexion);		 
 	 }
 	 
-	 public void deleteServerProcess(long id) {
+	 public void deleteServerProcess(int id) {
 		 Archivos.deleteArchivo("50_server_" + id+".xml");	
 		 Archivos.deleteArchivo("20_mux_" + id+".xml");	
 		 this.delete(id);
+	 }
+	 
+	 public void updateServerProcess(Conexion conexion) {
+		 Archivos.deleteArchivo("50_server_" + conexion.getId()+".xml");	
+		 Archivos.deleteArchivo("20_mux_" + conexion.getId()+".xml");	
+		 addConexionServer(conexion);
+		 addConexionMux(conexion);	
+		 this.update(conexion);
 	 }
 	 
 	 public void createClienteProcess() {
