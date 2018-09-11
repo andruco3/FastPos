@@ -72,7 +72,7 @@ public class Automatizacion {
 		JSONObject recoData = new JSONObject(data);
 		
 		
-		persistence.delete(recoData.getLong("id"));
+		persistence.delete(recoData.getInt("id"));
 		// return HTTP response 200 in case of success
 		return Response.status(200).entity("Ok").build();
 	}

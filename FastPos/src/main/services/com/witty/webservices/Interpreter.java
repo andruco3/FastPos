@@ -76,7 +76,7 @@ public class Interpreter extends RestListener implements LogSource, Configurable
 	public TramaModel getConection(String data) {
 		JSONObject recoData = new JSONObject(data);
 		
-		TramaModel tramaModel = persistence.find(recoData.getLong("id"));
+		TramaModel tramaModel = persistence.find(recoData.getInt("id"));
 		// return HTTP response 200 in case of success
 		return tramaModel;
 	}
