@@ -7,14 +7,24 @@
 
     <participant class="com.witty.selector.Selector" name="Selector" logger="Q2">
         <property name="0200" value="Transaction" />
+		<property name="0100" value="Transaction" />
         <property name="0800" value="Network" />
+		<property name="0400" value="Reversal" />
+		<property name="0420" value="Reversal" />
+		<property name="0220" value="Advice" />
+        <property name="0120" value="Advice" />
     </participant>
     <participant class="com.witty.participant.SenderResponseParticipant" logger="Q2"/>
     <group name="Transaction">
         <participant class="com.witty.participant.TransactionResponseParticipant" logger="Q2" />
     </group>
-
     <group name="Network">
+        <participant class="com.witty.participant.NetworkParticipant" logger="Q2" />
+    </group>
+	<group name="Reversal">
+        <participant class="com.witty.participant.NetworkParticipant" logger="Q2" />
+    </group>
+	<group name="Advice">
         <participant class="com.witty.participant.NetworkParticipant" logger="Q2" />
     </group>
 

@@ -31,76 +31,83 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.witty.controller.ConexionController;
 import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
-import com.witty.persistence.ConexionController;
+import com.witty.entity.TramaModel;
 import com.witty.persistence.JPAUtility;
 import com.witty.server.RestListener;
 
 @Stateless
 @Path("/conections")
-public class Conexiones extends RestListener implements LogSource, Configurable {
-	public Conexiones(ISOPackager packager) {
+public class ConectionService extends RestListener implements LogSource, Configurable {
+	public ConectionService(ISOPackager packager) {
 		super(packager);
 	}
 
-	public ConexionController persistence;
+	public ConexionController conexionController=new ConexionController();
+	
+ 	@GET
+	@Path("/getDataConfig")
+   	@Produces(MediaType.APPLICATION_JSON)
+	public String getDataConfig() {
+ 		List<TramaModel> listaConexion= conexionController.getTramasModel();
+ 		Gson gson =  new Gson();
+		JsonObject jsonObject = new JsonObject();
+		jsonObject.addProperty("mti", "800");
+		jsonObject.addProperty("mti", "810");
+		jsonObject.addProperty("mti", "400");
+		jsonObject.addProperty("mti", "410");
+		jsonObject.addProperty("sense", "In");
+		jsonObject.addProperty("sense", "Out");
+		jsonObject.addProperty("product", "POS");
+		jsonObject.addProperty("product", "ATM");
+		jsonObject.addProperty("TramaModel",gson.toJson(listaConexion));		
+ 
+		return jsonObject.toString();
+	}
 	
 	
    	@GET
 	@Path("/getConectionsService")
    	@Produces(MediaType.APPLICATION_JSON)
 	public String getConections() {
-   		System.out.print("Soy un error");
-   		persistence=new ConexionController();
-   		System.out.print("Soy un error2");
-   		List<Conexion> listaConexion= persistence.findAll();
-   		System.out.print("Soy un error "+listaConexion.get(0).getId()+" --- "+ listaConexion.get(0).getArrayCamposConexion().get(0).getOpcion() );
-		Gson gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-
-   		String json = gson.toJson(listaConexion );
-   		System.out.print("Soy un error 88"+json );
+   		List<Conexion> listaConexion= conexionController.getPersistence().findAll();
+   		
+   		Gson gson=new Gson();
+   		gson.
+   		
+   		Gson Gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+   		String json = Gson.toJson(listaConexion );
 		return json;
 	}
-	
-	
+		
 	@POST
 	@Path("/putConectionService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response setConections(Conexion conexion) {
-		persistence=new ConexionController();
 		
-		for(CamposConexion coll:conexion.getCamposConexion()) {
-			coll.setIdConexion(conexion);			
-		}
-		
-		persistence.create(conexion);
-		persistence.createServerProcess(conexion);
- 		return Response.status(200).entity("Conexion Exitosa").build();
+		conexionController.setConection(conexion);
+		return Response.status(200).entity("Conexion Exitosa").build();
 	}
 	
 	@GET
 	@Path("/getConectionService")
 	@Produces(MediaType.TEXT_PLAIN)
 	public Conexion getConection(String data) {
-		JSONObject recoData = new JSONObject(data);
-		
-		Conexion conexion = persistence.find(recoData.getInt("id"));
-		// return HTTP response 200 in case of success
+		JSONObject recoData = new JSONObject(data);		
+		Conexion conexion = conexionController.getPersistence().find(recoData.getInt("id"));
 		return conexion;
 	}
 	
 
-	
 	@GET
 	@Path("/sendCommandService")
 	@Consumes(MediaType.TEXT_PLAIN)
 	public Response sendCommand(String data) {
-		JSONObject recoData = new JSONObject(data);
-	
- 
-		persistence.commandConexion(recoData.getInt("command"),recoData.getLong("id") );
-		// return HTTP response 200 in case of success
+		JSONObject recoData = new JSONObject(data); 
+		conexionController.commandConexion(recoData.getInt("command"),recoData.getInt("id") );
 		return Response.status(200).entity("ok").build();
 	}
 	
@@ -108,11 +115,8 @@ public class Conexiones extends RestListener implements LogSource, Configurable 
 	@Path("/deleteConectionService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response deleteConection(String data) {
-		persistence=new ConexionController();
 		JSONObject recoData = new JSONObject(data);
-		
-		System.out.print("ide" + recoData.getLong("id"));
-		persistence.deleteServerProcess(recoData.getInt("id"));
+		conexionController.deleteServerProcess(recoData.getInt("id"));
 		// return HTTP response 200 in case of success
 		return Response.status(200).entity("Ok").build();
 	}
@@ -121,14 +125,8 @@ public class Conexiones extends RestListener implements LogSource, Configurable 
 	@Path("/updateConectionService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response updateConection(Conexion conexion) {
-		persistence=new ConexionController();
-		
-		for(CamposConexion coll:conexion.getCamposConexion()) {
-			coll.setIdConexion(conexion);			
-		}
-		
-		System.out.print("Actualizando: "+conexion.getId());
-		persistence.updateServerProcess(conexion);
+
+		conexionController.updateServerProcess(conexion);
  		return Response.status(200).entity("Conexion Exitosa").build();
 	}
 

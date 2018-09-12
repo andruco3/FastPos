@@ -31,10 +31,11 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.witty.controller.ConexionController;
+import com.witty.controller.HomeController;
 import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
 import com.witty.entity.ConfigMessage;
-import com.witty.persistence.ConexionController;
 import com.witty.persistence.JPAUtility;
 import com.witty.server.RestListener;
 
@@ -45,21 +46,18 @@ public class HomeService extends RestListener implements LogSource, Configurable
 		super(packager);
 	}
 	
-	public ConexionController persistence;
+	public HomeController homeController=new HomeController();
 	
 	
    	@GET
 	@Path("/getConectionsService")
    	@Produces(MediaType.APPLICATION_JSON)
 	public String readGeneral(String data) {
-		persistence=new ConexionController();
+   		homeController.
 		JSONObject recoData = new JSONObject(data);
 		
-		System.out.print("ide" + recoData.toString());
-		
-		
 		ConfigMessage configMessage=new ConfigMessage();
-		persistence.readAll
+		ConfigMessage configMessage = persistence.findAll();
 		
 		
 		

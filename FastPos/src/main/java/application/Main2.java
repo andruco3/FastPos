@@ -15,10 +15,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import com.witty.controller.ConexionController;
 import com.witty.entity.CamposConexion;
 import com.witty.entity.CamposModel;
 import com.witty.entity.Conexion;
-import com.witty.persistence.ConexionController;
 
 
 

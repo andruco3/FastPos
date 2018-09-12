@@ -1,6 +1,9 @@
 package com.witty.cliente;
 
 import com.constant.Constants;
+import com.witty.controller.ConexionController;
+import com.witty.entity.Conexion;
+
 import org.jpos.core.Configurable;
 import org.jpos.core.Configuration;
 import org.jpos.core.ConfigurationException;
@@ -19,6 +22,8 @@ import org.jpos.transaction.Context;
  */
 public class ClientApplicationListener implements ISORequestListener,Configurable{
 
+	
+	ConexionController conexionController=new ConexionController();
     private Configuration configuration;
     public void setConfiguration(Configuration configuration) throws ConfigurationException {
         this.configuration = configuration;
@@ -30,12 +35,21 @@ public class ClientApplicationListener implements ISORequestListener,Configurabl
         String spaceN = configuration.get("space");
         Long timeout = configuration.getLong("spaceTimeout");
         String queueN = configuration.get("queue");
+        String mux = configuration.get("mux");
+        mux.replaceAll(mux, "");        
+        
+        Conexion conexion = conexionController.getPersistence().find(Integer.parseInt(mux));
+        System.out.print(isoMsg.getChildren().get(1) + " ----- " + conexion.getNombreConexion());
+        
         Context context = new Context();
         Space<String,Context> space = SpaceFactory.getSpace(spaceN);
 
         try {
-            ISOMsg respMsg = new ISOMsg();
+            
+        	
+        	ISOMsg respMsg = new ISOMsg();
             System.out.print(isoMsg.getPackager().getDescription());
+        
             isoMsg.dump(System.out, "");
             respMsg.setMTI("0810");
             //respMsg.setResponseMTI();

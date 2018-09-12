@@ -13,10 +13,10 @@ import javax.ws.rs.core.Response;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
+import com.witty.controller.ConexionController;
 import com.witty.entity.Conexion;
 import com.witty.entity.SetPruebas;
 import com.witty.persistence.AutomotionPersistence;
-import com.witty.persistence.ConexionController;
 
 @Path("/automation")
 public class Automatizacion {

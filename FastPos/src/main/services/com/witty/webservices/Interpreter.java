@@ -30,11 +30,10 @@ import org.jpos.util.LogSource;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
-
+import com.witty.controller.ConexionController;
 import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
 import com.witty.entity.TramaModel;
-import com.witty.persistence.ConexionController;
 import com.witty.persistence.InterpreterPersitence;
 import com.witty.persistence.JPAUtility;
 import com.witty.server.RestListener;
