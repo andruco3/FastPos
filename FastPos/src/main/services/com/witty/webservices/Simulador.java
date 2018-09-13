@@ -13,9 +13,9 @@ import javax.ws.rs.core.Response;
 import org.json.JSONObject;
 
 import com.witty.controller.ConexionController;
+import com.witty.controller.SimulatorPersistence;
 import com.witty.entity.CasosPrueba;
 import com.witty.entity.Conexion;
-import com.witty.persistence.SimulatorPersistence;
 
 @Path("/simulator")
 public class Simulador {

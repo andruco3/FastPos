@@ -29,7 +29,7 @@ public class ConexionController {
 	
 	public ConectionPersistence persistence;
 	public ConfigMessagePersistence persistenceConfig;
-	public TramaModelPersistence tramaModelPersisten;
+//	public TramaModelPersistence tramaModelPersisten;
 	
 	final int START = 1;
 	final int STOP = 2;
@@ -40,6 +40,7 @@ public class ConexionController {
 		
 		
 		persistence=new ConectionPersistence();
+		persistenceConfig=new ConfigMessagePersistence();
 	}
 	
 	
@@ -53,6 +54,9 @@ public class ConexionController {
 	
 	public boolean setConection(Conexion conexion) {
 		
+		for(CamposConexion coll:conexion.getCamposConexion()) {
+			coll.setIdConexion(conexion);			
+		}
 		persistence.create(conexion);
 		
 		if (conexion.getServer())
@@ -83,14 +87,16 @@ public void updateServerProcess(Conexion conexion) {
 	public void commandConexion(int command, int id) {
 
 		Conexion conection = persistence.find(id);
-		QServer server;
-		ChannelAdaptor channel;
-		if(conection.getServer())
-			server = (QServer) NameRegistrar.get("HostQServer"+id);
-		else
-			channel = (ChannelAdaptor)NameRegistrar.get("HostChannel"+id);
+		QServer server=null;
+		ChannelAdaptor channel=null;
+		
 		
 		try {
+			
+			if(conection.getServer())
+				server = (QServer) NameRegistrar.get("HostQServer"+id);
+			else
+				channel = (ChannelAdaptor)NameRegistrar.get("HostChannel"+id);
 			QServer mux = (QServer) NameRegistrar.get("mux"+id);
 			// final QMUX mux = (QMUX) NameRegistrar.get("mux.host-mux-1");
 			switch (command) {
@@ -201,12 +207,12 @@ public void updateServerProcess(Conexion conexion) {
 		return persistenceConfig.findAll();
 				
 	}
-	
-	public List<TramaModel> getTramasModel() {
-		
-		return tramaModelPersisten.findAll();
-				
-	}
+//	
+//	public List<TramaModel> getTramasModel() {
+//		
+//		return tramaModelPersisten.findAll();
+//				
+//	}
 	
 
 //	

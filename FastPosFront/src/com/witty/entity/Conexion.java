@@ -18,7 +18,7 @@ public class Conexion extends RecursiveTreeObject<Conexion> implements Serializa
 	@Expose private String nombreConexion;
 	@Expose	private String direccionIp;
 	@Expose	private String puerto;
-	@Expose	private String tipo;
+	@Expose	private ConfigMessage tipo;
 	@Expose	private String sense;
 	@Expose	private String product;
 	@Expose	private String message;
@@ -26,7 +26,7 @@ public class Conexion extends RecursiveTreeObject<Conexion> implements Serializa
 		private Collection<ConexionesCasos> conexionesXCaso;
 	@Expose	private Collection<CamposConexion> camposConexion;
 	
-	public Conexion(String nombreConexion, String direccionIp, String puerto, String tipo, String sense, String product,
+	public Conexion(String nombreConexion, String direccionIp, String puerto, ConfigMessage tipo, String sense, String product,
 			String message, Collection<CamposConexion> camposConexion) {
 		super();
 		this.nombreConexion = nombreConexion;
@@ -43,7 +43,7 @@ public class Conexion extends RecursiveTreeObject<Conexion> implements Serializa
 		
 	}
 	
-	public Conexion(String nombreConexion, String direccionIp, String puerto, String tipo) {
+	public Conexion(String nombreConexion, String direccionIp, String puerto, ConfigMessage tipo) {
 		super();
 		this.nombreConexion = nombreConexion;
 		this.direccionIp = direccionIp;
@@ -76,11 +76,11 @@ public class Conexion extends RecursiveTreeObject<Conexion> implements Serializa
 		this.puerto = puerto;
 	}
 
-	public String getTipo() {
+	public ConfigMessage getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(ConfigMessage tipo) {
 		this.tipo = tipo;
 	}
 

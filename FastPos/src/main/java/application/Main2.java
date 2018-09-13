@@ -49,7 +49,7 @@ public class Main2 {
 		xonection.setMessage("321654");
 		xonection.setPuerto("321654");
 		xonection.setNombreConexion("321654");
-		xonection.setTipo("MasterCard");
+	//	xonection.setTipo("MasterCard");
 		campos.setIdConexion(xonection);
 		campos1.setIdConexion(xonection);
 		campio.add(campos);

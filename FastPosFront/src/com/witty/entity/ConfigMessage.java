@@ -1,50 +1,24 @@
 package com.witty.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.gson.annotations.Expose;
 
-@Entity
-@Table(name = "config_message")
-@XmlRootElement
 public class ConfigMessage implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Expose private int id;
 
 	public ConfigMessage() {
 
 	}
 
-	@Column(name = "name")
 	@Expose private String messageName;
 
-	@Column(name = "channel")
 	@Expose private String messageChannel;
 
-	@Column(name = "packager")
 	@Expose private String messagePackager;
 
-	@Column(name = "packConfig")
 	@Expose private String messagePackConfig;
 
 	public int getId() {
@@ -90,7 +64,11 @@ public class ConfigMessage implements Serializable {
 
 	
 	
-	
+	@Override
+    public String toString() {
+        return messageName;
+    }
+
 	
 
 }

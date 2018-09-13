@@ -10,7 +10,8 @@
     <class>com.witty.entity.SetPruebas</class>
     <class>com.witty.entity.Proyecto</class>
     <class>com.witty.entity.Usuario</class>
-    <class>com.witty.entity.CamposConexion</class>    
+    <class>com.witty.entity.CamposConexion</class>
+    <class>com.witty.entity.ConfigMessage</class>    
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 <!--       <property name="javax.persistence.jdbc.url" value="jdbc:derby://192.168.5.33:1527/C:\Users\dacorredor\Documents\workspace\Analyzer25Db;create=true"/>     -->
@@ -23,9 +24,9 @@
       <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="javax.persistence.jdbc.password" value="postgres"/>
 <!--      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>--> 
-       <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> 
-<!--       	<property name="eclipselink.ddl-generation" value="create-tables"/>
-      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>-->
+<!--        <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>  -->
+       	<property name="eclipselink.ddl-generation" value="create-tables"/> 
+<!--       <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/> -->
 <!--       <property name="eclipselink.jdbc.property.useSSL" value="true" /> --> 
 <!-- <property name="eclipselink.jdbc.property.requireSSL" value="true" /> -->
       <property name="eclipselink.ddl-generation.output-mode" value="database"/>

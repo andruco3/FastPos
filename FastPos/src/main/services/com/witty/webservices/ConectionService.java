@@ -35,7 +35,9 @@ import com.google.gson.JsonObject;
 import com.witty.controller.ConexionController;
 import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
+import com.witty.entity.ConfigMessage;
 import com.witty.entity.TramaModel;
+import com.witty.entity.view.InitConfig;
 import com.witty.persistence.JPAUtility;
 import com.witty.server.RestListener;
 
@@ -46,26 +48,21 @@ public class ConectionService extends RestListener implements LogSource, Configu
 		super(packager);
 	}
 
-	public ConexionController conexionController=new ConexionController();
+	public ConexionController conexionController;
 	
  	@GET
 	@Path("/getDataConfig")
    	@Produces(MediaType.APPLICATION_JSON)
 	public String getDataConfig() {
- 		List<TramaModel> listaConexion= conexionController.getTramasModel();
+ 		conexionController=new ConexionController();
+ 		List<ConfigMessage> listaConexion= conexionController.getConfigMessage();
+ 		InitConfig initConfig=new InitConfig();
+ 		initConfig.setConfigMessage(listaConexion);
+ 		
+ 		System.out.print("Listar: " + listaConexion );
  		Gson gson =  new Gson();
-		JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty("mti", "800");
-		jsonObject.addProperty("mti", "810");
-		jsonObject.addProperty("mti", "400");
-		jsonObject.addProperty("mti", "410");
-		jsonObject.addProperty("sense", "In");
-		jsonObject.addProperty("sense", "Out");
-		jsonObject.addProperty("product", "POS");
-		jsonObject.addProperty("product", "ATM");
-		jsonObject.addProperty("TramaModel",gson.toJson(listaConexion));		
- 
-		return jsonObject.toString();
+	 
+		return gson.toJson(initConfig);
 	}
 	
 	
@@ -73,10 +70,9 @@ public class ConectionService extends RestListener implements LogSource, Configu
 	@Path("/getConectionsService")
    	@Produces(MediaType.APPLICATION_JSON)
 	public String getConections() {
-   		List<Conexion> listaConexion= conexionController.getPersistence().findAll();
    		
-   		Gson gson=new Gson();
-   		gson.
+   		conexionController=new ConexionController();
+   		List<Conexion> listaConexion= conexionController.getPersistence().findAll();
    		
    		Gson Gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
    		String json = Gson.toJson(listaConexion );
@@ -87,7 +83,7 @@ public class ConectionService extends RestListener implements LogSource, Configu
 	@Path("/putConectionService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response setConections(Conexion conexion) {
-		
+		conexionController=new ConexionController();
 		conexionController.setConection(conexion);
 		return Response.status(200).entity("Conexion Exitosa").build();
 	}
@@ -96,6 +92,7 @@ public class ConectionService extends RestListener implements LogSource, Configu
 	@Path("/getConectionService")
 	@Produces(MediaType.TEXT_PLAIN)
 	public Conexion getConection(String data) {
+		conexionController=new ConexionController();
 		JSONObject recoData = new JSONObject(data);		
 		Conexion conexion = conexionController.getPersistence().find(recoData.getInt("id"));
 		return conexion;
@@ -106,6 +103,7 @@ public class ConectionService extends RestListener implements LogSource, Configu
 	@Path("/sendCommandService")
 	@Consumes(MediaType.TEXT_PLAIN)
 	public Response sendCommand(String data) {
+		conexionController=new ConexionController();
 		JSONObject recoData = new JSONObject(data); 
 		conexionController.commandConexion(recoData.getInt("command"),recoData.getInt("id") );
 		return Response.status(200).entity("ok").build();
@@ -115,6 +113,7 @@ public class ConectionService extends RestListener implements LogSource, Configu
 	@Path("/deleteConectionService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response deleteConection(String data) {
+		conexionController=new ConexionController();
 		JSONObject recoData = new JSONObject(data);
 		conexionController.deleteServerProcess(recoData.getInt("id"));
 		// return HTTP response 200 in case of success
@@ -125,7 +124,7 @@ public class ConectionService extends RestListener implements LogSource, Configu
 	@Path("/updateConectionService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response updateConection(Conexion conexion) {
-
+		conexionController=new ConexionController();
 		conexionController.updateServerProcess(conexion);
  		return Response.status(200).entity("Conexion Exitosa").build();
 	}

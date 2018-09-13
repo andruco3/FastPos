@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -32,7 +33,7 @@ public class Conexion implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Expose private int id;
 
-	public Conexion(String name, String direccionIp, String tipo) {
+	public Conexion(String name, String direccionIp) {
 
 		this.nombreConexion = name;
 		this.direccionIp = direccionIp;
@@ -53,7 +54,7 @@ public class Conexion implements Serializable {
 	@Column(name = "puerto")
 	@Expose private String puerto;
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@Expose private ConfigMessage tipo;
 
 	@Column(name = "sense")

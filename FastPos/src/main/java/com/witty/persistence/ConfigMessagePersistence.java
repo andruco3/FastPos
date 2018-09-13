@@ -18,9 +18,9 @@ public class ConfigMessagePersistence extends CrudPersistence<ConfigMessage> {
 	}
 
 	@Override
-	public Class<Conexion> getEntityClass() {
+	public Class<ConfigMessage> getEntityClass() {
 		// TODO Auto-generated method stub
-		return Conexion.class;
+		return ConfigMessage.class;
 	}
 
 	public ConfigMessagePersistence() {

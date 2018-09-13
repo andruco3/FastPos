@@ -23,14 +23,14 @@ import org.jpos.transaction.Context;
 public class ClientApplicationListener implements ISORequestListener,Configurable{
 
 	
-	ConexionController conexionController=new ConexionController();
-    private Configuration configuration;
+	ConexionController conexionController;
+	private Configuration configuration;
     public void setConfiguration(Configuration configuration) throws ConfigurationException {
         this.configuration = configuration;
     }
 
     public boolean process(ISOSource isoSource, ISOMsg isoMsg) {
-    	
+    	conexionController=new ConexionController();
     	System.out.print("Ingreseeee a el listener cliente");
         String spaceN = configuration.get("space");
         Long timeout = configuration.getLong("spaceTimeout");

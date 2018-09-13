@@ -43,6 +43,8 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
+import com.witty.entity.ConfigMessage;
+import com.witty.entity.view.InitConfig;
 
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
@@ -51,6 +53,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TreeItem;
@@ -108,7 +112,7 @@ public class Conexiones {
 	@FXML
 	private JFXToggleButton toogleButtonField;
 
-	private ObservableList<String> optionscomboBoxType = FXCollections.observableArrayList();
+	private ObservableList<ConfigMessage> optionscomboBoxType = FXCollections.observableArrayList();
 	private ObservableList<String> optionscomboBoxMessage = FXCollections.observableArrayList();
 	private ObservableList<String> optionscomboBoxSense = FXCollections.observableArrayList();
 	private ObservableList<String> optionscomboBoxProduct = FXCollections.observableArrayList();
@@ -121,10 +125,35 @@ public class Conexiones {
 	@FXML
 	public void initialize() {
 
-		optionscomboBoxMessage.addAll("800", "810", "200", "210", "420", "430", "220", "230", "other");
-		optionscomboBoxType.addAll("MasterCard", "Visa", "Amex", "Base24", "ISO8583");
-		optionscomboBoxSense.addAll("In", "Out", "Both");
-		optionscomboBoxProduct.addAll("ATM", "POS", "BASE");
+		initConection();
+		
+		comboBoxType.setCellFactory(new Callback<ListView<ConfigMessage>,ListCell<ConfigMessage>>(){
+			 
+	            @Override
+	            public ListCell<ConfigMessage> call(ListView<ConfigMessage> p) {
+	                 
+	                final ListCell<ConfigMessage> cell = new ListCell<ConfigMessage>(){
+	 
+	                    @Override
+	                    protected void updateItem(ConfigMessage t, boolean bln) {
+	                        super.updateItem(t, bln);
+	                         
+	                        if(t != null){
+	                            setText(t.getMessageType());
+	                        }else{
+	                            setText(null);
+	                        }
+	                    }
+	  
+	                };
+	                 
+	                return cell;
+	            }
+	        });
+		
+		
+		
+	
 		comboBoxType.setItems(optionscomboBoxType);
 		comboBoxSense.setItems(optionscomboBoxSense);
 		comboBoxProduct.setItems(optionscomboBoxProduct);
@@ -248,7 +277,7 @@ public class Conexiones {
 		Conexion conection = tableViewConections.getSelectionModel().getSelectedItem().getValue();
 		
 		conexion = new Conexion(textFieldIPName.getText(), textFieldIP.getText(), textFieldPort.getText(),
-				((String) comboBoxType.getSelectionModel().getSelectedItem()),
+				((ConfigMessage) comboBoxType.getSelectionModel().getSelectedItem()),
 				((String) comboBoxSense.getSelectionModel().getSelectedItem()),
 				((String) comboBoxProduct.getSelectionModel().getSelectedItem()),
 				((String) comboBoxMessage.getSelectionModel().getSelectedItem()), camposOk);
@@ -373,6 +402,40 @@ public class Conexiones {
 	
 	
 	//Consumo de WEb Services de Aqui en Adelante
+	
+	public void initConection() {
+
+		System.out.println("Leer Conexion");
+
+		try {
+
+			ResteasyClient client = new ResteasyClientBuilder().build();
+			ResteasyWebTarget target = client.target("http://localhost:8080/conections/getDataConfig");
+			Response response = target.request().get();
+			String value = response.readEntity(String.class);
+			System.out.println("\nconexionid" +value);
+			response.close();
+			Gson gson = new Gson();
+			Type conexionListType = new TypeToken<InitConfig>() {
+			}.getType();
+			InitConfig initConfig = gson.fromJson(value, conexionListType);
+			List<ConfigMessage> configMessage = initConfig.configMessage;
+			optionscomboBoxType.clear();
+			optionscomboBoxType.addAll(configMessage);
+			
+			optionscomboBoxSense.addAll(initConfig.sense);
+			optionscomboBoxProduct.addAll(initConfig.product);
+			optionscomboBoxMessage.addAll(initConfig.mti);
+			System.out.println("\nconexionid" +value);
+			
+
+		} catch (Exception e) {
+			System.out.println("\nError while calling Crunchify REST Service");
+			e.printStackTrace();
+		}
+
+	}
+
 
 	public void leerConexion() {
 
@@ -406,7 +469,7 @@ public class Conexiones {
 		System.out.println("Guardar");
 
 		conexion = new Conexion(textFieldIPName.getText(), textFieldIP.getText(), textFieldPort.getText(),
-				((String) comboBoxType.getSelectionModel().getSelectedItem()),
+				((ConfigMessage) comboBoxType.getSelectionModel().getSelectedItem()),
 				((String) comboBoxSense.getSelectionModel().getSelectedItem()),
 				((String) comboBoxProduct.getSelectionModel().getSelectedItem()),
 				((String) comboBoxMessage.getSelectionModel().getSelectedItem()), camposOk);

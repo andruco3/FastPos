@@ -3,6 +3,6 @@
   
   <rest-listener class="com.witty.webservices.TestController" logger="Q2">
   </rest-listener>
-  <rest-listener class="com.witty.webservices.Conexiones" logger="Q2">
+  <rest-listener class="com.witty.webservices.ConectionService" logger="Q2">
   </rest-listener>
 </qbean>
