@@ -5,4 +5,6 @@
   </rest-listener>
   <rest-listener class="com.witty.webservices.ConectionService" logger="Q2">
   </rest-listener>
+  <rest-listener class="com.witty.webservices.InterpreterService" logger="Q2">
+  </rest-listener>
 </qbean>

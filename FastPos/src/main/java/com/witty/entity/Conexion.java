@@ -72,6 +72,11 @@ public class Conexion implements Serializable {
 	@Column(name = "server")
 	@Expose private Boolean server;
 	
+	@Column(name = "header")
+	@Expose private Boolean header;
+	
+	
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "conexion")
 	private Collection<ConexionesCasos> conexionesXCaso;
 	

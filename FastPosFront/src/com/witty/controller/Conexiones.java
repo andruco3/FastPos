@@ -63,6 +63,7 @@ import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.CheckBoxTreeTableCell;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.TextFlow;
 import javafx.util.Callback;
 
 public class Conexiones {
@@ -78,6 +79,18 @@ public class Conexiones {
 
 	@FXML
 	private JFXTextField textFieldAdd;
+	
+	@FXML
+	private JFXTextField textFieldForward;
+	
+	@FXML
+	private JFXTextField textFieldHeader;
+	
+	@FXML
+	private JFXComboBox comboBoxRole;
+	
+	@FXML
+	private JFXComboBox comboBoxKey;
 
 	@FXML
 	private JFXComboBox comboBoxSense;
@@ -108,7 +121,13 @@ public class Conexiones {
 
 	@FXML
 	private GridPane gridPaneFields;
+	
+	@FXML
+	private JFXToggleButton toogleButtonServer;
 
+	@FXML
+	private JFXToggleButton toogleButtonMac;
+	
 	@FXML
 	private JFXToggleButton toogleButtonField;
 
@@ -160,6 +179,7 @@ public class Conexiones {
 		comboBoxMessage.setItems(optionscomboBoxMessage);
 
 		toogleButtonField.setSelected(false);
+		toogleButtonServer.setSelected(false);
 
 		comboBoxMessage.setDisable(true);
 		comboBoxSense.setDisable(true);
@@ -280,7 +300,8 @@ public class Conexiones {
 				((ConfigMessage) comboBoxType.getSelectionModel().getSelectedItem()),
 				((String) comboBoxSense.getSelectionModel().getSelectedItem()),
 				((String) comboBoxProduct.getSelectionModel().getSelectedItem()),
-				((String) comboBoxMessage.getSelectionModel().getSelectedItem()), camposOk);
+				((String) comboBoxMessage.getSelectionModel().getSelectedItem()), 
+				toogleButtonServer.isSelected(),textFieldHeader.getText(), camposOk);
 		
 		conexion.setId(conection.getId());
 
@@ -342,6 +363,13 @@ public class Conexiones {
 		
 	}
 
+	@FXML
+	public void activeServer() {
+
+		textFieldIP.setDisable(toogleButtonServer.isSelected());
+	}
+	
+	
 	@FXML
 	public void activeFields() {
 
@@ -452,8 +480,9 @@ public class Conexiones {
 			Gson gson = new Gson();
 			Type conexionListType = new TypeToken<List<Conexion>>() {
 			}.getType();
-			List<Conexion> conexion = gson.fromJson(value, conexionListType);
 			System.out.println("\nconexionid" +value);
+			List<Conexion> conexion = gson.fromJson(value, conexionListType);
+		
 			conexionTableOb.clear();
 			conexionTableOb.addAll(conexion);
 
@@ -472,7 +501,8 @@ public class Conexiones {
 				((ConfigMessage) comboBoxType.getSelectionModel().getSelectedItem()),
 				((String) comboBoxSense.getSelectionModel().getSelectedItem()),
 				((String) comboBoxProduct.getSelectionModel().getSelectedItem()),
-				((String) comboBoxMessage.getSelectionModel().getSelectedItem()), camposOk);
+				((String) comboBoxMessage.getSelectionModel().getSelectedItem()), 
+				toogleButtonServer.isSelected(),textFieldHeader.getText(), camposOk);
 
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		String jsonSaveConexion = gson.toJson(conexion);

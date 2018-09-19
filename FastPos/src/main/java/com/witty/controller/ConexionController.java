@@ -76,9 +76,15 @@ public void updateServerProcess(Conexion conexion) {
 			coll.setIdConexion(conexion);			
 		}
 		
-		Archivos.deleteArchivo("50_server_" + conexion.getId() + ".xml");
+		if (conexion.getServer()) {
+			Archivos.deleteArchivo("50_server_" + conexion.getId() + ".xml");
+			addConexionServer(conexion);
+		}else {
+			Archivos.deleteArchivo("10_Channel_" + conexion.getId() + ".xml");
+			addConexionChannel(conexion);			
+		}
+		
 		Archivos.deleteArchivo("20_mux_" + conexion.getId() + ".xml");
-		addConexionServer(conexion);
 		addConexionMux(conexion);
 		persistence.update(conexion);
 	}
@@ -127,10 +133,17 @@ public void updateServerProcess(Conexion conexion) {
 
 	}
 
-
 	public void deleteServerProcess(int id) {
-		Archivos.deleteArchivo("50_server_" + id + ".xml");
+		
+		Conexion conexion = persistence.find(id);
 		Archivos.deleteArchivo("20_mux_" + id + ".xml");
+		if (conexion.getServer()) {
+			Archivos.deleteArchivo("50_server_" + id + ".xml");
+		}else {
+			Archivos.deleteArchivo("10_Channel_" + id + ".xml");		
+		}
+		
+		
 		persistence.delete(id);
 	}
 
@@ -157,7 +170,7 @@ public void updateServerProcess(Conexion conexion) {
 				+ "\" header=\"cas\">\n" + cfgPackager
 				+ "        <!--<property name=\"packager-logger\" value=\"Q2\"/>-->\n" + "    </channel>\n" + "\n"
 				+ "    <request-listener class=\"com.witty.server.ServerApplicationListener\" logger=\"Q2\" name=\"isoListener\">\n"
-				+ "			<property name=\"mux\" value=\"mux"+conexion.getId()+"\"  />"
+				+ "			<property name=\"id\" value=\""+conexion.getId()+"\"  />"
 				+ "        	<property name=\"space\" value=\"transient:default\" />\n"
 				+ "        	<property name=\"queue\" value=\"TXNQueue\" />\n"
 				+ "        	<property name=\"spaceTimeout\" value=\"60000\" />\n" + "    </request-listener>\n"
@@ -174,14 +187,15 @@ public void updateServerProcess(Conexion conexion) {
 		if ("GenericPackager".equals(conexion.getTipo().getMessagePackager()))
 			cfgPackager = "   <property name=\"packager-config\" value=\"cfg/packager/base24.xml\"/>	   \n";
 
-		String chanel = "<?xml version=\"1.0\" ?>\n" + "<channel-adaptor name='HostChannel'" + conexion.getId()
-				+ " \n" + "    class=\"org.jpos.q2.iso.ChannelAdaptor\" logger=\"Q2\">\n"
+		String chanel = "<?xml version=\"1.0\" ?>\n" + "<channel-adaptor name=\"HostChannel" + conexion.getId()
+				+ "\" \n" + "    class=\"org.jpos.q2.iso.ChannelAdaptor\" logger=\"Q2\">\n"
 				+ " <channel class=\"org.jpos.iso.channel." + conexion.getTipo().getMessageChannel()
 				+ "\" logger=\"Q2\" realm=\"channel-1\"\n" + "       packager=\"org.jpos.iso.packager."
 				+ conexion.getTipo().getMessagePackager() + "\" header= \"ISO006000099\">   \n" + cfgPackager
-				+ "  <property name=\"host\" value=" + conexion.getDireccionIp() + " />\n"
-				+ "  <property name=\"port\" value=" + conexion.getPuerto() + " />\n"
+				+ "  <property name=\"host\" value=\"" + conexion.getDireccionIp() + "\" />\n"
+				+ "  <property name=\"port\" value=\"" + conexion.getPuerto() + "\" />\n"
 				+ "  <property name=\"timeout\" value=\"1000000\" />\n"
+				+ "			<property name=\"id\" value=\""+conexion.getId()+"\"  />"
 				+ "  <property name=\"keep-alive\" value=\"true\" />  \n" + "</channel>\n" + "	<in>NETWORK_IN_"
 				+ conexion.getId() + "</in>\n" + "	<out>NETWORK_OUT_" + conexion.getId() + "</out>\n"
 				+ " <reconnect-delay>10000</reconnect-delay>\n" + " </channel-adaptor>";

@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 
 import org.jpos.iso.ISOException;
 import org.jpos.iso.ISOMsg;
+import org.jpos.iso.ISOUtil;
 import org.jpos.iso.packager.GenericPackager;
 
 import com.witty.entity.Conexion;
@@ -28,12 +29,14 @@ public class InterpreterController{
 	public String convertToFields(String trama) {
 		
 		GenericPackager packager;
+	
 		try {
 			packager = new GenericPackager(System.getProperty("user.dir")+System.getProperty("file.separator")
-					+ "cfg"+System.getProperty("file.separator")+packager+System.getProperty("file.separator")+"base24.xml");
+					+ "cfg"+System.getProperty("file.separator")+"packager"+System.getProperty("file.separator")+"europay.xml");
 			ISOMsg isoMsg = new ISOMsg();
 			isoMsg.setPackager(packager);
-			isoMsg.unpack(trama.getBytes());
+			byte[] bmsg =ISOUtil.hex2byte(trama);
+			isoMsg.unpack(bmsg);
 			isoMsg.pack();
 			System.out.print(isoMsg.toString());
 		} catch (ISOException e) {

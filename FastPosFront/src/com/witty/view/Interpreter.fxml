@@ -3,22 +3,26 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
-<?import com.jfoenix.controls.JFXTreeView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.web.WebView?>
+<?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witty.controller.Interpreter">
+<StackPane prefHeight="336.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witty.controller.Interpreter">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -26,18 +30,20 @@
                <center>
                   <AnchorPane BorderPane.alignment="CENTER">
                      <children>
-                        <SplitPane dividerPositions="0.5" opacity="0.39" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                        <SplitPane dividerPositions="0.5" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                            <items>
-                              <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <WebView layoutX="-26.0" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <JFXTextArea fx:id="textAreaIn" focusColor="#ff0d0d" style="-fx-text-fill: #00008B; -fx-background-color: #FFFFFF;" unFocusColor="#ee0e0e" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <font>
+                                          <Font name="FreeMono" size="13.0" />
+                                       </font></JFXTextArea>
                                  </children>
                               </AnchorPane>
                               <AnchorPane>
                                  <children>
-                                    <JFXTreeView AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                 </children>
-                              </AnchorPane>
+                                    <JFXTreeTableView fx:id="treeTableTCampos" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children></AnchorPane>
                            </items>
                         </SplitPane>
                      </children>
@@ -92,6 +98,47 @@
                      </BorderPane.margin>
                   </VBox>
                </right>
+               <top>
+                  <ToolBar nodeOrientation="LEFT_TO_RIGHT" BorderPane.alignment="CENTER">
+                     <items>
+                        <JFXRadioButton text="Plain" />
+                        <JFXRadioButton text="Color" />
+                        <JFXButton text=" ">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="COPY" size="1.5em" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton text=" ">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="FLOPPY_ALT" size="1.5em" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton text=" ">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="CUT" size="1.5em" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="buttonPlay" onAction="#convertMessage" text=" ">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="PLAY" size="2em" text="" />
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton text=" ">
+                           <graphic>
+                              <HBox spacing="1.0">
+                                 <children>
+                                    <FontAwesomeIcon glyphName="COPY" size="1.5em" />
+                                    <FontAwesomeIcon glyphName="PLAY" size="1.5em" />
+                                 </children>
+                              </HBox>
+                           </graphic>
+                        </JFXButton>
+                     </items>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </ToolBar>
+               </top>
             </BorderPane>
          </children>
       </AnchorPane>

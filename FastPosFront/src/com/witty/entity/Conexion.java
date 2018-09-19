@@ -23,11 +23,14 @@ public class Conexion extends RecursiveTreeObject<Conexion> implements Serializa
 	@Expose	private String product;
 	@Expose	private String message;
 	@Expose	private Boolean state=true;
+	@Expose	private Boolean server;
+	@Expose	private String header;
+	
 		private Collection<ConexionesCasos> conexionesXCaso;
 	@Expose	private Collection<CamposConexion> camposConexion;
 	
-	public Conexion(String nombreConexion, String direccionIp, String puerto, ConfigMessage tipo, String sense, String product,
-			String message, Collection<CamposConexion> camposConexion) {
+	public Conexion(String nombreConexion, String direccionIp, String puerto, ConfigMessage tipo,
+			String sense,String product,String message,boolean server,String header, Collection<CamposConexion> camposConexion) {
 		super();
 		this.nombreConexion = nombreConexion;
 		this.direccionIp = direccionIp;
@@ -37,6 +40,8 @@ public class Conexion extends RecursiveTreeObject<Conexion> implements Serializa
 		this.product = product;
 		this.message = message;
 		this.state=true;
+		this.server=server;
+		this.header=header;
 		//this.conexionesXCaso = conexionesXCaso;
 		this.camposConexion = camposConexion;
 	

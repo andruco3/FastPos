@@ -107,11 +107,12 @@ public class InterpreterService extends RestListener implements LogSource, Confi
 //	}
 	
 	@POST
-	@Path("/deleteConectionService")
+	@Path("/convertToFieldsService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response convertToFields(String data) {
-		interpreterController=new InterpreterController();
-		
+
+		System.out.print("-----"+data);
+		interpreterController=new InterpreterController();		
 		String trama1="";
 		interpreterController.convertToFields(trama1);
 		
