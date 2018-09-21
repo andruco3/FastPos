@@ -18,9 +18,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import com.witty.control.BaseDatos;
 import com.witty.entity.CamposModel;
+import com.witty.entity.ConfigMessage;
 import com.witty.entity.TramaModel;
+import com.witty.persistence.ConfigMessagePersistence;
+import com.witty.persistence.TramaModelPersistence;
 
 /**
  *
@@ -108,7 +119,7 @@ public class Miscelanea {
 		FileReader fr = null;
 		BufferedReader br = null;
 		TramaModel TramaMasterCard = new TramaModel();
-		TramaMasterCard.setTipo("MC"+mti);
+		//TramaMasterCard.setTipo("MC"+mti);
 		CamposModel trama = new CamposModel();
 		trama.setNombre("Trama MasterCard "+mti);
 		Collection<CamposModel> campos = new ArrayList<CamposModel>();
@@ -203,6 +214,55 @@ public class Miscelanea {
 			e.printStackTrace();
 		}
 
+	}
+	
+	
+	public static void loadFields(String nombre) {
+		
+		  try {
+	            File archivo = new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"cfg"+System.getProperty("file.separator")+"packager"+System.getProperty("file.separator")+"base24.xml");
+	            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+	            DocumentBuilder documentBuilder = dbf.newDocumentBuilder();
+	            Document document = documentBuilder.parse(archivo);
+	            document.getDocumentElement().normalize();
+	            System.out.println("Elemento raiz:" + document.getDocumentElement().getNodeName());
+	            NodeList isofield = document.getElementsByTagName("isofield");
+	            TramaModel trama=new TramaModel();
+	            trama.setNombre(nombre);
+	            ConfigMessagePersistence config =new ConfigMessagePersistence();
+	            ConfigMessage cMessage = config.find(0);
+	            trama.setTipo(cMessage);
+	            CamposModel campos=new CamposModel();
+	            Collection<CamposModel> camposM=new ArrayList<CamposModel>();
+	            campos.setCampos(camposM);
+	            for (int temp = 0; temp < isofield.getLength(); temp++) {
+	                Node nodo = isofield.item(temp);
+	                System.out.println("Elemento:" + nodo.getNodeName());
+	                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+	                    Element element = (Element) nodo;
+	                    CamposModel campo1=new CamposModel();
+	                    campo1.setIdCampo(Integer.parseInt(element.getAttribute("id")));
+	                    campo1.setLongitud(Integer.parseInt(element.getAttribute("length")));
+	                    campo1.setNombre(element.getAttribute("name"));
+	                    campo1.setFormato(element.getAttribute("class"));
+	                    camposM.add(campo1);
+	                    System.out.println("id: " + element.getAttribute("id"));
+	                    System.out.println("Nombre: " + element.getAttribute("length"));
+	                    System.out.println("username: " + element.getAttribute("name"));
+	                    System.out.println("password: " + element.getAttribute("class"));
+	                }
+	            }
+	            trama.setCampos(campos);
+	            TramaModelPersistence tramaPe=new TramaModelPersistence();
+	            tramaPe.create(trama);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    
+		
+		
+		
+		
 	}
 
 }

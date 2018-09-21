@@ -20,6 +20,8 @@ import com.witty.entity.CamposConexion;
 import com.witty.entity.CamposModel;
 import com.witty.entity.Conexion;
 
+import miscelanea.Miscelanea;
+
 
 
 public class Main2 {
@@ -31,38 +33,40 @@ public class Main2 {
 
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = factory.createEntityManager();
-		System.out.println (System.getProperty("user.dir"));
-		System.out.println (System.getProperty("user.dir")+System.getProperty("file.separator")+"deploy"+System.getProperty("file.separator"));
-		CamposConexion campos=new CamposConexion();
-		campos.setIdCampo(25);
-		campos.setOpcion("K");
 		
-		CamposConexion campos1=new CamposConexion();
-		campos1.setIdCampo(30);
-		campos1.setOpcion("K");
-		
-		Collection<CamposConexion> campio= new ArrayList<CamposConexion>();
-		
-		
-		Conexion xonection=new Conexion();
-		xonection.setDireccionIp("321654");
-		xonection.setMessage("321654");
-		xonection.setPuerto("321654");
-		xonection.setNombreConexion("321654");
-	//	xonection.setTipo("MasterCard");
-		campos.setIdConexion(xonection);
-		campos1.setIdConexion(xonection);
-		campio.add(campos);
-		campio.add(campos1);
-		
-		xonection.setCamposConexion(campio);
-		
-		
-		em.getTransaction().begin();
-		em.persist(xonection);
-		em.getTransaction().commit();
-		em.close();
-		
+		Miscelanea.loadFields("Mastercard");
+//		System.out.println (System.getProperty("user.dir"));
+//		System.out.println (System.getProperty("user.dir")+System.getProperty("file.separator")+"deploy"+System.getProperty("file.separator"));
+//		CamposConexion campos=new CamposConexion();
+//		campos.setIdCampo(25);
+//		campos.setOpcion("K");
+//		
+//		CamposConexion campos1=new CamposConexion();
+//		campos1.setIdCampo(30);
+//		campos1.setOpcion("K");
+//		
+//		Collection<CamposConexion> campio= new ArrayList<CamposConexion>();
+//		
+//		
+//		Conexion xonection=new Conexion();
+//		xonection.setDireccionIp("321654");
+//		xonection.setMessage("321654");
+//		xonection.setPuerto("321654");
+//		xonection.setNombreConexion("321654");
+//	//	xonection.setTipo("MasterCard");
+//		campos.setIdConexion(xonection);
+//		campos1.setIdConexion(xonection);
+//		campio.add(campos);
+//		campio.add(campos1);
+//		
+//		xonection.setCamposConexion(campio);
+//		
+//		
+//		em.getTransaction().begin();
+//		em.persist(xonection);
+//		em.getTransaction().commit();
+//		em.close();
+//		
 
 //		em.getTransaction().begin();
 //		em.remove(xonection);

@@ -46,8 +46,6 @@ public abstract class CrudPersistence<T> {
 	     * @return New instance of handled entity with it's ID
 	     */
 	    public T create(T entity) {
-	    	Conexion coenexion=(Conexion)entity;
-	    	System.out.print(coenexion.getId());
 	    	getEntityManager().getTransaction().begin();
 	        getEntityManager().persist(entity);
 	        getEntityManager().getTransaction().commit();
