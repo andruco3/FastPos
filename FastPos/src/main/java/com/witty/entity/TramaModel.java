@@ -14,10 +14,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.google.gson.annotations.Expose;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -32,7 +35,10 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 	
 	protected  int idTrama;
 	protected String nombre;
-	protected String tipo;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@Expose private ConfigMessage tipo;
+	
 	protected String sense;//Este campo se refiere al sentido de la trama: Entrada, salida o ambas
 
 
@@ -89,10 +95,10 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 	public final void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public final String getTipo() {
+	public final ConfigMessage getTipo() {
 		return tipo;
 	}
-	public final void setTipo(String tipo) {
+	public final void setTipo(ConfigMessage tipo) {
 		this.tipo = tipo;
 	}
 	

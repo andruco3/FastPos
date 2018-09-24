@@ -13,13 +13,18 @@ public class CasosPersistence extends CrudPersistence<CasosPrueba>{
 	@Override
 	protected EntityManager getEntityManager() {
 		// TODO Auto-generated method stub
-		return null;
+		return em;
 	}
 
 	@Override
 	protected Class<CasosPrueba> getEntityClass() {
 		// TODO Auto-generated method stub
-		return null;
+		return CasosPrueba.class;
+	}
+	
+	public CasosPersistence() {
+		em = JPAUtility.getEntityManager();
+
 	}
 	
 	
