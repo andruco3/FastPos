@@ -13,15 +13,17 @@ import com.witty.persistence.ConectionPersistence;
 import com.witty.persistence.ConfigMessagePersistence;
 import com.witty.persistence.CrudPersistence;
 import com.witty.persistence.JPAUtility;
+import com.witty.persistence.TramaModelPersistence;
 
 public class InterpreterController{
 	
 	public ConectionPersistence persistence;
 	public ConfigMessagePersistence persistenceConfig;
+	public TramaModelPersistence persistenceTrama;
 	
 	public InterpreterController(){
 		
-		
+		persistenceTrama=new TramaModelPersistence();
 		persistence=new ConectionPersistence();
 		persistenceConfig=new ConfigMessagePersistence();
 	}
@@ -47,6 +49,16 @@ public class InterpreterController{
 		
 		
 		return "";
+		
+	}
+	
+	
+	
+	public void TramaModel getTramasModel() {
+		
+		persistenceTrama=
+		
+		
 		
 	}
 

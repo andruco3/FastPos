@@ -69,16 +69,17 @@ public class InterpreterService extends RestListener implements LogSource, Confi
 // 		return Response.status(200).entity("Conexion Exitosa").build();
 //	}
 //	
-//	@GET
-//	@Path("/getTramaService")
-//	@Produces(MediaType.TEXT_PLAIN)
-//	public TramaModel getConection(String data) {
-//		JSONObject recoData = new JSONObject(data);
-//		
-//		TramaModel tramaModel = persistence.find(recoData.getInt("id"));
-//		// return HTTP response 200 in case of success
-//		return tramaModel;
-//	}
+	@GET
+	@Path("/getTramaService")
+	@Produces(MediaType.TEXT_PLAIN)
+	public TramaModel getConection(String data) {
+		JSONObject recoData = new JSONObject(data);
+		
+		InterpreterController interpreterController= new InterpreterController();
+		TramaModel tramaModel = interpreterController.find(recoData.getInt("id"));
+		// return HTTP response 200 in case of success
+		return tramaModel;
+	}
 //	
 //
 //	

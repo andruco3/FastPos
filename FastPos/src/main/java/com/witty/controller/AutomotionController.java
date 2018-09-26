@@ -10,7 +10,7 @@ import com.witty.entity.TramaModel;
 import com.witty.persistence.CrudPersistence;
 import com.witty.persistence.JPAUtility;
 
-public class AutomotionPersistence extends CrudPersistence<SetPruebas>{
+public class AutomotionController extends CrudPersistence<SetPruebas>{
 	
 
 	
@@ -30,7 +30,7 @@ public class AutomotionPersistence extends CrudPersistence<SetPruebas>{
 	}
 	
 	
-	 public AutomotionPersistence() {
+	 public AutomotionController() {
 		em=JPAUtility.getEntityManager();
 
 	 }

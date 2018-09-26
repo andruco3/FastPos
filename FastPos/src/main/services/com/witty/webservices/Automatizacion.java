@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
-import com.witty.controller.AutomotionPersistence;
+import com.witty.controller.AutomotionController;
 import com.witty.controller.ConexionController;
 import com.witty.entity.Conexion;
 import com.witty.entity.SetPruebas;
@@ -23,7 +23,7 @@ public class Automatizacion {
 	
 	
 	
-	public AutomotionPersistence persistence=new AutomotionPersistence();
+	public AutomotionController persistence=new AutomotionController();
 	
 	@POST
 	@Path("/getAutomationService")

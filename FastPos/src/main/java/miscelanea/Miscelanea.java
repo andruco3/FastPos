@@ -30,6 +30,7 @@ import com.witty.control.BaseDatos;
 import com.witty.entity.CamposModel;
 import com.witty.entity.ConfigMessage;
 import com.witty.entity.TramaModel;
+import com.witty.persistence.CamposModelPersistence;
 import com.witty.persistence.ConfigMessagePersistence;
 import com.witty.persistence.TramaModelPersistence;
 
@@ -235,16 +236,20 @@ public class Miscelanea {
 	            CamposModel campos=new CamposModel();
 	            Collection<CamposModel> camposM=new ArrayList<CamposModel>();
 	            campos.setCampos(camposM);
+	            CamposModelPersistence camposPer=new CamposModelPersistence();
+	            
 	            for (int temp = 0; temp < isofield.getLength(); temp++) {
 	                Node nodo = isofield.item(temp);
 	                System.out.println("Elemento:" + nodo.getNodeName());
 	                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
 	                    Element element = (Element) nodo;
 	                    CamposModel campo1=new CamposModel();
-	                    campo1.setIdCampo(Integer.parseInt(element.getAttribute("id")));
+	                    campo1.setNCampo(element.getAttribute("id"));
 	                    campo1.setLongitud(Integer.parseInt(element.getAttribute("length")));
 	                    campo1.setNombre(element.getAttribute("name"));
 	                    campo1.setFormato(element.getAttribute("class"));
+	                    camposPer=new CamposModelPersistence();
+	                    camposPer.create(campo1);
 	                    camposM.add(campo1);
 	                    System.out.println("id: " + element.getAttribute("id"));
 	                    System.out.println("Nombre: " + element.getAttribute("length"));
@@ -252,6 +257,8 @@ public class Miscelanea {
 	                    System.out.println("password: " + element.getAttribute("class"));
 	                }
 	            }
+	            camposPer=new CamposModelPersistence();
+                camposPer.create(campos);
 	            trama.setCampos(campos);
 	            TramaModelPersistence tramaPe=new TramaModelPersistence();
 	            tramaPe.create(trama);
