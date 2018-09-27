@@ -31,6 +31,38 @@
 <!-- <property name="eclipselink.jdbc.property.requireSSL" value="true" /> -->
       <property name="eclipselink.ddl-generation.output-mode" value="database"/>
     </properties>
+  </persistence-unit> 
+  <persistence-unit name="FastPos2" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.witty.entity.CamposModel</class>
+    <class>com.witty.entity.CasosPrueba</class>
+    <class>com.witty.entity.Conexion</class>
+    <class>com.witty.entity.TramaModel</class>
+    <class>com.witty.entity.ConexionesCasos</class>
+    <class>com.witty.entity.SetPruebas</class>
+    <class>com.witty.entity.Proyecto</class>
+    <class>com.witty.entity.Usuario</class>
+    <class>com.witty.entity.CamposConexion</class>
+    <class>com.witty.entity.ConfigMessage</class>    
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+<!--       <property name="javax.persistence.jdbc.url" value="jdbc:derby://192.168.5.33:1527/C:\Users\dacorredor\Documents\workspace\Analyzer25Db;create=true"/>     -->
+<!--       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/C:\Users\dacorredor\Documents\workspace\Analyzer14Db;create=true"/>     -->
+<!--       <property name="javax.persistence.jdbc.url" value="jdbc:derby://10.9.200.68:1527/E:\Analyzer3\Analyzer14Db;create=true"/>  -->
+<!--       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-107-21-98-165.compute-1.amazonaws.com:5432/d870jcjq25cs3k?sslmode=require"/> -->
+<!--       <property name="javax.persistence.jdbc.user" value="xvrcphrsnxboho"/> -->
+<!--       <property name="javax.persistence.jdbc.password" value="dd8b4e9e6542057eb9f76d72d37c3dac443b52ab311e44cfc3f2766027dcb496"/> -->
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/fastPost"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.password" value="postgres"/>
+<!--      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>--> 
+<!--        <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>  -->
+<!--        	<property name="eclipselink.ddl-generation" value="create-tables"/>  -->
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+<!--       <property name="eclipselink.jdbc.property.useSSL" value="true" /> --> 
+<!-- <property name="eclipselink.jdbc.property.requireSSL" value="true" /> -->
+      <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+    </properties>
   </persistence-unit>
 </persistence>
 

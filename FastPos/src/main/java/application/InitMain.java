@@ -18,14 +18,16 @@ import com.witty.controller.ConexionController;
 import com.witty.entity.CamposConexion;
 import com.witty.entity.CamposModel;
 import com.witty.entity.Conexion;
+import com.witty.entity.ConfigMessage;
+import com.witty.persistence.ConfigMessagePersistence;
 
 import miscelanea.Miscelanea;
 
 
 
-public class Main4 {
+public class InitMain {
 
-	private static final String PERSISTENCE_UNIT_NAME = "FastPos";
+	private static final String PERSISTENCE_UNIT_NAME = "FastPos2";
 	private static EntityManagerFactory factory;
 
 	public static void main(String[] args) {
@@ -35,6 +37,13 @@ public class Main4 {
 		
 		
 
+		ConfigMessage configMessage = new ConfigMessage();
+		configMessage.setMessageChannel("BASE24TCPChannel");
+		configMessage.setMessagePackager("GenericPackager");
+		configMessage.setMessagePackConfig("base24");
+		configMessage.setMessageType("Base24");
+		ConfigMessagePersistence configMessagePersistence= new ConfigMessagePersistence();
+		configMessagePersistence.create(configMessage);
 		Miscelanea.loadFields("MasterCard");
 //		em.getTransaction().begin();
 //		em.remove(xonection);

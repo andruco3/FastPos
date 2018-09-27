@@ -15,15 +15,20 @@ import com.witty.persistence.JPAUtility;
 
 public class SimulatorController {
 
-	public CasosPersistence persistenceCasosPrueba;
 
 	public SimulatorController() {
 
-		persistenceCasosPrueba = new CasosPersistence();
+	
+	}
+	
+	
+	
+	
+	public void sendMessage() {
+		
+		
+		
+		
 	}
 
-	public CasosPersistence getPersistenceCasos() {
-		return new CasosPersistence();
-
-	}
 }

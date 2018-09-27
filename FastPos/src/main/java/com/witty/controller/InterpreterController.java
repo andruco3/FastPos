@@ -54,12 +54,5 @@ public class InterpreterController{
 	
 	
 	
-	public void TramaModel getTramasModel() {
-		
-		persistenceTrama=
-		
-		
-		
-	}
 
 }

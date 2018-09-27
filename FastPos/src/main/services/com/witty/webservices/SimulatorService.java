@@ -16,20 +16,19 @@ import com.witty.controller.ConexionController;
 import com.witty.controller.SimulatorController;
 import com.witty.entity.CasosPrueba;
 import com.witty.entity.Conexion;
+import com.witty.persistence.CasosPersistence;
 
 @Path("/simulator")
 public class SimulatorService {
 	
 	
-	public SimulatorController persistence;
-	
 	@POST
 	@Path("/getCasesService")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<CasosPrueba> getCases() {
-					
-		persistence=new SimulatorController();
-		return persistence.getPersistenceCasos().findAll();
+		CasosPersistence casosPersistence = new CasosPersistence();			
+		
+		return casosPersistence.findAll();
 	}
 	
 	
@@ -37,8 +36,8 @@ public class SimulatorService {
 	@Path("/setCasesService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response setCases(CasosPrueba casosPrueba) {
-		persistence=new SimulatorController();
-		persistence.getPersistenceCasos().create(casosPrueba);
+		CasosPersistence casosPersistence = new CasosPersistence();			
+		casosPersistence.create(casosPrueba);
  		return Response.status(200).entity("Conexion Exitosa").build();
 
 	}
@@ -49,7 +48,10 @@ public class SimulatorService {
 	public Response setCommand(String data) {
 		JSONObject recoData = new JSONObject(data);
 	
- 
+		SimulatorController simulatorController=new SimulatorController();
+		simulatorController.sendMessage(recoData.getInt("id"));
+		
+		
 		//persistence.commandSimulator(recoData.getInt("command"),recoData.getLong("id") );
 		
 		return Response.status(200).entity("Ok").build();
@@ -61,8 +63,8 @@ public class SimulatorService {
 	public Response deleteCasesService(String data) {
 		JSONObject recoData = new JSONObject(data);
 		
-		
-		persistence.getPersistenceCasos().delete(recoData.getInt("id"));
+		CasosPersistence casosPersistence = new CasosPersistence();			
+		casosPersistence.delete(recoData.getInt("id"));
 		// return HTTP response 200 in case of success
 		return Response.status(200).entity("Ok").build();
 	}

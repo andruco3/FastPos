@@ -36,6 +36,7 @@ import com.witty.entity.CamposConexion;
 import com.witty.entity.Conexion;
 import com.witty.entity.TramaModel;
 import com.witty.persistence.JPAUtility;
+import com.witty.persistence.TramaModelPersistence;
 import com.witty.server.RestListener;
 
 
@@ -59,24 +60,24 @@ public class InterpreterService extends RestListener implements LogSource, Confi
 //	}
 //	
 //	
-//	@POST
-//	@Path("/putTramaService")
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	public Response setConections(TramaModel tramaModel) {		
-//		
-//		persistence.create(tramaModel);
-//
-// 		return Response.status(200).entity("Conexion Exitosa").build();
-//	}
-//	
+	@POST
+	@Path("/putTramaService")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response setTramas(TramaModel tramaModel) {		
+		TramaModelPersistence tramaModelPersistence= new TramaModelPersistence();
+		tramaModelPersistence.create(tramaModel);
+
+ 		return Response.status(200).entity("Conexion Exitosa").build();
+	}
+	
 	@GET
 	@Path("/getTramaService")
 	@Produces(MediaType.TEXT_PLAIN)
-	public TramaModel getConection(String data) {
+	public TramaModel getTramas(String data) {
 		JSONObject recoData = new JSONObject(data);
 		
-		InterpreterController interpreterController= new InterpreterController();
-		TramaModel tramaModel = interpreterController.find(recoData.getInt("id"));
+		TramaModelPersistence tramaModelPersistence= new TramaModelPersistence();
+		TramaModel tramaModel = tramaModelPersistence.find(recoData.getInt("id"));
 		// return HTTP response 200 in case of success
 		return tramaModel;
 	}
