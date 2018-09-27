@@ -3,30 +3,10 @@ package com.witty.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.MapsId;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 
-
-@Entity
-@Access(AccessType.PROPERTY)
-@Table(name = "Tramas")
 public class TramaModel implements Serializable {//Solo las bases de datos serializables pueden ser clonadas
 	
 	
@@ -39,8 +19,6 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 
 
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public final int getIdTrama() {
 		return idTrama;
 	}
@@ -50,8 +28,6 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 	
 	
 
-	@OneToOne(fetch = FetchType.LAZY)
-    @MapsId
 	protected CamposModel header;
 	public final CamposModel getHeader() {
 		return header;
@@ -63,9 +39,7 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 	
 	
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    protected CamposModel mti;
+	protected CamposModel mti;
 	
 	public final CamposModel getMti() {
 		return mti;
@@ -74,7 +48,6 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 		this.mti = mti;
 	}
 	
-	@Column(name = "sense")
 	public final String getSense() {
 		return sense;
 	}
@@ -82,7 +55,6 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 		this.sense = sense;
 	}
 	
-	@Column(name = "nombre")
 	public final String getNombre() {
 		return nombre;
 	}
@@ -107,8 +79,6 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 //	}
 	
 	
-	@OneToOne(fetch = FetchType.LAZY)
-    @MapsId
 	protected CamposModel  campos;
 	
 	public final CamposModel getCampos() {

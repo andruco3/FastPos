@@ -133,6 +133,11 @@
                               </HBox>
                            </graphic>
                         </JFXButton>
+                        <JFXButton fx:id="buttonFields" onAction="#viewFields" text="Fields">
+                           <graphic>
+                              <FontAwesomeIcon />
+                           </graphic>
+                        </JFXButton>
                      </items>
                      <effect>
                         <Blend />

@@ -30,6 +30,7 @@ import org.jpos.util.LogSource;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.witty.controller.ConexionController;
 import com.witty.controller.InterpreterController;
 import com.witty.entity.CamposConexion;
@@ -70,16 +71,19 @@ public class InterpreterService extends RestListener implements LogSource, Confi
  		return Response.status(200).entity("Conexion Exitosa").build();
 	}
 	
+	
 	@GET
 	@Path("/getTramaService")
-	@Produces(MediaType.TEXT_PLAIN)
-	public TramaModel getTramas(String data) {
-		JSONObject recoData = new JSONObject(data);
-		
+   	@Produces(MediaType.APPLICATION_JSON)
+	public String getConections() {
+   		
 		TramaModelPersistence tramaModelPersistence= new TramaModelPersistence();
-		TramaModel tramaModel = tramaModelPersistence.find(recoData.getInt("id"));
-		// return HTTP response 200 in case of success
-		return tramaModel;
+   		List<TramaModel> listaTramaModel= tramaModelPersistence.findAll();
+   		
+   		//Gson Gson =  new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+   		Gson Gson =  new Gson();
+   		String json = Gson.toJson(listaTramaModel);
+		return json;
 	}
 //	
 //

@@ -27,14 +27,20 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class Interpreter implements Initializable {
 
       @FXML
       private JFXButton buttonPlay;
+      
+      @FXML
+      private JFXButton buttonFields;
       
       @FXML
       private JFXTreeTableView treeTableTCampos;
@@ -79,6 +85,30 @@ public class Interpreter implements Initializable {
 			System.out.println(e);
 		}
 
+    }
+    
+    @FXML
+    public void viewFields(){
+    	
+    	
+    	
+
+		FXMLLoader loader = new FXMLLoader();			
+		loader.setLocation(getClass()
+                    .getResource("../view/Fields.fxml"));
+		
+		Scene scene;
+		try {
+			scene = new Scene(loader.load());
+			Stage primaryStage=new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+    	
     }
     
     
