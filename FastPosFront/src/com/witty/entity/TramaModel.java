@@ -3,6 +3,8 @@ package com.witty.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import com.google.gson.annotations.Expose;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -10,10 +12,10 @@ import javafx.beans.property.StringProperty;
 public class TramaModel implements Serializable {//Solo las bases de datos serializables pueden ser clonadas
 	
 	
-	protected  int idTrama;
-	protected String nombre;
-	protected String tipo;
-	protected String sense;//Este campo se refiere al sentido de la trama: Entrada, salida o ambas
+	@Expose protected  int idTrama;
+	@Expose protected String nombre;
+	 protected String tipo;
+	 protected String sense;//Este campo se refiere al sentido de la trama: Entrada, salida o ambas
 
 
 
@@ -79,7 +81,7 @@ public class TramaModel implements Serializable {//Solo las bases de datos seria
 //	}
 	
 	
-	protected CamposModel  campos;
+	@Expose protected CamposModel  campos;
 	
 	public final CamposModel getCampos() {
 		return campos;

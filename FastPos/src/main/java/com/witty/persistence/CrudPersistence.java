@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import com.witty.entity.CamposConexion;
+import com.witty.entity.CamposModel;
 import com.witty.entity.Conexion;
 
 /**
@@ -61,6 +62,7 @@ public abstract class CrudPersistence<T> {
 	     */
 	    public T update(T entity) {
 	    	    getEntityManager().getTransaction().begin();
+	    	    System.out.print("casito: " + ((CamposModel)entity).getClase());
 	    	    T entityN = getEntityManager().merge(entity);
 		        getEntityManager().getTransaction().commit();
 	        return entityN;

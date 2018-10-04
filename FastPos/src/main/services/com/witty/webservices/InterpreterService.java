@@ -34,8 +34,10 @@ import com.google.gson.GsonBuilder;
 import com.witty.controller.ConexionController;
 import com.witty.controller.InterpreterController;
 import com.witty.entity.CamposConexion;
+import com.witty.entity.CamposModel;
 import com.witty.entity.Conexion;
 import com.witty.entity.TramaModel;
+import com.witty.persistence.CamposModelPersistence;
 import com.witty.persistence.JPAUtility;
 import com.witty.persistence.TramaModelPersistence;
 import com.witty.server.RestListener;
@@ -85,6 +87,35 @@ public class InterpreterService extends RestListener implements LogSource, Confi
    		String json = Gson.toJson(listaTramaModel);
 		return json;
 	}
+	
+	
+	@POST
+	@Path("/deleteTramasService")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response deleteTramas(String data) {
+		TramaModelPersistence tramaModelPersistence= new TramaModelPersistence();
+		JSONObject recoData = new JSONObject(data);
+		tramaModelPersistence.delete(recoData.getInt("id"));
+		// return HTTP response 200 in case of success
+		return Response.status(200).entity("Ok").build();
+	}
+	
+
+	
+	@POST
+	@Path("/updateTramaService")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateTramas(TramaModel trama) {
+		TramaModelPersistence tramaModelPersistence= new TramaModelPersistence();
+		System.out.print("recaudo:" + trama.getCampos().getCampos().size());
+		CamposModelPersistence camposPer=new CamposModelPersistence();
+		for(CamposModel campo:trama.getCampos().getCampos())
+			camposPer.update(campo);
+		//tramaModelPersistence.update(trama);
+ 		return Response.status(200).entity("Conexion Exitosa").build();
+	}
+	
+
 //	
 //
 //	

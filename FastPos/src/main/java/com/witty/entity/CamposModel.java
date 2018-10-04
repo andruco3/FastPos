@@ -31,7 +31,7 @@ import com.witty.control.Descomponer;
 public class CamposModel implements Serializable {
 	
 	protected int idCampo;
-	protected String nCampo;
+	protected String campo;
 	protected String nombre;
 	protected String clase;
 	protected int longitud;
@@ -50,7 +50,7 @@ public class CamposModel implements Serializable {
 	public CamposModel(String campo, String nombre, String descripcion, Boolean variable, int longitud,
 			String tipo, String presente) {
 		
-		this.nCampo=campo;
+		this.campo=campo;
 		this.nombre = nombre;
 		this.longitud = longitud;
 
@@ -94,15 +94,7 @@ public class CamposModel implements Serializable {
 		this.nombre = nombre;
 	}
 
-	@Column(name = "clase")
-	public final String getFormato() {
-		return clase;
-	}
 
-	
-	public final void setFormato(String formato) {
-		this.clase = formato;
-	}
 
 	@Column(name = "longitud")
 	public final int getLongitud() {
@@ -149,12 +141,12 @@ public class CamposModel implements Serializable {
 	}
 
 	@Column(name = "campo")
-	public final String getNCampo() {
-		return nCampo;
+	public final String getCampo() {
+		return campo;
 	}
 
-	public final void setNCampo(String campo) {
-		this.nCampo = campo;
+	public final void setCampo(String campo) {
+		this.campo = campo;
 	}
 	
     public int campoHexToInt(String hex) {
@@ -162,5 +154,14 @@ public class CamposModel implements Serializable {
         return Integer.parseInt(hex.replace("F", ""));
 
     }
+	@Column(name = "clase")
+	public String getClase() {
+		return clase;
+	}
+	public void setClase(String clase) {
+		this.clase = clase;
+	}
 
+    
+    
 }

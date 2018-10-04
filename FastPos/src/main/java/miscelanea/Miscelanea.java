@@ -244,10 +244,10 @@ public class Miscelanea {
 	                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
 	                    Element element = (Element) nodo;
 	                    CamposModel campo1=new CamposModel();
-	                    campo1.setNCampo(element.getAttribute("id"));
+	                    campo1.setCampo(element.getAttribute("id"));
 	                    campo1.setLongitud(Integer.parseInt(element.getAttribute("length")));
 	                    campo1.setNombre(element.getAttribute("name"));
-	                    campo1.setFormato(element.getAttribute("class"));
+	                    campo1.setClase(element.getAttribute("class"));
 	                    camposPer=new CamposModelPersistence();
 	                    camposPer.create(campo1);
 	                    camposM.add(campo1);

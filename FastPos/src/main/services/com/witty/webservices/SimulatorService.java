@@ -49,7 +49,7 @@ public class SimulatorService {
 		JSONObject recoData = new JSONObject(data);
 	
 		SimulatorController simulatorController=new SimulatorController();
-		simulatorController.sendMessage(recoData.getInt("id"));
+	//	simulatorController.sendMessage(recoData.getInt("id"));
 		
 		
 		//persistence.commandSimulator(recoData.getInt("command"),recoData.getLong("id") );
