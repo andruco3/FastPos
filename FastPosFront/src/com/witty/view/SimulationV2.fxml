@@ -6,18 +6,17 @@
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXToggleButton?>
-<?import com.jfoenix.controls.JFXToolbar?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witty.controller.Simulator">
+<AnchorPane prefHeight="353.0" prefWidth="785.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.witty.controller.Simulator">
    <children>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <items>
@@ -27,7 +26,7 @@
                      <children>
                         <HBox alignment="TOP_CENTER" spacing="10.0">
                            <children>
-                              <JFXRadioButton maxHeight="25.0" minHeight="25.0" text="Request" />
+                              <JFXRadioButton fx:id="radioClient" maxHeight="25.0" minHeight="25.0" text="Request" />
                               <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="Fields" />
                               <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="All Fields" />
                            </children>
@@ -35,13 +34,14 @@
                               <Insets left="10.0" />
                            </VBox.margin>
                         </HBox>
+                        <JFXTreeTableView fx:id="tableViewClient" />
                      </children>
                   </VBox>
                   <VBox alignment="TOP_CENTER">
                      <children>
                         <HBox alignment="TOP_CENTER" spacing="10.0">
                            <children>
-                              <JFXRadioButton maxHeight="25.0" minHeight="25.0" text="Response" />
+                              <JFXRadioButton fx:id="radioServer" maxHeight="25.0" minHeight="25.0" text="Response" />
                               <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="Fields" />
                               <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="All Fields" />
                               <JFXToggleButton maxHeight="25.0" minHeight="25.0" text="TimeOut" />
@@ -50,22 +50,42 @@
                               <Insets left="10.0" />
                            </VBox.margin>
                         </HBox>
+                        <JFXTreeTableView fx:id="tableViewServer" />
                      </children>
                   </VBox>
               </items>
             </SplitPane>
-            <HBox>
+            <HBox spacing="20.0">
                <children>
-                  <JFXTabPane>
+                  <VBox spacing="10.0">
+                     <children>
+                        <JFXComboBox fx:id="comboBoxConection" labelFloat="true" prefHeight="26.0" prefWidth="398.0" promptText="Conection" />
+                        <Label text="State:" />
+                        <TextArea fx:id="textAreaConection" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" top="20.0" />
+                     </padding>
+                  </VBox>
+                  <JFXTabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                      <tabs>
+                        <Tab text="Cases">
+                          <content>
+                            <AnchorPane>
+                                 <children>
+                                    <JFXTreeTableView fx:id="tableViewCases" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
                         <Tab text="Save">
                            <content>
-                              <VBox spacing="40.0">
+                              <VBox fx:id="tabPaneSimulator" spacing="40.0">
                                  <children>
-                                    <HBox prefWidth="557.0" spacing="20.0">
+                                    <HBox spacing="20.0">
                                        <children>
                                           <JFXTextField fx:id="textFieldIP" labelFloat="true" promptText="Name" />
-                                          <JFXComboBox fx:id="comboBoxSave" labelFloat="true" prefWidth="247.0" promptText="Save For:" />
+                                          <JFXComboBox fx:id="comboBoxSave" labelFloat="true" promptText="Save For:" />
                                        </children>
                                        <opaqueInsets>
                                           <Insets />
@@ -74,10 +94,10 @@
                                           <Insets left="20.0" top="20.0" />
                                        </VBox.margin>
                                     </HBox>
-                                    <HBox prefWidth="557.0" spacing="20.0">
+                                    <HBox spacing="20.0">
                                        <children>
                                           <JFXTextField fx:id="textFieldIP1" labelFloat="true" promptText="Name" />
-                                          <JFXComboBox fx:id="comboBoxSave1" labelFloat="true" prefWidth="247.0" promptText="Conection" />
+                                          <JFXComboBox fx:id="comboBoxSave1" labelFloat="true" promptText="Conection" />
                                        </children>
                                        <opaqueInsets>
                                           <Insets />
@@ -97,31 +117,13 @@
                            </content>
                         </Tab>
                      </tabs>
-                  </JFXTabPane>
-                  <JFXToolbar maxHeight="100.0">
-                     <center>
-                        <JFXButton buttonType="RAISED" cancelButton="true" defaultButton="true" ellipsisString="" pickOnBounds="false" prefHeight="56.0" prefWidth="42.0" text=" " textAlignment="CENTER" BorderPane.alignment="CENTER">
-                           <graphic>
-                              <FontAwesomeIcon fx:id="buttonPlay" glyphName="PLAY" glyphStyle="-fx-fill: linear-gradient(#70b4e5 0%, #247cbc 70%, #2c85c1 85%);" size="4em" />
-                           </graphic>
-                           <font>
-                              <Font />
-                           </font>
-                        </JFXButton>
-                     </center>
-                     <left>
-                        <JFXButton text=" " BorderPane.alignment="CENTER">
-                           <graphic>
-                              <FontAwesomeIcon fx:id="buttonPause" glyphName="PAUSE" glyphStyle="-fx-fill: linear-gradient(#70b4e5 0%, #247cbc 70%, #2c85c1 85%);" size="3em" />
-                           </graphic></JFXButton>
-                     </left>
-                     <right>
-                        <JFXButton text=" " BorderPane.alignment="CENTER" />
-                     </right>
                      <HBox.margin>
-                        <Insets top="25.0" />
+                        <Insets />
                      </HBox.margin>
-                  </JFXToolbar>
+                     <padding>
+                        <Insets bottom="10.0" top="5.0" />
+                     </padding>
+                  </JFXTabPane>
                </children>
             </HBox>
         </items>
