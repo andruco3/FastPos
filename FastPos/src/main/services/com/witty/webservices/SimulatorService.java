@@ -25,7 +25,8 @@ public class SimulatorService {
 	@POST
 	@Path("/getCasesService")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<CasosPrueba> getCases() {
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<CasosPrueba> getCases(Conexion conexion) {
 		CasosPersistence casosPersistence = new CasosPersistence();			
 		
 		return casosPersistence.findAll();
