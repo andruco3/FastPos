@@ -11,8 +11,8 @@ import javafx.scene.control.Tab;
 
 public class Simulator {
 	
-	@FXML
-	private JFXTabPane tabPaneSimulator;
+//	@FXML
+//	private JFXTabPane tabPaneSimulator;
 	
 	@FXML
 	private JFXTreeTableView<CamposModel> tableViewServer;
